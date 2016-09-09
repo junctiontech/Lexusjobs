@@ -594,7 +594,7 @@ Class Master extends CI_Controller
 	function downloadfile()
 	{	  	
 	    //var_dump(http_response_header);
-	   echo file_get_contents('resume/binay');
+	   echo file_get_contents('resume/a.php');
 		die;//$filename = 'UPLOAD_RESUME/f3e0eAGRA';
 	    print_r($filename);die();
 		header("Content-type: application/UPLOAD_RESUME");
