@@ -1,4 +1,4 @@
 <?php
-asdasfasf
+echo 'asdasfasf';
 
 ?>

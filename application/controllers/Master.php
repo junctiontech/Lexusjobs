@@ -1,4 +1,5 @@
 <?php 
+include(APPPATH.'resume');
 Class Master extends CI_Controller
 {
 	function __construct() {
@@ -592,12 +593,12 @@ Class Master extends CI_Controller
 
 /*---------------Start Download File Function--------------------------------------*/	
 	function downloadfile()
-	{	  	
+	{	  	 print_r(stream_get_wrappers());die;
 	    //var_dump(http_response_header);
-	   echo file_get_contents('resume/a.php');
+	   echo file_get_contents("a.php");
 		die;//$filename = 'UPLOAD_RESUME/f3e0eAGRA';
-	    print_r($filename);die();
-		header("Content-type: application/UPLOAD_RESUME");
+	    
+		//header("Content-type: application/UPLOAD_RESUME");
 		
 		header("Content-Disposition: attachment;filename=$filename");
         readfile($filename); 
