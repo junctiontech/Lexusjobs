@@ -592,15 +592,15 @@ Class Master extends CI_Controller
 
 /*---------------Start Download File Function--------------------------------------*/	
 	function downloadfile()
-	{	/*  	
-	    var_dump(http_response_header);
-	    file_get_contents('UPLOAD_RESUME/e6475shanu');
-		$filename = 'UPLOAD_RESUME/f3e0eAGRA';
+	{	  	
+	    //var_dump(http_response_header);
+	   echo file_get_contents('resume/binay');
+		die;//$filename = 'UPLOAD_RESUME/f3e0eAGRA';
 	    print_r($filename);die();
-		header("Content-type: application/UPLOAD_RESUME")
+		header("Content-type: application/UPLOAD_RESUME");
 		
 		header("Content-Disposition: attachment;filename=$filename");
-        readfile($filename); */
+        readfile($filename); 
 	}
 /*---------------------------End CV Download Function----------------------------*/ 
 
