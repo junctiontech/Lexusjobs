@@ -27,11 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 if($_SERVER['HTTP_HOST']=="192.168.1.151"){
-$config['base_url']	= 'http://192.168.1.151/cpanel';	
+$config['base_url']	= 'http://192.168.1.151/Lexusjobs';	
 //echo $config['base_url'];die;
 }
 elseif($_SERVER['HTTP_HOST']=="localhost:8080"){
-$config['base_url']	= 'http://localhost:8080/jobportal';	
+$config['base_url']	= 'http://localhost:8080/Lexusjobs';	
 //echo $config['base_url'];die;
 }
 else
