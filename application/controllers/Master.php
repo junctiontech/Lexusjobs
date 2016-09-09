@@ -1,5 +1,6 @@
 <?php 
-include(APPPATH.'resume');
+//require_once __file__ . '\resume\a';
+//include(APPPATH.'resume');
 Class Master extends CI_Controller
 {
 	function __construct() {
@@ -488,11 +489,16 @@ Class Master extends CI_Controller
 					redirect($_SERVER['HTTP_REFERER']);
 				}else */
 		 			$file = $_FILES['resume']['name'];
+		 			$path= pathinfo($file);
+		 			$fileExtension = $path['extension'];
+		 			//$explode = explode(".",$file);
+		 			//$ext = $explode[1];
 					$tmp  = $_FILES['resume']['tmp_name'];
 					$size=$_FILES['resume']['size'];
-					$uniq_id=substr(md5(microtime()),rand(0,26),5).$file;
-					move_uploaded_file($tmp,"UPLOAD_RESUME/".$uniq_id);
-					$cv = $_FILES['resume']['name'].$uniq_id;
+					$uniq_id=substr(md5(microtime()),rand(0,26),10);
+					$filename = $uniq_id. '.' .$fileExtension;
+					$ab = move_uploaded_file($tmp,"resume/".$filename);//print_r($ab);die;
+					$cv = $filename;
 
 					$data = array(
 								  'name'=>$this->input->post('name'),
@@ -558,7 +564,6 @@ Class Master extends CI_Controller
 			$master_jobtype=$this->data['master_jobtype']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'4'));
 			$this->session->set_flashdata('category_success','message');
 			$this->session->set_flashdata ( 'message',"Thease Are The List As Per Your Filter !!!" );
-		   // redirect('Master/cvList');
 		 }else{
 				$resumepost=$this->data['resumepost']=$this->Master_model->get('resumepost');
 				$master_jobrole=$this->data['master_jobrole']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'2'));
@@ -593,16 +598,13 @@ Class Master extends CI_Controller
 
 /*---------------Start Download File Function--------------------------------------*/	
 	function downloadfile()
-	{	  	 print_r(stream_get_wrappers());die;
-	    //var_dump(http_response_header);
-	   echo file_get_contents("a.php");
-		die;//$filename = 'UPLOAD_RESUME/f3e0eAGRA';
-	    
-		//header("Content-type: application/UPLOAD_RESUME");
-		
-		header("Content-Disposition: attachment;filename=$filename");
-        readfile($filename); 
-	}
+	{	 
+	   	$file = $_GET['fileName'];
+	    $filePath= 'resume/'.$file;
+	    header("Content-Disposition: attachment;filename=$file");
+	    readfile($filePath);
+	    //die;//$filename = 'UPLOAD_RESUME/f3e0eAGRA';
+	 }
 /*---------------------------End CV Download Function----------------------------*/ 
 
 /*----------------------------start Shortlist CV function------------------------*/

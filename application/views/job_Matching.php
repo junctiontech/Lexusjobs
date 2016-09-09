@@ -115,7 +115,7 @@
 								<td><?php if(isset($list->jobType)){ foreach($master_jobtype as $val){if($list->jobType==$val->masterValueID){ echo $val->masterValueName;} } } ?></td>
 								<td><?php if(isset($list->jobRole)){ foreach($master_jobrole as $val){if($list->jobRole==$val->masterValueID){ echo $val->masterValueName;} } } ?></td>
 								<td>
-									<a href="<?php echo base_url(); ?>Master/downloadfile" class="btn btn-primary"><i class="fa-download"></i> Download CV</a>
+									<a href="<?php echo base_url(); ?>Master/downloadfile?fileName=<?=$list->resume;?>" name="fileName" class="btn btn-primary"><i class="fa-download"></i> Download CV</a>
 									<a href="<?php echo base_url(); ?>Master/viewInformation/<?=$list->resumeID;?>"class="btn btn-info"><i class="fa-eye"></i>View Information</a> 
 								</td>
 							</tr>
