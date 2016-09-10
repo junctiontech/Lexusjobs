@@ -109,11 +109,11 @@ Class Master extends CI_Controller
 					</table>
 		 <?php
      }
-/*-----------------------End section-------------------------------------------------------*/	
+/*------------------------------End section-----------------------------------------------*/	
 
 /*-----------------------Start master Value Update Function--------------------------------*/
   function masterValueUpdate()
-    {         
+    {         echo "hello";die;
 		$mastervalueUpdate = $this->data['mastervalueUpdate'] = $this->Master_model->getData('masterValue',array('masterValueID'=>$this->input->post('value')));
 	    print_r($mastervalueUpdate);die;
 		echo($mastervalueUpdate[0]->masterValueName);
