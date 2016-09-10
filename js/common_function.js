@@ -52,13 +52,13 @@
  
 /*-----------------Star Master Value Edit And Update Function----------------------*/
 function ValueEdit(id)
-   { alert(id);
+   { //alert(id);
      $.ajax({ 			  
 	          url:"Master/masterValueUpdate",
               type:"post",
 	          data:{value:id},
 		  })
-			.done(function(result){ alert('result');
+			.done(function(result){ //alert('result');
 		     $('#masterValueName').val(result);
 			 $('#masterValueID').val(id);
 			 $('#div').show();

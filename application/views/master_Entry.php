@@ -57,7 +57,7 @@
 				<input type="hidden" name="masterEntryID" id="masterEntryID" value="" >
 				<input type="hidden" name="masterValueID" id="masterValueID" value="" >
 				<div style="display:none;" id="editInput_Show">
-					<div  class="form-group">
+					<div class="form-group">
 						<label class="col-sm-2 control-label" class="form-control"  for="field-1">Master Value</label>
 						<div class="col-sm-8" id="" style="    margin-left: 21px;" > 
 							<input type="text" class="form-control" id="masterValueName" name="masterValueName" placeholder=" Please Enter Master Value" value="" required>
