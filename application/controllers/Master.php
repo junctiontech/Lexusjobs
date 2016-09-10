@@ -114,7 +114,7 @@ Class Master extends CI_Controller
 /*-----------------------Start master Value Update Function--------------------------------*/
   function masterValueUpdate()
     {        
-		$masterUpdate = $this->data['masterUpdate'] = $this->Master_model->getData('masterValue',array('masterValueID'=>$this->input->post('value')));
+		$masterUpdate = $this->data['masterUpdate'] = $this->Master_model->getData('mastervalue',array('masterValueID'=>$this->input->post('value')));
 	    print($masterUpdate);die;
 		echo($masterUpdate[0]->masterValueName);
 
