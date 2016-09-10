@@ -711,7 +711,6 @@ Class Master extends CI_Controller
 			 { 
 		        //$table = array('table'=>'partner');
 				$update=$this->data['update']=$this->Master_model->put('partner',$data,array('partnerID'=>$partnerID));
-				print_r($update);die;
 				$this->session->set_flashdata('category_success','message');
 				$this->session->set_flashdata ( 'message','partner Detail Upadate successfully !!!' );
 				redirect('Master/manage_Partner');
