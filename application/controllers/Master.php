@@ -687,7 +687,7 @@ Class Master extends CI_Controller
        if(isset($id) && !empty($id))
 	   {
 		   //$table = array('table'=>'partner');
-		 $updateDetail = $this->data['updateDetail']=$this->Master_model->get('partner',array('partnerID'=>$id));
+		 $updateDetail = $this->data['updateDetail']=$this->Master_model->getData('partner',array('partnerID'=>$id));
 	   }
 	    $this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
