@@ -691,7 +691,7 @@ Class Master extends CI_Controller
 	   }
 	    $this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
-		$this->load->view('partner_detail',$this->data);
+		$this->load->view('partner_Detail',$this->data);
 		$this->parser->parse('include/footer',$this->data);
    }
 /*----------------------------------------End Section----------------------------------*/
