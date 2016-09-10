@@ -83,7 +83,7 @@
 					<input type="text" maxlength="30" class="form-control" name="projectDuration" id="projectDuration" placeholder="Please Enter Project Duration" value="<?php if(isset($update[0]->projectDuration)){ echo $update[0]->projectDuration;}?>" required>
 					<div id="projectDuration_error" style="color:red"></div>						
 				</div>   
-				<label class="col-sm-2 control-label" for="field-1">Project Start Date</label>
+				<label class="col-sm-2 control-label" for="field-1">Tender/Bid Submission Date</label>
 				<div class="col-sm-4">
 					<input type="" class="form-control datepicker" name="projectStartDate" id="projectStartDate" placeholder="Please Select Project Start Date" value="<?php if(isset($update[0]->projectStartDate)){ echo $update[0]->projectStartDate;}?>" readonly  required>
 					<div id="projectStartDate_error" style="color:red"></div>
