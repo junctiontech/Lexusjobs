@@ -99,8 +99,8 @@ Class Master extends CI_Controller
 								<td><?=$i;?></td>
 								<td><?php if(isset($list->masterValueName)){ echo $list->masterValueName; } ?></td>
 								<td>
-									<a href="<?php echo base_url(); ?> class="btn btn-secondary btn-sm btn-icon icon-left" onclick="masterValueEdit(<?=$list->masterValueID; ?>);" ><i class="fa-pencil-square-o"></i> Edit </a>
-									<a href="<?php echo base_url(); ?> onclick="masterValueDelete(<?=$list->masterValueID; ?>);"
+									<a class="btn btn-secondary btn-sm btn-icon icon-left" onclick="masterValueEdit(<?=$list->masterValueID; ?>);" ><i class="fa-pencil-square-o"></i> Edit </a>
+									<a onclick="masterValueDelete(<?=$list->masterValueID; ?>);"
 									class="btn btn-danger btn-sm btn-icon icon-left"><i class="fa fa-trash-o"></i> Delete</a>
 								</td>
 							</tr>
