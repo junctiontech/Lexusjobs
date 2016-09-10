@@ -704,7 +704,7 @@ Class Master extends CI_Controller
 						  'contactPerson'=>$this->input->post('contactPerson'),
 						  'address'=>$this->input->post('address'),
 						  'contactNumber'=>$this->input->post('contactNumber'),
-						  'emailID'=>$this->input->post('emailID'),
+	   					  'emailID'=>$this->input->post('emailID'),
 						  'webSite'=>$this->input->post('webSite'),
 						 );  
 			if($partnerID !=="")
