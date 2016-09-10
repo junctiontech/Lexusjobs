@@ -682,7 +682,7 @@ Class Master extends CI_Controller
 /*-------------------------------------End Section--------------------------------------*/
 
 /*------------------------------------satar function parentview------------------------*/
-   function partnerUpdate($id= false)
+   function partnerUpdate($id= false) 
    { 
        if(isset($id) && !empty($id))
 	   {
