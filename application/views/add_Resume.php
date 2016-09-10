@@ -119,7 +119,7 @@
 							</div>
 							<label class="col-sm-2 control-label" for="field-1">Resume</label>
 							<div class="col-sm-3">
-								<input type="file"  name="resume" value="<?php if(isset($resume[0]->resume)){ echo $resume[0]->resume;}?>" required>
+								<input type="file"  name="resume" value="<?php if(isset($resume[0]->resume)){ echo $resume[0]->resume;}?>">
 							</div>
 						</div><br/>
 						<div class="form-group">

@@ -119,7 +119,7 @@
 										<?php }else{ ?>	
 										<a href="<?php echo base_url(); ?>Master/approve/<?=$projectRequirementID[$k];?>?resumeID=<?=$list->resumeID;?>" class="btn btn-success btn-sm btn-icon icon-left"> Approve </a>
 										<?php }?>
-										<a href="<?php //echo base_url(); ?>javascript:void(0);<? $list->projectID; ?>" class="btn btn-info btn-sm btn-icon icon-left"> Download CV </a>
+										<a href="<?php //echo base_url(); ?>Master/downloadfile?fileName=<?= $list->resume; ?>" class="btn btn-info btn-sm btn-icon icon-left"> Download CV </a>
 										<a href="<?php echo base_url(); ?>Master/viewInformation/<?=$list->resumeID;?>" class="btn btn-secondary btn-sm btn-icon icon-left"> View Information </a>
 									</td>
 								</tr>
