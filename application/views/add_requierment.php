@@ -96,7 +96,7 @@
 						</div>
 						<label class="col-sm-2 control-label" for="field-1">Salary</label>
 						<div class="col-sm-2">
-							<input type="text" maxlength="15" class="form-control" name="salary" id="salary" value="<?php if(isset($requierment[0]->salary)){ echo $requierment[0]->salary;}?>" required>
+							<input type="text" maxlength="20" class="form-control" name="salary" id="salary" value="<?php if(isset($requierment[0]->salary)){ echo $requierment[0]->salary;}?>" required>
 							<span id="salary_error" style="color:red"></span>
 						</div>
 						<div class="col-sm-2">
@@ -111,7 +111,7 @@
 					<div class="form-group">						
 						<label class="col-sm-2 control-label" for="field-1">Project Location</label>
 						<div class="col-sm-4">
-							<input type="text" maxlength="30" class="form-control" id="projectLocation" name="projectLocation"  placeholder="Please Enter project Location" value="<?php if(isset($requierment[0]->projectLocation)){ echo $requierment[0]->projectLocation;}?>" required>
+							<input type="text" maxlength="50" class="form-control" id="projectLocation" name="projectLocation"  placeholder="Please Enter project Location" value="<?php if(isset($requierment[0]->projectLocation)){ echo $requierment[0]->projectLocation;}?>" required>
 							<span id="projectlocation_error" style="color:red"></span>
 						</div>
 						<label class="col-sm-2 control-label" for="field-1">Highest Qualification</label>

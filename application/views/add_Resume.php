@@ -35,7 +35,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="field-1">Name</label>
 							<div class="col-sm-4">
-								<input type="text" class="form-control" name="name" id="name" maxlength="20" placeholder="Please Enter Name" value="<?php if(isset($resume[0]->name)){ echo $resume[0]->name; } ?>" required>
+								<input type="text" class="form-control" name="name" id="name" maxlength="50" placeholder="Please Enter Name" value="<?php if(isset($resume[0]->name)){ echo $resume[0]->name; } ?>" required>
 							</div>
 							<label class="col-sm-2 control-label" for="field-1">Mobile</label>
 							<div class="col-sm-4">
@@ -45,12 +45,12 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="field-1">Email ID</label>
 							<div class="col-sm-4">
-								<input type="email" class="form-control" maxlength="30" id="email" name="email" placeholder="Please Enter Email Id" value="<?php if(isset($resume[0]->email)){ echo $resume[0]->email; }?>" required>
+								<input type="email" class="form-control" maxlength="40" id="email" name="email" placeholder="Please Enter Email Id" value="<?php if(isset($resume[0]->email)){ echo $resume[0]->email; }?>" required>
 									<span id="error_msg" style="color:red;"></span>
 							</div>
 							<label class="col-sm-2 control-label" for="field-1">Last Company</label>
 							<div class="col-sm-4">
-								<input type="text" class="form-control" id="lastCompany" name="lastCompany" maxlength="30" placeholder="Please Enter last company name" value="<?php if(isset($resume[0]->lastCompany)){ echo $resume[0]->lastCompany;}?>" required>
+								<input type="text" class="form-control" id="lastCompany" name="lastCompany" maxlength="50" placeholder="Please Enter last company name" value="<?php if(isset($resume[0]->lastCompany)){ echo $resume[0]->lastCompany;}?>" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -93,7 +93,7 @@
 							</div>
 							<label class="col-sm-2 control-label" for="field-1">Expaction Location</label>
 							<div class="col-sm-4">
-								<input type="text" maxlength="30" class="form-control" id="ExpactionLocation" name="ExpactionLocation" placeholder="Please Enter expaction location" value="<?php if(isset($resume[0]->ExpactionLocation)){ echo $resume[0]->ExpactionLocation;}?>" required>
+								<input type="text" maxlength="50" class="form-control" id="ExpactionLocation" name="ExpactionLocation" placeholder="Please Enter expaction location" value="<?php if(isset($resume[0]->ExpactionLocation)){ echo $resume[0]->ExpactionLocation;}?>" required>
 							</div>
 						</div>
 						<div class="form-group">

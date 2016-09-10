@@ -34,7 +34,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label" for="field-1">Project Name</label>
 				<div class="col-sm-10">
-					<input type="text" maxlength="30" class="form-control" name="projectName" id="projectName" placeholder="Please Enter Project Name" value="<?php if(isset($update[0]->projectName)){ echo $update[0]->projectName; } ?>"required>
+					<input type="text" maxlength="70" class="form-control" name="projectName" id="projectName" placeholder="Please Enter Project Name" value="<?php if(isset($update[0]->projectName)){ echo $update[0]->projectName; } ?>"required>
 				<span id="projectName_error" style="color:red"></span> 
 				</div>
 			</div>
