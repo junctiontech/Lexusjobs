@@ -708,7 +708,7 @@ Class Master extends CI_Controller
 						  'webSite'=>$this->input->post('webSite'),
 						 );  
 			if($partnerID !=="")
-			 {  echo "helloooo";die;
+			 { 
 		        //$table = array('table'=>'partner');
 				$update=$this->data['update']=$this->Master_model->put('partner',$data,array('partnerID'=>$partnerID));
 				print_r($update);die;
