@@ -51,7 +51,7 @@
 /*----------------------End Master Dropdown List Section---------------------------*/ 
  
 /*-----------------Star Master Value Edit And Update Function----------------------*/
-function masterValueEdit(id)
+function ValueEdit(id)
    { alert(id);
      $.ajax({ 			  
 	          url:"Master/mastervalueUpdate",
