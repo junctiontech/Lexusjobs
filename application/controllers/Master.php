@@ -99,7 +99,7 @@ Class Master extends CI_Controller
 								<td><?=$i;?></td>
 								<td><?php if(isset($list->masterValueName)){ echo $list->masterValueName; } ?></td>
 								<td>
-									<a class="btn btn-secondary btn-sm btn-icon icon-left" onclick="masterValueEdit(<?=$list->masterValueID; ?>);" ><i class="fa-pencil-square-o"></i> Edit </a>
+									<a class="btn btn-secondary btn-sm btn-icon icon-left" onclick="ValueEdit(<?=$list->masterValueID; ?>);" ><i class="fa-pencil-square-o"></i> Edit </a>
 									<a onclick="masterValueDelete(<?=$list->masterValueID; ?>);"
 									class="btn btn-danger btn-sm btn-icon icon-left"><i class="fa fa-trash-o"></i> Delete</a>
 								</td>
@@ -115,7 +115,7 @@ Class Master extends CI_Controller
   function masterValueUpdate()
     {         
 		$mastervalueUpdate = $this->data['masterValueUpdate'] = $this->Master_model->getData('masterValue',array('masterValueID'=>$this->input->post('value')));
-	    //print_r($mastervalueUpdate);die;
+	      print_r($mastervalueUpdate);die;
 		echo($mastervalueUpdate[0]->masterValueName);
 
 	}
