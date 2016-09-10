@@ -95,7 +95,7 @@ Class Master extends CI_Controller
 						</tfoot>
 						<tbody>
 							<?php $i=1; foreach ($mastervalue as $list){?>
-							<tr><?php echo "hello0000000000000";die;?>
+							<tr>
 								<td><?=$i;?></td>
 								<td><?php if(isset($list->masterValueName)){ echo $list->masterValueName; } ?></td>
 								<td>
