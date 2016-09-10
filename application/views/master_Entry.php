@@ -60,7 +60,7 @@
 					<div class="form-group">
 						<label class="col-sm-2 control-label" class="form-control"  for="field-1">Master Value</label>
 						<div class="col-sm-8" id="" style="    margin-left: 21px;" > 
-							<input type="text" class="form-control" id="masterValueName" name="masterValueName" placeholder=" Please Enter Master Value" value="" required>
+							<input type="text" class="form-control" maxlength="70" id="masterValueName" name="masterValueName" placeholder=" Please Enter Master Value" value="" required>
 						</div>
 					</div>
 					<!--<div id="div" class="form-group">
