@@ -54,7 +54,7 @@
 function ValueEdit(id)
    { alert(id);
      $.ajax({ 			  
-	          url:"Master/masterUpdate",
+	          url:"Master/masterValueUpdate",
               type:"post",
 	          data:{value:id},
 		  })
