@@ -161,7 +161,7 @@ class Master_model extends CI_Model
 		return $profile;
 	}  
 /*------------------------------------ens section------------------------------*/
-	function cvlist()
+	/*function cvlist()
 	{   
 	  $data = json_encode(array('table'=>$table));
 	  $url='http://192.168.1.151/Lexusjobsapi/Api.php?data='.$data;
@@ -169,6 +169,6 @@ class Master_model extends CI_Model
 	  $CURL = new Curl();
 	  $profile = $CURL->getCurl($method,$url);print_r($profilr);
 	  return $profile;
-	}
-}*/
+	}*/
+}
 ?>
