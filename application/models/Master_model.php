@@ -64,15 +64,15 @@ class Master_model extends CI_Model
 		$query=$this->db->delete($table,$filter);
 		return $query;
 	} 
-/*-------------End Delete user detail function----------------*/
+/*------------------End Delete user detail function----------------*/
 
-/*------------start project filter function------------------*/	
+/*------------------start project filter function------------------*/	
    function cvFilter($query)
 	 { //echo "select * from resumepost where  $query ";die;
 		$qry=$this->db->query(" select * from resumepost where  $query ");
 		return $qry->result();
 	 } 
-/*-----------End project filter function -------------------*/
+/*-------------------End project filter function -------------------*/
 
 /*----------------------------------------------------------*/	 
 
@@ -109,10 +109,10 @@ class Master_model extends CI_Model
 	} 
 /*---------------------------------------------------------------------------------*/  
 /*----------------------------------------------Rest API---------------------------*/
-  /* function post($table,$data)
+   function post($table,$data)
 	{
 		$param=array('table'=>$table,'data'=>$data);
-		$url='http://192.168.1.151/lexusjobsapi/Api.php';
+		$url='http://192.168.1.151/Lexusjobsapi/Api.php';
 		$method='POST';
 		$CURL= new Curl();
 		$profile=$CURL->postCurl($method,$url,$param);//print_r($profile);die;
@@ -122,7 +122,7 @@ class Master_model extends CI_Model
 	function put($table,$data,$filter)
 	{
 		$param=json_encode(array('table'=>$table,'data'=>$data,'filter'=>$filter));
-		$url='http://192.168.1.151/lexusjobsapi/Api.php?data='.$param;
+		$url='http://192.168.1.151/Lexusjobsapi/Api.php?data='.$param;
 		$method='put';
 		$CURL= new Curl();
 		$profile=$CURL->getCurl($method,$url);//print_r($profile);die;
@@ -134,7 +134,7 @@ class Master_model extends CI_Model
 		if(isset($filter) &&$filter!=='' && count($filter)>0)
 		{
 			$data=json_encode(array('table'=>$table,'filter'=>$filter));
-			$url='http://192.168.1.151/lexusjobsapi/Api.php?data='.$data;
+			$url='http://192.168.1.151/Lexusjobsapi/Api.php?data='.$data;
 			$method='get';
 			$CURL= new Curl();
 			$profile=$CURL->getCurl($method,$url);//print_R($profile);die;
@@ -143,7 +143,7 @@ class Master_model extends CI_Model
 		else 
 		{
 			$data=json_encode(array('table'=>$table));
-			$url='http://192.168.1.151/lexusjobsapi/Api.php?data='.$data;
+			$url='http://192.168.1.151/Lexusjobsapi/Api.php?data='.$data;
 			$method='get';
 			$CURL= new Curl();
 			$profile=$CURL->getCurl($method,$url);
@@ -154,12 +154,21 @@ class Master_model extends CI_Model
 	function delete($table,$filter)
 	{
 		$data=json_encode(array('filter'=>$filter,'table'=>$table));
-		$url='http://192.168.1.151/lifepartnerapi/Api.php?data='.$data;
+		$url='http://192.168.1.151/Lexusjobsapi/Api.php?data='.$data;
 		$method='delete';
 		$CURL= new Curl();
 		$profile=$CURL->getCurl($method,$url);//print_r($profile);die;
 		return $profile;
-	}  */
+	}  
 /*------------------------------------ens section------------------------------*/
+	function cvlist()
+	{   
+	  $data = json_encode(array('table'=>$table));
+	  $url='http://192.168.1.151/Lexusjobsapi/Api.php?data='.$data;
+	  $method = 'delete';
+	  $CURL = new Curl();
+	  $profile = $CURL->getCurl($method,$url);print_r($profilr);
+	  return $profile;
+	}
 }
 ?>

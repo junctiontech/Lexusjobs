@@ -11,6 +11,8 @@ Class Master extends CI_Controller
 		$this->load->library('parser');
 		$this->load->library('session');
 		$this->load->model('Master_model');
+		$this->load->model('apiModel');
+		
 		$this->load->library('session');
 		$this->load->library('upload');
 		
@@ -681,7 +683,7 @@ Class Master extends CI_Controller
      }
 /*-------------------------------------End Section--------------------------------------*/
 
-/*------------------------------------satar function parentview------------------------*/
+/*---------------------------satar function parentview----------------------------------*/
    function partnerUpdate($id= false) 
    { 
        if(isset($id) && !empty($id))
@@ -695,7 +697,8 @@ Class Master extends CI_Controller
 		$this->parser->parse('include/footer',$this->data);
    }
 /*----------------------------------------End Section----------------------------------*/
-/*------------------------------------Star partner Post and Update function-------------------------------------------------*/
+   
+/*------------------------------------Star partner Post and Update function------------*/
 		function partnerPost()
 		  {			      
 			$partnerID=$this->input->post('partnerID');
@@ -716,7 +719,7 @@ Class Master extends CI_Controller
 				redirect('Master/manage_Partner');
 			 }else{
 					//$table=array('table'=>'partner');
-					$detail= $this->data['detail']=$this->Master_model->post('partner',$data);	
+					$detail= $this->data['detail']=$this->apiModel->post('partner',$data);	
 					$this->session->set_flashdata('category_success','message');
 					$this->session->set_flashdata ( 'message','partner Detail Insert successfully !!!' );
 					redirect('Master/manage_Partner'); 

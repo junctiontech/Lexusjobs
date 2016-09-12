@@ -51,7 +51,7 @@
 								<th>S. no</th>
 								<th>Project Name</th>
 								<th>Project Type</th>
-								<th>Start Date</th>
+								<th>Tender/Bid Submission Date</th>
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -60,7 +60,7 @@
 								<th>S. no</th>
 								<th>Project Name</th>
 								<th>Project Type</th>
-								<th>Start Date</th>
+								<th>Tender/Bid Submission Date</th>
 								<th>Action</th>
 							</tr>
 						</tfoot>
