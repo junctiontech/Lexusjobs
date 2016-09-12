@@ -11,8 +11,7 @@ Class Master extends CI_Controller
 		$this->load->library('parser');
 		$this->load->library('session');
 		$this->load->model('Master_model');
-		$this->load->model('apiModel');
-		
+		//$this->load->model('apiModel');
 		$this->load->library('session');
 		$this->load->library('upload');
 		
