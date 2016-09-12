@@ -1,5 +1,5 @@
 <?php
-include(APPPATH.'libraries/Curl.php');
+//include(APPPATH.'libraries/Curl.php');
 class Master_model extends CI_Model
 {
   function __construct()
@@ -109,7 +109,7 @@ class Master_model extends CI_Model
 	} 
 /*---------------------------------------------------------------------------------*/  
 /*----------------------------------------------Rest API---------------------------*/
-   function post($table,$data)
+   /*function post($table,$data)
 	{
 		$param=array('table'=>$table,'data'=>$data);
 		$url='http://192.168.1.151/Lexusjobsapi/Api.php';
@@ -170,5 +170,5 @@ class Master_model extends CI_Model
 	  $profile = $CURL->getCurl($method,$url);print_r($profilr);
 	  return $profile;
 	}
-}
+}*/
 ?>
