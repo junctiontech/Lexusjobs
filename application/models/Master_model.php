@@ -1,5 +1,5 @@
 <?php
-//include(APPPATH.'libraries/Curl.php');
+include(APPPATH.'libraries/Curl.php');
 class Master_model extends CI_Model
 {
   function __construct()
