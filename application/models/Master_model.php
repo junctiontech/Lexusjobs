@@ -39,7 +39,7 @@ class Master_model extends CI_Model
    /*------------------------------- Start Email And Phone number Check Function--------------------------------------------*/
    function checkData($email,$mobile)
    {
-   	$qry=$this->db->query("SELECT * from resumepost where 'email'=$email OR 'mobile'=$mobile");
+   	$qry=$this->db->query("SELECT * from resumepost where email='$email' OR mobile'=$mobile'");
    
    	return $qry->result();
    }
