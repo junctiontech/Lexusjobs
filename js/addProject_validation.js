@@ -17,7 +17,7 @@ function add_validation()
 		var ClientName = document.getElementById('ClientName').value;
             if(ClientName=="")
 		    {
-			    $('#projectType_error').hide();
+			   $('#projectType_error').hide();
 		       document.getElementById('ClientName_error').innerHTML="<h4>please Enter Client Name Name</h4>"
 			   return false;
 		    }
@@ -46,19 +46,20 @@ function add_validation()
 /*--------------------------------------------------------End Java script Function-----------------------------------------------------*/
 
 /*-----------------------------------------------------Add Requriment Java script Validation--------------------------------------------*/
+//<?php echo base_url();?>Master/projectRequiermentPost/
 function addrequriment_validation()
    { 
 		var jobRole = document.getElementById('jobRole').value;
 			if( jobRole== "")
-			{
+			{ 
 			  document.getElementById('jobrole_error').innerHTML ="<h4>please Enter Peoject Job role</h4>"
 			  return false;
 			}
-		var skill = document.getElementById('skill').value;
+		var skill = document.getElementByid('skill').checked;alert(skill);return false;//!this.form.checkbox.checked
 			if( skill== "")
-			{
+			{ 
 			  $('#jobrole_error').hide();
-			  document.getElementById('skill_error').innerHTML ="<h4>please Select Skill</h4>"
+			  document.getElementByid('skill_error').innerHTML ="<h4>please Select Skill</h4>"
 			  return false;
 			}
 		var clientName = document.getElementById('clientName').value;

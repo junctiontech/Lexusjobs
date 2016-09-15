@@ -70,7 +70,7 @@
 								<td><?=$i;?></td>
 								<td><?php if(isset($list->projectName)){ echo $list->projectName; } ?></td>
 								<td><?php if(isset($list->projectType)){  foreach($master_projectType as $type){ if($type->masterValueID==$list->projectType){ echo $type->masterValueName; }else{ echo ''; } } } ?></td>
-								<td><?php if(isset($list->projectStartDate)){ echo date($list->projectStartDate); } ?></td>
+								<td><?php if(isset($list->projectStartDate)){ echo date('d-m-Y',strtotime($list->projectStartDate)); } ?></td>
 								<td>
 									<a href="<?php echo base_url(); ?>Master/projectUpdate/<?=$list->projectID; ?>" class="btn btn-secondary btn-sm btn-icon icon-left"><i class="fa-pencil-square-o"></i> Edit </a>
 									<a href="<?php echo base_url(); ?>Master/delete/<?=$list->projectID; ?>"

@@ -3,7 +3,7 @@
   {// alert('data');
    if($('#masterValueName').val()=='')
    {
-     alert('Please Insert Master Value');
+     alert('Please Select Master Value');
 	 return false;
    }else
 		var data=$('#form').serialize();
@@ -44,6 +44,8 @@
 		  .done(function(result){ //alert(result);
 		   $('#val').html(result);
 		   $('#masterEntry').val(val);
+		   $('#masterValueID').val('');
+		   $('#masterValueName').val('');
 		   $('#masterEntryID').val(id);
 		   $('#editInput_Show').show();
 	    });

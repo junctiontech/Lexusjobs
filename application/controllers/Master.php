@@ -202,7 +202,7 @@ Class Master extends CI_Controller
 				$this->session->set_flashdata('message','Please Enter project Start Date');
 				redirect($_SERVER['HTTP_REFERER']);
 			}else				
-				 $projectID= $this->input->post('projectID');
+				 $projectID= $this->input->post('projectID'); 
 				 $data = array(
 							  'projectID'=>$projectID,
 							  'projectName'=>$this->input->post('projectName'),
@@ -292,7 +292,7 @@ Class Master extends CI_Controller
 /*---------------start Project Requierment Post AND Update Function-----------------------*/
   function projectRequiermentPost()
    {
-	 /*  if(isset($_POST['submit']))
+	  if(isset($_POST['submit']))
 	    {
 			if($_POST['jobRole']=="")
 			{ 
@@ -350,11 +350,11 @@ Class Master extends CI_Controller
 			      $this->session->set_flashdata('message','Please Enter Job Opening');
 			      redirect($_SERVER['HTTP_REFERER']);
 			}
-		else */			
+		else 		
 				$projectID=$this->input->post('projectID');
 				$projectRequirementID=$this->input->post('projectRequirementID');
-				$skill = $this->input->post('skill');//print_r($skill);die;
-				$skills = implode(',',$skill);//print_r($skills);die;
+				$skill = $this->input->post('skill');
+				$skills = implode(',',$skill);
 				$data = array(
 							   'projectID'=>$projectID,
 							   'maxQualification'=>$this->input->post('maxQualification'),
@@ -378,14 +378,14 @@ Class Master extends CI_Controller
 			$projectrequirementUpdate=$this->data['projectrequirementUpdate']=$this->Master_model->put('projectrequirement',$data,array('projectRequirementID'=>$projectRequirementID));
 			$this->session->set_flashdata('category_success','message');
 			$this->session->set_flashdata ( 'message','Project Requirement Successfully Update..!!!');
-			redirect('Master/manageProject');
+			redirect($_SERVER['HTTP_REFERER']);
 		    }else{
 			    $project= $this->data['project']=$this->Master_model->post('projectrequirement',$data);//print_r($project);die;	
 				$this->session->set_flashdata('category_success','message');
 				$this->session->set_flashdata ( 'message','Project Requirement successfully Enter !!!' );
-		        redirect('Master/manageProject');
+				redirect($_SERVER['HTTP_REFERER']);
 			}
-		//}
+		}
 	}
 /*--------------------End Project Requierment Post AND Update Function Section----------------*/
 
@@ -491,16 +491,24 @@ Class Master extends CI_Controller
 		 			$file = $_FILES['resume']['name'];
 		 			$path= pathinfo($file);
 		 			$fileExtension = $path['extension'];
-		 			//$explode = explode(".",$file);
-		 			//$ext = $explode[1];
-					$tmp  = $_FILES['resume']['tmp_name'];
+		 			$tmp  = $_FILES['resume']['tmp_name'];
 					$size=$_FILES['resume']['size'];
 					$uniq_id=substr(md5(microtime()),rand(0,26),10);
 					$filename = $uniq_id. '.' .$fileExtension;
 					$ab = move_uploaded_file($tmp,"resume/".$filename);//print_r($ab);die;
 					$cv = $filename;
-
-					$data = array(
+				    // $check=array(
+								// 'mobile'=>$this->input->post('mobile'),
+								// 'email'=>$this->input->post('email'),
+							    // );					
+					// $checkEmail = $this->data['checkEmail']=$this->Master_model->getData('resumepost',$check);
+                    // if(count($checkEmail)>0)
+					// {
+						// $this->session->set_flashdata('category_error','message');
+						// $this->session->set_flashdata('message','Emial id or mobile number already registered...');
+				        // redirect($_SERVER['HTTP_REFERER']);
+					// }
+						$data = array(
 								  'name'=>$this->input->post('name'),
 								  'mobile'=>$this->input->post('mobile'),  
 								  'email'=>$this->input->post('email'),
@@ -525,11 +533,23 @@ Class Master extends CI_Controller
 						$this->session->set_flashdata ( 'message','Resume update successfully !!!' );
 						redirect('Master/manageResume');
 					}else{
-				$resumePost= $this->data['resumePost']=$this->Master_model->post('resumepost',$data);
-				$this->session->set_flashdata('category_success','message');
-				$this->session->set_flashdata ( 'message','Resume Insert successfully !!!' );
-				redirect('Master/manageResume'); 
-			}	
+							$check=array(
+										 'mobile'=>$this->input->post('mobile'),
+										 'email'=>$this->input->post('email'),
+										);					
+							$checkEmail = $this->data['checkEmail']=$this->Master_model->getData('resumepost',$check);
+							if(count($checkEmail)>0)
+							  {
+								$this->session->set_flashdata('category_error','message');
+								$this->session->set_flashdata('message','Emial id or mobile number already registered...');
+								redirect($_SERVER['HTTP_REFERER']);
+							  }else
+									$resumePost= $this->data['resumePost']=$this->Master_model->post('resumepost',$data);
+									$this->session->set_flashdata('category_success','message');
+									$this->session->set_flashdata ( 'message','Resume Insert successfully !!!' );
+									redirect('Master/manageResume');
+												
+						}	
 			
 		//}
 	}

@@ -76,7 +76,7 @@
 						</div>
 					</div><br/><br/>-->
 					
-					<div class="form-group"  style="margin-left: 210px;">
+					<div class="form-group"  style="margin-left: 18.8%;">
 						<input type="button" class="btn btn-success" onclick="masterValuePost();" value="submit"/>
 					</div>
 				</div>

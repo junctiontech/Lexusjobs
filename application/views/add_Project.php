@@ -35,7 +35,7 @@
 				<label class="col-sm-2 control-label" for="field-1">Project Name</label>
 				<div class="col-sm-10">
 					<input type="text" maxlength="70" class="form-control" name="projectName" id="projectName" placeholder="Please Enter Project Name" value="<?php if(isset($update[0]->projectName)){ echo $update[0]->projectName; } ?>"required>
-				<span id="projectName_error" style="color:red"></span> 
+						<span id="projectName_error" style="color:red"></span> 
 				</div>
 			</div>
 			<div class="form-group">
@@ -85,7 +85,7 @@
 				</div>   
 				<label class="col-sm-2 control-label" for="field-1">Tender/Bid Submission Date</label>
 				<div class="col-sm-4">
-					<input type="" class="form-control datepicker" name="projectStartDate" id="projectStartDate" placeholder="Please Select Project Start Date" value="<?php if(isset($update[0]->projectStartDate)){ echo $update[0]->projectStartDate;}?>" readonly  required>
+					<input type="" class="form-control datepicker" name="projectStartDate" id="projectStartDate" placeholder="Please Select Project Start Date" value="<?php if(isset($update[0]->projectStartDate)){ echo $update[0]->projectStartDate;}?>" required readonly>
 					<div id="projectStartDate_error" style="color:red"></div>
 				</div>
 			</div><br/>
