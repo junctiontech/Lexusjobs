@@ -534,11 +534,11 @@ Class Master extends CI_Controller
 						$this->session->set_flashdata ( 'message','Resume update successfully !!!' );
 						redirect('Master/manageResume');
 					}else{
-							$check=array(
-										 'mobile'=>$this->input->post('mobile'),
-										 'email'=>$this->input->post('email'),
-										);					
-							$checkEmail = $this->data['checkEmail']=$this->Master_model->checkData('resumepost',$check);
+							
+										 $mobile =$this->input->post('mobile');
+										 $email=$this->input->post('email');
+													
+							$checkEmail = $this->data['checkEmail']=$this->Master_model->checkData($email,$mobile);
 							if(count($checkEmail)>0)
 							  {
 								$this->session->set_flashdata('category_error','message');
