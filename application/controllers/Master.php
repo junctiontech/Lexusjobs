@@ -580,8 +580,8 @@ Class Master extends CI_Controller
 			$master_jobrole=$this->data['master_jobrole']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'2'));
 			$master_qualification=$this->data['master_qualification']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'3'));
 			$master_jobtype=$this->data['master_jobtype']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'4'));
-			$this->session->set_flashdata('category_success','message');
-			$this->session->set_flashdata ( 'message',"Thease Are The List As Per Your Filter !!!" );
+			//$this->session->set_flashdata('category_success','message');
+			//$this->session->set_flashdata ( 'message',"Thease Are The List As Per Your Filter !!!" );
 		 }else{
 				$resumepost=$this->data['resumepost']=$this->Master_model->get('resumepost');
 				$master_jobrole=$this->data['master_jobrole']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'2'));
