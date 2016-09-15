@@ -533,13 +533,11 @@ Class Master extends CI_Controller
 						$this->session->set_flashdata('category_success','message');
 						$this->session->set_flashdata ( 'message','Resume update successfully !!!' );
 						redirect('Master/manageResume');
-					}else{
-							
-										 $mobile =$this->input->post('mobile');
-										 $email=$this->input->post('email');
-													
-							$checkEmail = $this->data['checkEmail']=$this->Master_model->checkData($email,$mobile);
-							if(count($checkEmail)>0)
+					}else{	
+						  $mobile =$this->input->post('mobile');
+						  $email=$this->input->post('email');
+						  $checkEmail = $this->data['checkEmail']=$this->Master_model->checkData($email,$mobile);
+						  if(count($checkEmail)>0)
 							  {
 								$this->session->set_flashdata('category_error','message');
 								$this->session->set_flashdata('message','Emial id or mobile number already registered...');
@@ -549,8 +547,7 @@ Class Master extends CI_Controller
 									$this->session->set_flashdata('category_success','message');
 									$this->session->set_flashdata ( 'message','Resume Insert successfully !!!' );
 									redirect('Master/manageResume');
-												
-						}	
+							}	
 			
 		//}
 	}

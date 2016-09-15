@@ -12,7 +12,7 @@
 <div class="row">
 	<div class="col-sm-12">
 		<div align="center">
-		    <?php if($this->session->flashdata('message')){?>
+		    <?php if($this->session->flashdata('category_success')){?>
 			<div style="margin-left:250px ;margin-right:250px"; class="alert alert-success">      
 				<?php echo $this->session->flashdata('message')?>
 			</div>
