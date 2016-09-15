@@ -147,7 +147,7 @@
 									<?php for ($i = 1; $i <= 12; $i++){ ?>
 								<option value="<?php echo $i ;?>"<?php if(isset($requierment[0]->month) && $requierment[0]->month==$i){echo 'selected';} ?>><?php echo $i; ?></option>
 									<?php }?>
-							</select><p style="margin-top: -22px; margin-left: 73px;">[</p>
+							</select><p style="margin-top: -22px; margin-left: 73px;"></p>
 							<span id="month_error" style="color:red"></span>
 						</div>
 					</div><br/>
