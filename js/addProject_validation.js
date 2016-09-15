@@ -46,7 +46,7 @@ function add_validation()
 /*--------------------------------------------------------End Java script Function-----------------------------------------------------*/
 
 /*-----------------------------------------------------Add Requriment Java script Validation--------------------------------------------*/
-//<?php echo base_url();?>Master/projectRequiermentPost/
+///
 function addrequriment_validation()
    { 
 		var jobRole = document.getElementById('jobRole').value;

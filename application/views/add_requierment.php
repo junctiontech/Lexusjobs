@@ -32,7 +32,7 @@
 			</div>
 			<?php }?>
 			<div class="panel-body">
-				<form role="form" class="form-horizontal" method="post" onsubmit="return addrequriment_validation()" action="">
+				<form role="form" class="form-horizontal" method="post" onsubmit="return addrequriment_validation()" action="<?php echo base_url();?>Master/projectRequiermentPost">
 					<input type="hidden" name="projectID" value="<?php if(isset($projectID)){ echo $projectID; } ?>">
 					<input type="hidden" name="projectRequirementID" id="projectRequirementID" value="<?php if(isset($projectrequirementID)){ echo $projectrequirementID; } ?>"></br></br>
 					<div class="form-group">

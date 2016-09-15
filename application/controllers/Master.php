@@ -379,12 +379,12 @@ Class Master extends CI_Controller
 			$projectrequirementUpdate=$this->data['projectrequirementUpdate']=$this->Master_model->put('projectrequirement',$data,array('projectRequirementID'=>$projectRequirementID));
 			$this->session->set_flashdata('category_success','message');
 			$this->session->set_flashdata ( 'message','Project Requirement Successfully Update..!!!');
-			redirect('Master/manage_requierment');
+			redirect("Master/manageProjectRequirement/$projectID");
 		    }else{
 			    $project= $this->data['project']=$this->Master_model->post('projectrequirement',$data);//print_r($project);die;	
 				$this->session->set_flashdata('category_success','message');
 				$this->session->set_flashdata ( 'message','Project Requirement successfully Enter !!!' );
-				redirect('Master/manage_requierment');
+				redirect("Master/manageProjectRequirement/$projectID");
 			}
 		}
 	}
