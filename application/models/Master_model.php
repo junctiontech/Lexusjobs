@@ -36,7 +36,15 @@ class Master_model extends CI_Model
 	   return $qry->result();
    } 
 /*--------------------------------------End retrive single user detail--------------------------------- -----------------------*/
-
+   /*------------------------------- Start Email And Phone number Check Function--------------------------------------------*/
+   function checkData($email,$mobile)
+   {
+   	$qry=$this->db->query("SELECT * from resumepost where 'email'=$email or 'mobile'=$mobile ");
+   
+   	return $qry->result();
+   }
+   /*--------------------------------------End Email and Phone Function----------------------------- -----------------------*/
+     
 /*-------------------------------- ---Start function for update user detail---------------------------------------------------*/
  function put($table,$data,$filter)
 	{

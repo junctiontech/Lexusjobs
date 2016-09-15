@@ -538,7 +538,7 @@ Class Master extends CI_Controller
 										 'mobile'=>$this->input->post('mobile'),
 										 'email'=>$this->input->post('email'),
 										);					
-							$checkEmail = $this->data['checkEmail']=$this->Master_model->getData('resumepost',$check);
+							$checkEmail = $this->data['checkEmail']=$this->Master_model->checkData('resumepost',$check);
 							if(count($checkEmail)>0)
 							  {
 								$this->session->set_flashdata('category_error','message');
