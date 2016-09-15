@@ -55,7 +55,7 @@ function addrequriment_validation()
 			  document.getElementById('jobrole_error').innerHTML ="<h4>please Enter Peoject Job role</h4>"
 			  return false;
 			}
-		var skill = document.getElementByid('skill').checked;alert(skill);return false;//!this.form.checkbox.checked
+		var skill = document.getElementByid('skill').checked;//alert(skill);return false;//!this.form.checkbox.checked
 			if( skill== "")
 			{ 
 			  $('#jobrole_error').hide();
