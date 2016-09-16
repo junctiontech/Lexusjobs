@@ -64,7 +64,8 @@
 							</tr>
 						</tfoot>
 						<tbody>
-							<?php $i=1; foreach($projectRequirementList as $list){ //print_r($list);die;?>
+							<?php if(isset($projectRequirementList) && !empty($projectRequirementList)){
+								$i=1; foreach($projectRequirementList as $list){ //print_r($list);die;?>
 							<tr>
 								<td><?=$i;?></td>
 								<td><?php if(isset($list->jobRole)) { foreach($master_jobrole as $role){if($role->masterValueID==$list->jobRole){echo $role->masterValueName; }else{echo'';} } }?></td>
@@ -82,10 +83,10 @@
 									<?php //}else{ ?>	  
 									<a href="<?php echo base_url();?>Master/status" class="btn btn-success btn-sm btn-icon icon-left">Active</a>-->
 									<?php// }?>
-								</td>
-							</tr>
-							<?php $i++; } ?>
-						</tbody>
+									</td>
+								</tr>
+							<?php $i++; } }?>
+					</tbody>
 					</table>
 				</div>
 			</div>
