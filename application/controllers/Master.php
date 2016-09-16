@@ -735,7 +735,7 @@ Class Master extends CI_Controller
 				redirect('Master/manage_Partner');
 			 }else{
 					//$table=array('table'=>'partner');
-					$detail= $this->data['detail']=$this->apiModel->post('partner',$data);	
+					$detail= $this->data['detail']=$this->Master_model->post('partner',$data);	
 					$this->session->set_flashdata('category_success','message');
 					$this->session->set_flashdata ( 'message','partner Detail Insert successfully !!!' );
 					redirect('Master/manage_Partner'); 

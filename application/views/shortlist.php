@@ -62,7 +62,8 @@
 			</div>
 			<?php }?>
 		<div class="col-md-12">
-			<?php $k=0; foreach($short_Resume as $lists){ ?>
+			<?php if(isset($short_Resume) && !empty($short_Resume)){
+				$k=0; foreach($short_Resume as $lists){ ?>
 			<div class="panel panel-color panel-gray" style=" margin-bottom: -10px;">
 				<div class="panel panel-default  collapsed"><!-- Add class "collapsed" to minimize the panel -->
 					<div class="panel-heading">
@@ -130,7 +131,7 @@
 				</div> 
 			</div>
 		</div>
-		<?php $k++; } ?>
+			<?php $k++; } }?>
 	</div>
 </div>
 <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->								
