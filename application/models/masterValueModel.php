@@ -1,5 +1,5 @@
 <?php
-class MasterValueModel 
+class MasterValueModel extends CI_Model
 {
 	private $apiUrl='http://192.168.1.151/lexusjobsapi/masterValueApi.php';
  	function post($data)

@@ -10,7 +10,7 @@ Class Master extends CI_Controller
 		$this->load->library('parser');
 		$this->load->library('session');
 		$this->load->model('Master_model');
-		$this->load->model('masterEntryModel');
+		$this->load->model('MasterEntryModel');
 		$this->load->model('projectModel');
 		$this->load->model('requiermentModel');
 		$this->load->model('masterValueModel');

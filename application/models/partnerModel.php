@@ -1,5 +1,5 @@
 <?php
-class partnerModel 
+class partnerModel extends CI_Model
 {
 	private $apiUrl='http://192.168.1.151/lexusjobsapi/partnerApi.php';
  	function post($data)

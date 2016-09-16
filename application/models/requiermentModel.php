@@ -1,5 +1,5 @@
 <?php
-class requiermentModel 
+class requiermentModel extends CI_Model
 {
 	private $apiUrl='http://192.168.1.151/lexusjobsapi/requiermentApi.php';
  	function post($data)
