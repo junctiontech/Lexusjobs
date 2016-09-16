@@ -1,5 +1,5 @@
 <?php 
-class Curl
+class curls
 {
 	function postCurl($method,$url,$param)
 	{	  echo $url;echo $method;//print_r($param);die;
