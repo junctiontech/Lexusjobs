@@ -8,8 +8,8 @@ class ProjectModel extends CI_Model
 		 $param=array('data'=>$data);
 		 $url=$this->apiUrl;
 		 $method='POST';
-		 $CURL= new Curl();
-		 $profile=$CURL->postCurl($method,$url,$param);//print_r($profile);die;
+		 $obj= new Curl();
+		 $profile=$obj->postCurl($method,$url,$param);//print_r($profile);die;
 		 return $profile;
 	}
 		
@@ -19,8 +19,8 @@ class ProjectModel extends CI_Model
 		 $var=str_replace(" ", "_", $param);//echo $param;die;
 		 $url=$this->apiUrl.'?data='.$var;
 		 $method='put';
-		 $CURL= new Curl();
-		 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
+		 $obj= new Curl();
+		 $profile=$obj->getCurl($method,$url);//print_r($profile);die;
 		 return $profile;
 	 }
 		
@@ -31,16 +31,16 @@ class ProjectModel extends CI_Model
 				 $data=json_encode(array('filter'=>$filter));
 				 $url=$this->apiUrl.'?data='.$data;
 				 $method='get';
-				 $CURL= new Curl();
-				 $profile=$CURL->getCurl($method,$url);//print_R($profile->result);die;
+				 $obj= new Curl();
+				 $profile=$obj->getCurl($method,$url);//print_R($profile->result);die;
 				 return $profile->result;
 		  }
 	      else
 	      {
 				 $url=$this->apiUrl;
 				 $method='get';
-				 $CURL= new Curl();
-				 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
+				 $obj= new Curl();
+				 $profile=$obj->getCurl($method,$url);//print_r($profile);die;
 				 return $profile->result;
 		  }
 	 }
@@ -50,8 +50,8 @@ class ProjectModel extends CI_Model
 		 $data=json_encode(array('filter'=>$filter));
 		 $url=$this->apiUrl.'?data='.$data;
 		 $method='delete';
-		 $CURL= new Curl();
-		 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
+		 $obj= new Curl();
+		 $profile=$obj->getCurl($method,$url);//print_r($profile);die;
 		 return $profile;
 	 }  
 	 
