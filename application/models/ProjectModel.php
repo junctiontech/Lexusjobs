@@ -1,4 +1,5 @@
 <?php
+include(APPPATH.'libraries/Curl.php');
 class ProjectModel extends CI_Model
 {
 	private $apiUrl='http://192.168.1.151/lexusjobsapi/projectApi.php';
