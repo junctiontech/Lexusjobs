@@ -31,7 +31,7 @@
 						<form role="form" class="form-horizontal" method="post" onsubmit="return add_validation()" action="<?php echo base_url();?>Master/projectPost/">
 							<input type="hidden" name="projectID" value="<?php if(isset($update[0]->projectID)){ echo $update[0]->projectID; } ?>" >
 							<div class="form-group">
-								<label class="col-sm-2 control-label"  for="inputlg">Project Name<span style="color:red;">*</span></label>
+								<label class="col-sm-2 control-label" for="inputlg">Project Name<span style="color:red;">*</span></label>
 								<div class="col-sm-8">
 									<input type="text" maxlength="70"  class="form-control input-lg" name="projectName" id="projectName" placeholder="Please Enter Project Name" value="<?php if(isset($update[0]->projectName)){ echo $update[0]->projectName; } ?>">
 									<span id="projectName_error" style="color:red"></span> 

@@ -38,9 +38,9 @@
 <!--------------------------Start Dropdown Div ----------------------------->
 			<div align="center" class="row">
 				<div id ="" class="panel panel-default">
-					<label class="col-sm-2 control-label" class="form-control" for="field-1"><b>Master Entry</b></label>
-					<div class="col-sm-8 control-label" class="form-control">
-						<select  role="menu"  name="masterEntryName" id="s2example-1" onclick="masterEntryList(this.value);" class="form-control">
+					<label class="col-sm-2 control-label" class="form-control" for="inputlg"><h4><b>Master Entry<span style="color:red;">*</span></b></h4></label>
+					<div class="col-sm-8 control-label" class="form-control input-lg">
+						<select  role="menu"  name="masterEntryName" id="s2example-1" onclick="masterEntryList(this.value);" class="form-control input-lg">
 							<option value="" selected>Please Select Master Entry</option>
 								<?php 
 								foreach ($masterList as $list){?>
@@ -58,9 +58,9 @@
 				<input type="hidden" name="masterValueID" id="masterValueID" value="" >
 				<div style="display:none;" id="editInput_Show">
 					<div class="form-group">
-						<label class="col-sm-2 control-label" class="form-control"  for="field-1">Master Value</label>
+						<label class="col-sm-2 control-label" class="form-control"  for="field-1">Master Value<span style="color:red;">*</span></label>
 						<div class="col-sm-8" id="" style="    margin-left: 21px;" > 
-							<input type="text" class="form-control" maxlength="70" id="masterValueName" name="masterValueName" placeholder=" Please Enter Master Value" value="" required>
+							<input type="text" class="form-control input-lg" maxlength="70" id="masterValueName" name="masterValueName" placeholder=" Please Enter Master Value" value="" required>
 						</div>
 					</div>
 					<!--<div id="div" class="form-group">
