@@ -27,6 +27,9 @@
 	<!-- mandatory scripts starts added by palak on 20th june -->
 	<!-- login page style scripts starts added by ankit singh on 16th may  -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>
+      var base_url='<?php base_url();?>';
+	</script>
   <link rel="stylesheet" href="<?php echo base_url(); ?>/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="<?php echo base_url(); ?>/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="<?php echo base_url(); ?>bootstrap/3.3.7/js/bootstrap.min.js"></script>
