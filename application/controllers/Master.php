@@ -744,34 +744,7 @@ function cvList()
 		  }
 /*--------------------------End section----------------------------------------*/
    
-/*------------------------------------Star partner Post and Update function------------*/
-		function partnerPost()
-		  {			      
-			$partnerID=$this->input->post('partnerID');
-			$data = array(
-						  'partnerName'=>$this->input->post('partnerName'),
-						  'contactPerson'=>$this->input->post('contactPerson'),
-						  'address'=>$this->input->post('address'),
-						  'contactNumber'=>$this->input->post('contactNumber'),
-	   					  'emailID'=>$this->input->post('emailID'),
-						  'webSite'=>$this->input->post('webSite'),
-						 );  
-			if($partnerID !=="")
-			 { 
-		        //$table = array('table'=>'partner');
-				$update=$this->data['update']=$this->Master_model->put('partner',$data,array('partnerID'=>$partnerID));
-				$this->session->set_flashdata('category_success','message');
-				$this->session->set_flashdata ( 'message','partner Detail Upadate successfully !!!' );
-				redirect('Master/manage_Partner');
-			 }else{
-					//$table=array('table'=>'partner');
-					$detail= $this->data['detail']=$this->Master_model->post('partner',$data);	
-					$this->session->set_flashdata('category_success','message');
-					$this->session->set_flashdata ( 'message','partner Detail Insert successfully !!!' );
-					redirect('Master/manage_Partner'); 
-             }
-		  }
-/*--------------------------End section----------------------------------------*/
+
 
 /*-----------------------------start Partner Delete Function--------------------*/
 function partnerDelete($id)
