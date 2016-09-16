@@ -19,37 +19,37 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1"> Client Name</label>
 			<div class="col-sm-8">
-				<input type="text" class="form-control"  maxlength="30"  name="clientName" placeholder="Enter Client Name" value="<?php if(isset($clientupdate[0]->clientName)){ echo $clientupdate[0]->clientName; } ?>" required>
+				<input type="text" class="form-control input-lg"  maxlength="30"  name="clientName" placeholder="Enter Client Name" value="<?php if(isset($clientupdate[0]->clientName)){ echo $clientupdate[0]->clientName; } ?>" required>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Contact Persone</label>
 			<div class="col-sm-8">
-				<input type="text" class="form-control"  maxlength="30" name="contactPerson" placeholder=" Enter Contact Persone"value="<?php if(isset($clientupdate[0]->contactPerson)){ echo $clientupdate[0]->contactPerson; }?>" required>
+				<input type="text" class="form-control input-lg"  maxlength="30" name="contactPerson" placeholder=" Enter Contact Persone"value="<?php if(isset($clientupdate[0]->contactPerson)){ echo $clientupdate[0]->contactPerson; }?>" required>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Address</label>
 			<div class="col-sm-8">
-				<input type="text" class="form-control"  maxlength="50" name="address" placeholder="Please Enter Full Address" value="<?php if(isset($clientupdate[0]->address)){ echo $clientupdate[0]->address; }?>" required>
+				<input type="text" class="form-control input-lg"  maxlength="50" name="address" placeholder="Please Enter Full Address" value="<?php if(isset($clientupdate[0]->address)){ echo $clientupdate[0]->address; }?>" required>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Contact Number</label>
 			<div class="col-sm-8">
-				<input type="text" class="form-control" id="quantity" maxlength="12" name="contactNumber" placeholder="Please Enter Contact Number" value="<?php if(isset($clientupdate[0]->contactNumber)){ echo $clientupdate[0]->contactNumber;}?>" required>
+				<input type="text" class="form-control input-lg" id="quantity" maxlength="12" name="contactNumber" placeholder="Please Enter Contact Number" value="<?php if(isset($clientupdate[0]->contactNumber)){ echo $clientupdate[0]->contactNumber;}?>" required>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Email Id</label>
 			<div class="col-sm-8">
-				<input type="email" class="form-control" maxlength="30" name="emailID" placeholder="Please Enter Email ID" value="<?php if(isset($clientupdate[0]->emailID)){ echo $clientupdate[0]->emailID;}?>" required>
+				<input type="email" class="form-control input-lg" maxlength="30" name="emailID" placeholder="Please Enter Email ID" value="<?php if(isset($clientupdate[0]->emailID)){ echo $clientupdate[0]->emailID;}?>" required>
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Website </label>
 			<div class="col-sm-8">
-				<input type="text" class="form-control"  maxlength="50" name="webSite" placeholder="Please Enter Website Name" value="<?php if(isset($clientupdate[0]->webSite)){ echo $clientupdate[0]->webSite;}?>" required>
+				<input type="text" class="form-control input-lg"  maxlength="50" name="webSite" placeholder="Please Enter Website Name" value="<?php if(isset($clientupdate[0]->webSite)){ echo $clientupdate[0]->webSite;}?>" required>
 			</div>
 		</div><br/>
 		<div class="form-group">

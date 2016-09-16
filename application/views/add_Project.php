@@ -31,17 +31,17 @@
 						<form role="form" class="form-horizontal" method="post" onsubmit="return add_validation()" action="<?php echo base_url();?>Master/projectPost/">
 							<input type="hidden" name="projectID" value="<?php if(isset($update[0]->projectID)){ echo $update[0]->projectID; } ?>" >
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="inputlg">Project Name</label>
+								<label class="col-sm-2 control-label"  for="inputlg">Project Name<span style="color:red;">*</span></label>
 								<div class="col-sm-8">
 									<input type="text" maxlength="70"  class="form-control input-lg" name="projectName" id="projectName" placeholder="Please Enter Project Name" value="<?php if(isset($update[0]->projectName)){ echo $update[0]->projectName; } ?>">
 									<span id="projectName_error" style="color:red"></span> 
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="field-1">Project Type</label>
+								<label class="col-sm-2 control-label" for="field-1">Project Type<span style="color:red;">*</span></label>
 								<div class="col-sm-8">
 									<select id="projectType" name="projectType" class="form-control input-lg" required>
-										<option value="">Please Select Project Type</option>
+										<option value="">Please Select Project Type<span style="color:red;">*</span></option>
 											<?php 
 											foreach ($master_projectType as $list){ ?>
 										<option value="<?=$list->masterValueID ;?>"<?php if(isset($update[0]->projectType) && $list->masterValueID==$update[0]->projectType){ echo 'selected'; }?>><?=$list->masterValueName;?></option>
@@ -51,10 +51,10 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="field-1">Client Name</label>
+								<label class="col-sm-2 control-label" for="field-1">Client Name<span style="color:red;">*</span></label>
 								<div class="col-sm-8">
 									<select name="clientName" id="ClientName" class="form-control input-lg" required>
-										<option value="">Please Select Client Name</option>
+										<option value="">Please Select Client Name<span style="color:red;">*</span></option>
 											<?php 
 											foreach ($clientListName as $list){ ?>
 										<option value="<?=$list->clientID ;?>"<?php if(isset($update[0]->clientName) && $list->clientID==$update[0]->clientName){ echo 'selected'; }?>><?=$list->clientName;?></option>
@@ -64,7 +64,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="field-1">Partner Name</label>
+								<label class="col-sm-2 control-label" for="field-1">Partner Name<span style="color:red;">*</span></label>
 								<div class="col-sm-8">
 									<select name="partnerName" id="partnerName" class="form-control input-lg" placeholder="Please Enter Partner Name" required>
 										<option value="">Please Select Partner Name</option>
@@ -77,13 +77,13 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 control-label" for="field-1">Project Duration</label>
+								<label class="col-sm-2 control-label" for="field-1">Project Duration<span style="color:red;">*</span></label>
 								<div class="col-sm-3">
 									<input type="text" maxlength="30" class="form-control input-lg" name="projectDuration" id="projectDuration" placeholder="Please Enter Project Duration" value="<?php if(isset($update[0]->projectDuration)){ echo $update[0]->projectDuration;}?>" required>
 									<span id="projectDuration_error" style="color:red"></span>						
 								</div>   
-								<label class="col-sm-2 control-label" for="field-1">Tender/Bid Submission Date</label>
-								<div class="col-sm-3">
+								<label class="col-sm-3 control-label" for="field-1">Tender/Bid Submission Date<span style="color:red;">*</span></label>
+								<div class="col-sm-2">
 									<input type="" class="form-control datepicker" name="projectStartDate" id="projectStartDate" placeholder="Please Select Project Start Date" value="<?php if(isset($update[0]->projectStartDate)){ echo $update[0]->projectStartDate;}?>" required readonly>
 									<span id="projectStartDate_error" style="color:red"></span>
 								</div>
