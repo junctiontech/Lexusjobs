@@ -913,7 +913,7 @@ function clientDelete($id)
 			  redirect($_SERVER['HTTP_REFERER']);
 		  }
 	   }
- }
+ } 
 /*--------------------------------------------End section-------------------------------*/    
 
    /*---------------------Star View CV Information function---------------------------*/
