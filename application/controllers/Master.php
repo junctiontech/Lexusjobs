@@ -11,12 +11,12 @@ Class Master extends CI_Controller
 		$this->load->library('session');
 		$this->load->model('Master_model');
 		$this->load->model('MasterEntryModel');
-		$this->load->model('projectModel');
-		$this->load->model('requiermentModel');
-		$this->load->model('masterValueModel');
-		$this->load->model('partnerModel');
-		$this->load->model('clientModel');
-		$this->load->model('candidateModel');
+		$this->load->model('ProjectModel');
+		$this->load->model('RequiermentModel');
+		$this->load->model('MasterValueModel');
+		$this->load->model('PartnerModel');
+		$this->load->model('ClientModel');
+		$this->load->model('CandidateModel');
 		$this->load->library('session');
 		$this->load->library('upload');
 		

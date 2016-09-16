@@ -1,7 +1,7 @@
 <?php
-class partnerModel extends CI_Model
+class RequiermentModel extends CI_Model
 {
-	private $apiUrl='http://192.168.1.151/lexusjobsapi/partnerApi.php';
+	private $apiUrl='http://192.168.1.151/lexusjobsapi/requiermentApi.php';
  	function post($data)
 	 {
 		 $param=array('data'=>$data);
@@ -25,7 +25,7 @@ class partnerModel extends CI_Model
 		
     function get($filter=false)
 	 {
-		  if(isset($filter) && $filter!=='' && count($filter)>0)
+		  if(isset($filter) && $filter!=='' && count($filter)>0 &&!empty($filter))
 		  {
 				 $data=json_encode(array('filter'=>$filter));
 				 $url=$this->apiUrl.'?data='.$data;
@@ -39,7 +39,7 @@ class partnerModel extends CI_Model
 				 $url=$this->apiUrl;
 				 $method='get';
 				 $CURL= new Curl();
-				 $profile=$CURL->getCurl($method,$url);
+				 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
 				 return $profile->result;
 		  }
 	 }
@@ -53,5 +53,6 @@ class partnerModel extends CI_Model
 		 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
 		 return $profile;
 	 }  
+	 
  }
  ?>

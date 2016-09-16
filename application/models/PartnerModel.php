@@ -1,7 +1,7 @@
 <?php
-class candidateModel extends CI_Model
+class PartnerModel extends CI_Model
 {
-	private $apiUrl='http://192.168.1.151/lexusjobsapi/candidateApi.php';
+	private $apiUrl='http://192.168.1.151/lexusjobsapi/partnerApi.php';
  	function post($data)
 	 {
 		 $param=array('data'=>$data);
@@ -25,7 +25,7 @@ class candidateModel extends CI_Model
 		
     function get($filter=false)
 	 {
-		  if(isset($filter) && $filter!=='' && count($filter)>0 &&!empty($filter))
+		  if(isset($filter) && $filter!=='' && count($filter)>0)
 		  {
 				 $data=json_encode(array('filter'=>$filter));
 				 $url=$this->apiUrl.'?data='.$data;
@@ -39,7 +39,7 @@ class candidateModel extends CI_Model
 				 $url=$this->apiUrl;
 				 $method='get';
 				 $CURL= new Curl();
-				 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
+				 $profile=$CURL->getCurl($method,$url);
 				 return $profile->result;
 		  }
 	 }
@@ -53,15 +53,5 @@ class candidateModel extends CI_Model
 		 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
 		 return $profile;
 	 }  
-	 
-	 function search($data)
-	 {	
-		$var=str_replace(' ','_',$data);
-		$url='http://localhost:8080/lexusjobsapi/candidateSearchApi.php?value='.$var;
-	 	$method='get';
-	 	$CURL= new Curl();
-	 	$profile=$CURL->getCurl($method,$url);//print_r($profile);die;
-	 	return $profile->result;
-	 }
  }
  ?>
