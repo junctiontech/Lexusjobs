@@ -29,39 +29,43 @@
 				</div>
 			<?php }?>
 			<div class="panel-body">
-				<form role="form" name="form" class="form-horizontal"   method="post"  enctype="multipart/form-data" action="<?php echo base_url();?>Master/resumePost/">
+				<form role="form" name="form" class="form-horizontal" onsubmit=" return addResume_Validation();"   method="post"  enctype="multipart/form-data" action="<?php echo base_url();?>Master/resumePost/">
 			       <div align="center"  id="error_msg" style="color:red;"></div></br>
 						<input type="hidden" name="resumeID" value="<?php if(isset($resume[0]->resumeID)){ echo $resume[0]->resumeID; } ?>" >
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="field-1">Name</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" name="name" id="name" maxlength="50" placeholder="Please Enter Name" value="<?php if(isset($resume[0]->name)){ echo $resume[0]->name; } ?>" required>
+								<div id="name_error" style="color:red"></div>
 							</div>
 							<label class="col-sm-2 control-label" for="field-1">Mobile</label>
-							<div class="col-sm-4">
-								<input type="text"  class="form-control" maxlength="12" name="mobile"  id="quantity" placeholder="Please Enter mobile number"value="<?php if(isset($resume[0]->mobile)){ echo $resume[0]->mobile; }?>" required>
+							<div class="col-sm-4" id="onlyNumber">
+								<input type="text"  class="form-control" maxlength="12" id="mobile" name="mobile"   placeholder="Please Enter mobile number"value="<?php if(isset($resume[0]->mobile)){ echo $resume[0]->mobile; }?>" required>
+								<div id="mobile_error" style="color:red"></div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="field-1">Email ID</label>
 							<div class="col-sm-4">
 								<input type="email" class="form-control" maxlength="40" id="email" name="email" placeholder="Please Enter Email Id" value="<?php if(isset($resume[0]->email)){ echo $resume[0]->email; }?>" required>
-									<span id="error_msg" style="color:red;"></span>
+								<div id="email_error" style="color:red"></div>
 							</div>
 							<label class="col-sm-2 control-label" for="field-1">Last Company</label>
 							<div class="col-sm-4">
 								<input type="text" class="form-control" id="lastCompany" name="lastCompany" maxlength="50" placeholder="Please Enter last company name" value="<?php if(isset($resume[0]->lastCompany)){ echo $resume[0]->lastCompany;}?>" required>
+								<div id="lastCompany_error" style="color:red"></div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="field-1">Job Role</label>
 							<div class="col-sm-4">
-								<select  class="form-control" name="jobRole" id="jobrole" value="" required>
+								<select  class="form-control" name="jobRole" id="jobRole" value="" required>
 									<option value="">Please Select job Role</option>
 										<?php foreach($master_jobrole as $list){ ?>
 									<option value="<?=$list->masterValueID ;?>"<?php if(isset($resume[0]->jobRole) && $list->masterValueID==$resume[0]->jobRole){ echo 'selected'; }?>><?=$list->masterValueName;?></option>
 									<?php } ?>
-								</select>
+								</select>								
+								<div id="jobRole_error" style="color:red"></div>
 							</div>
 							<label class="col-sm-2 control-label" for="field-1">Job Type</label>
 							<div class="col-sm-4">
@@ -71,6 +75,7 @@
 									<option value="<?=$list->masterValueID ;?>"<?php if(isset($resume[0]->jobType) && $list->masterValueID==$resume[0]->jobType){ echo 'selected'; }?>><?=$list->masterValueName;?></option>
 										<?php } ?> 
 								</select>
+								<div id="jobType_error" style="color:red"></div>
 							</div>
 						</div>	
 						<div class="form-group">
@@ -82,6 +87,7 @@
 									<option value="<?=$x;?>"<?php if(isset($resume[0]->experience)&& $resume[0]->experience==$x){echo 'selected' ;} ?>><?php echo $x; ?></option>
 										<?php } ?>
 								</select><p style="margin-top: -22px; margin-left: 73px;"></p>
+								<div id="experience_error" style="color:red"></div>
 							</div>
 							<div class="col-sm-2">
 								<select name="month" id="month"  style="width:auto;" class="form-control" value="" required>
@@ -90,21 +96,24 @@
 									<option value="<?=$i;?>"<?php if(isset($resume[0]->month)&& $resume[0]->month==$i){echo 'selected' ;} ?>><?php echo $i; ?></option>
 										<?php }?>
 								</select><p style="margin-top: -22px; margin-left: 73px;"></p>
+								<div id="month_error" style="color:red"></div>
 							</div>
-							<label class="col-sm-2 control-label" for="field-1">Expaction Location</label>
+							<label class="col-sm-2 control-label" for="field-1">Current Location</label>
 							<div class="col-sm-4">
-								<input type="text" maxlength="50" class="form-control" id="ExpactionLocation" name="ExpactionLocation" placeholder="Please Enter expaction location" value="<?php if(isset($resume[0]->ExpactionLocation)){ echo $resume[0]->ExpactionLocation;}?>" required>
+								<input type="text" maxlength="50" class="form-control" id="currentLocation" name="currentLocation" placeholder="Please Enter expaction location" value="<?php if(isset($resume[0]->currentLocation)){ echo $resume[0]->currentLocation;}?>" required>
+								<div id="currentLocation_error" style="color:red"></div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="field-1">Curunt Salary</label>
 							<div class="col-sm-4">
 								<input type="text" maxlength="30" class="form-control" id="curuntSalary" name="curuntSalary"  placeholder="Please Enter curunt salary" value="<?php if(isset($resume[0]->curuntSalary)){ echo $resume[0]->curuntSalary;}?>" required>
-									<span id="error_msg" style="color:red;"></span>
+								<div id="curuntSalary_error" style="color:red"></div>
 							</div>
 							<label class="col-sm-2 control-label" for="field-1">Salary Expactation</label>
 							<div class="col-sm-4">
 								<input type="text" maxlength="30" class="form-control" id="salaryExpactation" name="salaryExpactation" placeholder="Please Enter salary expactation" value="<?php if(isset($resume[0]->salaryExpactation)){ echo $resume[0]->salaryExpactation;}?>" required>
+								<div id="salaryExpactation_error" style="color:red"></div>
 							</div>
 						</div>
 						<div class="form-group">
@@ -116,16 +125,24 @@
 									<option value="<?=$list->masterValueID ;?>"<?php if(isset($resume[0]->maxQallification) && $list->masterValueID==$resume[0]->maxQallification){ echo 'selected'; }?>><?=$list->masterValueName;?></option>
 										<?php } ?> 
 								</select>
+								<div id="maxQallification_error" style="color:red"></div>
 							</div>
+							<label class="col-sm-2 control-label" for="field-1">Date OF Birth</label>
+								<div class="col-sm-4">
+									<input type="" class="form-control datepicker" name="DOB" id="DOB" placeholder="Please Select Date of Birth" value="<?php if(isset($resume[0]->DOB)){ echo $resume[0]->DOB;}?>" readonly required>
+									<div id="DOB_error" style="color:red"></div>
+								</div>
+						</div>
+						<div class="form-group">
 							<label class="col-sm-2 control-label" for="field-1">Resume</label>
-							<div class="col-sm-3">
+							<div class="col-sm-4">
 								<input type="file"  name="resume" value="<?php if(isset($resume[0]->resume)){ echo $resume[0]->resume;}?>">
 							</div>
-						</div><br/>
-						<div class="form-group">
-							<button type="submit" name="submit" onclick=" return addResume_Validation();" class="btn btn-success">Submit</button>
-							<button type="reset" class="btn btn-white" onClick="window.history.back();">Cancel</button>
 						</div>
+							<div class="form-group">
+								<button type="submit" name="submit"  class="btn btn-success">Submit</button>
+								<button type="reset" class="btn btn-white" onClick="window.history.back();">Cancel</button>
+							</div>
 					</form>
 				</div>
 			</div>

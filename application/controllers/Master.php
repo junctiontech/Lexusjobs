@@ -524,7 +524,8 @@ Class Master extends CI_Controller
 								  'ExpactionLocation'=>$this->input->post('ExpactionLocation'),
 								  'curuntSalary'=>$this->input->post('curuntSalary'),
 								  'salaryExpactation'=>$this->input->post('salaryExpactation'), 
-								  'maxQallification'=>$this->input->post('maxQallification'), 
+								  'maxQallification'=>$this->input->post('maxQallification'),
+								  'DOB'=>$this->input->post('DOB'),
 								  'resume'=>$cv,
 								  'createdBY'=>'admin',
 								  'createdON'=>date('d-m-Y H:i:s'),
@@ -896,7 +897,7 @@ function clientDelete($id)
    }
    /*---------------End View  CV Information Section----------------------------------*/
    
-   /* function reportRegister()
+    function reportRegister()
    {
    	$url='http://'.$_SERVER['HTTP_HOST'].'/cpanel/Login/reportQuery';
    	$method='POST';
@@ -916,7 +917,7 @@ function clientDelete($id)
    		$this->session->set_flashdata('message', $this->config->item("user").'Your Query not registerd please try again.....');
    		redirect($result['url']);
    	}
-   }    */
+   }    
    
 /*---------------------------- Start master Entry Function For Insert Datat------------------------*/
    /*function master()
