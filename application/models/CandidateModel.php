@@ -1,5 +1,5 @@
 <?php
-include(APPPATH.'libraries/Curl.php');
+//include(APPPATH.'libraries/Curl.php');
 class CandidateModel extends CI_Model
 {
 	private $apiUrl='http://192.168.1.151/lexusjobsapi/candidateApi.php';
@@ -8,8 +8,7 @@ class CandidateModel extends CI_Model
 		 $param=array('data'=>$data);
 		 $url=$this->apiUrl;
 		 $method='POST';
-		 $CURL= new Curl();
-		 $profile=$CURL->postCurl($method,$url,$param);//print_r($profile);die;
+		 $profile=Curl::postCurl($method,$url,$param);//print_r($profile);die;
 		 return $profile;
 	}
 		
@@ -19,8 +18,8 @@ class CandidateModel extends CI_Model
 		 $var=str_replace(" ", "_", $param);//echo $param;die;
 		 $url=$this->apiUrl.'?data='.$var;
 		 $method='put';
-		 $CURL= new Curl();
-		 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
+		// $CURL= new Curl();
+		 $profile=Curl::getCurl($method,$url);//print_r($profile);die;
 		 return $profile;
 	 }
 		
@@ -31,16 +30,16 @@ class CandidateModel extends CI_Model
 				 $data=json_encode(array('filter'=>$filter));
 				 $url=$this->apiUrl.'?data='.$data;
 				 $method='get';
-				 $CURL= new Curl();
-				 $profile=$CURL->getCurl($method,$url);//print_R($profile->result);die;
+				// $CURL= new Curl();
+				 $profile=Curl::getCurl($method,$url);//print_R($profile->result);die;
 				 return $profile->result;
 		  }
 	      else
 	      {
 				 $url=$this->apiUrl;
 				 $method='get';
-				 $CURL= new Curl();
-				 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
+				// $CURL= new Curl();
+				 $profile=Curl::getCurl($method,$url);//print_r($profile);die;
 				 return $profile->result;
 		  }
 	 }
@@ -50,8 +49,8 @@ class CandidateModel extends CI_Model
 		 $data=json_encode(array('filter'=>$filter));
 		 $url=$this->apiUrl.'?data='.$data;
 		 $method='delete';
-		 $CURL= new Curl();
-		 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
+		// $CURL= new Curl();
+		 $profile=Curl::getCurl($method,$url);//print_r($profile);die;
 		 return $profile;
 	 }  
 	 
@@ -60,8 +59,8 @@ class CandidateModel extends CI_Model
 		$var=str_replace(' ','_',$data);
 		$url='http://localhost:8080/lexusjobsapi/candidateSearchApi.php?value='.$var;
 	 	$method='get';
-	 	$CURL= new Curl();
-	 	$profile=$CURL->getCurl($method,$url);//print_r($profile);die;
+	 //	$CURL= new Curl();
+	 	$profile=Curl::getCurl($method,$url);//print_r($profile);die;
 	 	return $profile->result;
 	 }
  }

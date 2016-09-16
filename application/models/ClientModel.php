@@ -7,8 +7,8 @@ class ClientModel extends CI_Model
 		 $param=array('data'=>$data);
 		 $url=$this->apiUrl;
 		 $method='POST';
-		 $CURL= new Curl();
-		 $profile=$CURL->postCurl($method,$url,$param);//print_r($profile);die;
+		// $CURL= new Curl();
+		 $profile=Curl::postCurl($method,$url,$param);//print_r($profile);die;
 		 return $profile;
 	}
 		
@@ -18,8 +18,8 @@ class ClientModel extends CI_Model
 		 $var=str_replace(" ", "_", $param);//echo $param;die;
 		 $url=$this->apiUrl.'?data='.$var;
 		 $method='put';
-		 $CURL= new Curl();
-		 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
+		 //$CURL= new Curl();
+		 $profile=Curl::getCurl($method,$url);//print_r($profile);die;
 		 return $profile;
 	 }
 		
@@ -30,16 +30,16 @@ class ClientModel extends CI_Model
 				 $data=json_encode(array('filter'=>$filter));
 				 $url=$this->apiUrl.'?data='.$data;
 				 $method='get';
-				 $CURL= new Curl();
-				 $profile=$CURL->getCurl($method,$url);//print_R($profile->result);die;
+				 //$CURL= new Curl();
+				 $profile=Curl::getCurl($method,$url);//print_R($profile->result);die;
 				 return $profile->result;
 		  }
 	      else
 	      {
 				 $url=$this->apiUrl;
 				 $method='get';
-				 $CURL= new Curl();
-				 $profile=$CURL->getCurl($method,$url);
+				// $CURL= new Curl();
+				 $profile=Curl::getCurl($method,$url);
 				 return $profile->result;
 		  }
 	 }
@@ -49,8 +49,8 @@ class ClientModel extends CI_Model
 		 $data=json_encode(array('filter'=>$filter));
 		 $url=$this->apiUrl.'?data='.$data;
 		 $method='delete';
-		 $CURL= new Curl();
-		 $profile=$CURL->getCurl($method,$url);//print_r($profile);die;
+		// $CURL= new Curl();
+		 $profile=Curl::getCurl($method,$url);//print_r($profile);die;
 		 return $profile;
 	 }  
  }

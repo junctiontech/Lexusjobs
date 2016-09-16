@@ -896,7 +896,7 @@ function clientDelete($id)
    }
    /*---------------End View  CV Information Section----------------------------------*/
    
-   function reportRegister()
+   /* function reportRegister()
    {
    	$url='http://'.$_SERVER['HTTP_HOST'].'/cpanel/Login/reportQuery';
    	$method='POST';
@@ -916,7 +916,7 @@ function clientDelete($id)
    		$this->session->set_flashdata('message', $this->config->item("user").'Your Query not registerd please try again.....');
    		redirect($result['url']);
    	}
-   }   
+   }    */
    
 /*---------------------------- Start master Entry Function For Insert Datat------------------------*/
    /*function master()

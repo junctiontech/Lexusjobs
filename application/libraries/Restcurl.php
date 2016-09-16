@@ -1,8 +1,8 @@
 <?php 
-class curls
+class Curl
 {
-	function postCurl($method,$url,$param)
-	{	  echo $url;echo $method;//print_r($param);die;
+	static public function postCurl($method,$url,$param)
+	{	 // echo $url;echo $method;//print_r($param);die;
 		  $ch = curl_init(); // create curl handle
 		  $url = $url;
 		  curl_setopt($ch,CURLOPT_URL,$url); 
@@ -20,8 +20,8 @@ class curls
 		  return $result;
 	}
 	
-	function getCurl($method,$url)
-	{
+	static public function getCurl($method,$url)
+	{	//echo $url;die;
 		$ch = curl_init(); // create curl handle
 		$url = $url;
 		curl_setopt($ch,CURLOPT_URL,$url);
@@ -33,7 +33,7 @@ class curls
 		curl_setopt($ch,CURLOPT_TIMEOUT,1800 ); // same for here. Timeout in seconds.
 		$response = curl_exec($ch);//echo $response;die;//print_r($response);die;//
 		curl_close ($ch);
-		$result=json_decode($response,true);//print_r($result);die;//echo $result['imageName'];die;
+		$result=json_decode($response);//print_r($result);die;//echo $result['imageName'];die;
 		return $result;
 	}
 	

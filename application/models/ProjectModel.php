@@ -1,5 +1,6 @@
 <?php
-include(APPPATH.'libraries/Curl.php');
+//if(!class_exists('curl')){ include 'curl.php'; }
+//include(APPPATH.'libraries/Restcurl.php');
 class ProjectModel extends CI_Model
 {
 	private $apiUrl='http://192.168.1.151/lexusjobsapi/projectApi.php';
@@ -8,8 +9,8 @@ class ProjectModel extends CI_Model
 		 $param=array('data'=>$data);
 		 $url=$this->apiUrl;
 		 $method='POST';
-		 $obj= new Curl();
-		 $profile=$obj->postCurl($method,$url,$param);//print_r($profile);die;
+		// $obj= new Curl();
+		 $profile=Curl::postCurl($method,$url,$param);//print_r($profile);die;
 		 return $profile;
 	}
 		
@@ -19,8 +20,8 @@ class ProjectModel extends CI_Model
 		 $var=str_replace(" ", "_", $param);//echo $param;die;
 		 $url=$this->apiUrl.'?data='.$var;
 		 $method='put';
-		 $obj= new Curl();
-		 $profile=$obj->getCurl($method,$url);//print_r($profile);die;
+		// $obj= new Curl();
+		 $profile=Curl::getCurl($method,$url);//print_r($profile);die;
 		 return $profile;
 	 }
 		
@@ -31,16 +32,16 @@ class ProjectModel extends CI_Model
 				 $data=json_encode(array('filter'=>$filter));
 				 $url=$this->apiUrl.'?data='.$data;
 				 $method='get';
-				 $obj= new Curl();
-				 $profile=$obj->getCurl($method,$url);//print_R($profile->result);die;
+				// $obj= new Curl();
+				 $profile=Curl::getCurl($method,$url);//print_R($profile->result);die;
 				 return $profile->result;
 		  }
 	      else
 	      {
 				 $url=$this->apiUrl;
 				 $method='get';
-				 $obj= new Curl();
-				 $profile=$obj->getCurl($method,$url);//print_r($profile);die;
+				 //$obj= new Curl();
+				 $profile=Curl::getCurl($method,$url);//print_r($profile);die;
 				 return $profile->result;
 		  }
 	 }
@@ -50,8 +51,8 @@ class ProjectModel extends CI_Model
 		 $data=json_encode(array('filter'=>$filter));
 		 $url=$this->apiUrl.'?data='.$data;
 		 $method='delete';
-		 $obj= new Curl();
-		 $profile=$obj->getCurl($method,$url);//print_r($profile);die;
+		// $obj= new Curl();
+		 $profile=Curl::getCurl($method,$url);//print_r($profile);die;
 		 return $profile;
 	 }  
 	 
