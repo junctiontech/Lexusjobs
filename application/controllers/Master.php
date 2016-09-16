@@ -26,7 +26,7 @@ Class Master extends CI_Controller
 /*------------------------------------Master Entry view section Function--------------------------*/
     function masterEntry($id=false)
      {
-	     $masterList = $this->data['masterList']=$this->masterEntryModel->get();
+	     $masterList = $this->data['masterList']=$this->MasterEntryModel->get();
 	     $this->parser->parse('include/header',$this->data);
 		 $this->parser->parse('include/left_menu',$this->data);
 		 $this->load->view('master_Entry',$this->data);
@@ -46,7 +46,7 @@ Class Master extends CI_Controller
 		    $explodeMasterValuename= str_replace('+',' ',$explodeMasterValueName);//print_r($explodeMasterValuename);die;
 			if(isset($explodeMasterValueID[1]) && !empty($explodeMasterValueID[1]))
 			{
-				$masterValuePost=$this->data['masterValuePost']=$this->masterValueModel->put(array('masterValueName'=>($explodeMasterValuename[1])),array('masterValueID'=>$explodeMasterValueID[1]));
+				$masterValuePost=$this->data['masterValuePost']=$this->MasterValueModel->put(array('masterValueName'=>($explodeMasterValuename[1])),array('masterValueID'=>$explodeMasterValueID[1]));
 
 				if($masterValuePost)
 				{
@@ -55,7 +55,7 @@ Class Master extends CI_Controller
 			}
 			else
 			{
-				$masterValuePost=$this->data['masterValuePost']=$this->masterValueModel->post(array('masterEntryID'=>$explodeMasterEntryID[1],'masterValueName'=>$explodeMasterValuename[1]));
+				$masterValuePost=$this->data['masterValuePost']=$this->MasterValueModel->post(array('masterEntryID'=>$explodeMasterEntryID[1],'masterValueName'=>$explodeMasterValuename[1]));
 				if($masterValuePost)
 				{
 					$this->MasterValueGet($explodeMasterEntryID[1],'add');
@@ -72,11 +72,11 @@ Class Master extends CI_Controller
 	 {	//echo $masterEntryID;die;
 	 if(isset($masterEntryID)&&!empty($masterEntryID))
 		 {
-			 $mastervalue=$this->data['mastervalue']=$this->masterValueModel->get(array('masterEntryID'=>$masterEntryID));//print_r($masterValue);die;
+			 $mastervalue=$this->data['mastervalue']=$this->MasterValueModel->get(array('masterEntryID'=>$masterEntryID));//print_r($masterValue);die;
 		 }
 		 else
 		 {
-			 $mastervalue=$this->data['mastervalue']=$this->masterValueModel->get(array('masterEntryID'=>$this->input->post('value')));//print_r($masterValue);die;
+			 $mastervalue=$this->data['mastervalue']=$this->MasterValueModel->get(array('masterEntryID'=>$this->input->post('value')));//print_r($masterValue);die;
 		 }
 		 //echo '%&%';
 		 ?>	
@@ -120,7 +120,7 @@ Class Master extends CI_Controller
 /*-----------------------Start master Value Update Function--------------------------------*/
   function masterValueUpdate()
     {        
-		$masterUpdate = $this->data['masterUpdate'] = $this->masterValueModel->get(array('masterValueID'=>$this->input->post('value')));
+		$masterUpdate = $this->data['masterUpdate'] = $this->MasterValueModel->get(array('masterValueID'=>$this->input->post('value')));
 	   echo($masterUpdate[0]->masterValueName);
 	}
 /*-----------------------------------End section---------------------------------------*/
@@ -131,8 +131,8 @@ Class Master extends CI_Controller
        $masterValueID= $this->input->post('id');
 		   if(isset($masterValueID)&&!empty($masterValueID))
 		   { 
-				$masterEntryID = $this->data['masterEntryID']= $this->masterValueModel->get(array('masterValueID'=>$masterValueID));
-				$deleteMasterValue=$this->data['deleteMasterValue']= $this->masterValueModel->delete(array('masterValueID'=>$this->input->post('id')));
+				$masterEntryID = $this->data['masterEntryID']= $this->MasterValueModel->get(array('masterValueID'=>$masterValueID));
+				$deleteMasterValue=$this->data['deleteMasterValue']= $this->MasterValueModel->delete(array('masterValueID'=>$this->input->post('id')));
 				$masterEntry=$masterEntryID[0]->masterEntryID;
 				$this->MasterValueGet($masterEntry);
 		   }
@@ -143,8 +143,8 @@ Class Master extends CI_Controller
 /*--------------------------Start Manage Project View section function----------------*/ 	 
 	function manageProject()
 	{
-		$projectList=$this->data['projectList']=$this->projectModel->get();
-		$master_projectType=$this->data['master_projectType']=$this->masterValueModel->get(array('masterEntryID'=>'1'));
+		$projectList=$this->data['projectList']=$this->ProjectModel->get();
+		$master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_Project',$this->data); 
@@ -157,11 +157,11 @@ Class Master extends CI_Controller
 	  {
 		if(isset($info) && !empty($info))
 		{	
-		   $update=$this->data['update']=$this->projectModel->get(array('projectID'=>$info));
+		   $update=$this->data['update']=$this->ProjectModel->get(array('projectID'=>$info));
         }
-        $clientListName=$this->data['clientListName']=$this->clientModel->get();
-		$partnerListName=$this->data['partnerListName']=$this->partnerModel->get();
-		$master_projectType=$this->data['master_projectType']=$this->masterValueModel->get(array('masterEntryID'=>'1'));
+        $clientListName=$this->data['clientListName']=$this->ClientModel->get();
+		$partnerListName=$this->data['partnerListName']=$this->PartnerModel->get();
+		$master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('add_Project',$this->data);
@@ -221,12 +221,12 @@ Class Master extends CI_Controller
 							 );
 					if($projectID)
 					 {
-					 $this->data['projectID']=$this->projectModel->put($data,array('projectID'=>$projectID));
+					 $this->data['projectID']=$this->ProjectModel->put($data,array('projectID'=>$projectID));
 					$this->session->set_flashdata('category_success','message');
 					$this->session->set_flashdata ( 'message','Project Update Successfully..!!!');
 					redirect('Master/manageProject');
 					 }else{
-						  $projectpost = $this->data['projectpost']=$this->projectModel->post($data);
+						  $projectpost = $this->data['projectpost']=$this->ProjectModel->post($data);
 						  $this->session->set_flashdata('category_success','message');
 						  $this->session->set_flashdata ( 'message','Project Create successfully !!!' );
 						  redirect('Master/manageProject');
@@ -239,7 +239,7 @@ Class Master extends CI_Controller
 /*--------------------------------Start Project Delete function -----------------------*/	
 		function delete($info)
 		{ 
-			$projectDelete=$this->projectModel->delete(array('projectID'=>$info));
+			$projectDelete=$this->ProjectModel->delete(array('projectID'=>$info));
 			$this->session->set_flashdata('category_success','message');
 		    $this->session->set_flashdata('message','Project delete successfully !!!');
 			redirect('Master/manageProject');
@@ -251,11 +251,11 @@ Class Master extends CI_Controller
      {
 		  if(isset($id) && !empty($id))
 		   {
-	          $projectRequirementList=$this->data['projectRequirementList']=$this->requiermentModel->get(array('projectID'=>$id));
+	          $projectRequirementList=$this->data['projectRequirementList']=$this->RequiermentModel->get(array('projectID'=>$id));
 			  $this->data['id']=$id;
            }
-		$master_jobrole=$this->data['master_jobrole']=$this->masterValueModel->get(array('masterEntryID'=>'2'));
-	    $master_qualification=$this->data['master_qualification']=$this->masterValueModel->get(array('masterEntryID'=>'3'));
+		$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
+	    $master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_requierment',$this->data);
@@ -278,14 +278,14 @@ Class Master extends CI_Controller
 					$skill= $this->data['skill']= explode(',',$requiermentSkill);//print_r($skill);die;
 					$this->data['projectrequirementID']=$id;
 				}
-			 $requierment =$this->data['requierment'] =$this->requiermentModel->get(array('projectRequirementID'=>$id));
-             $clientListName=$this->data['clientListName']=$this->clientModel->get();
-			 $partnerListName=$this->data['partnerListName']=$this->partnerModel->get();
-			 $master_projectType=$this->data['master_projectType']=$this->masterValueModel->get(array('masterEntryID'=>'1'));
-			 $master_jobrole=$this->data['master_jobrole']=$this->masterValueModel->get(array('masterEntryID'=>'2'));
-			 $master_qualification=$this->data['master_qualification']=$this->masterValueModel->get(array('masterEntryID'=>'3'));
-			 $master_jobtype=$this->data['master_jobtype']=$this->masterValueModel->get(array('masterEntryID'=>'4'));
-			 $master_skill=$this->data['master_skill']=$this->masterValueModel->get(array('masterEntryID'=>'5'));
+			 $requierment =$this->data['requierment'] =$this->RequiermentModel->get(array('projectRequirementID'=>$id));
+             $clientListName=$this->data['clientListName']=$this->ClientModel->get();
+			 $partnerListName=$this->data['partnerListName']=$this->PartnerModel->get();
+			 $master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));
+			 $master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
+			 $master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
+			 $master_jobtype=$this->data['master_jobtype']=$this->MasterValueModel->get(array('masterEntryID'=>'4'));
+			 $master_skill=$this->data['master_skill']=$this->MasterValueModel->get(array('masterEntryID'=>'5'));
 			 $this->parser->parse('include/header',$this->data);
 			 $this->parser->parse('include/left_menu',$this->data);
 			 $this->load->view('add_requierment',$this->data); 
@@ -406,9 +406,9 @@ Class Master extends CI_Controller
 /*------------------------start Manage Resume View function-----------------------------------*/
 		function manageResume()
 		  {	
-			$resumeList=$this->data['resumeList']=$this->candidateModel->get();
-			$master_jobrole=$this->data['master_jobrole']=$this->masterValueModel->get(array('masterEntryID'=>'2'));
-            $master_qualification=$this->data['master_qualification']=$this->masterValueModel->get(array('masterEntryID'=>'3'));
+			$resumeList=$this->data['resumeList']=$this->CandidateModel->get();
+			$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
+            $master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
             $this->parser->parse('include/header',$this->data);
 			$this->parser->parse('include/left_menu',$this->data);
 			$this->load->view('manage_Resume',$this->data);
@@ -421,12 +421,12 @@ Class Master extends CI_Controller
 	 {   
     	if(isset($id) && !empty($id))
 		{	
-	       $resume=$this->data['resume']=$this->candidateModel->get(array('resumeID'=>$id));
+	       $resume=$this->data['resume']=$this->CandidateModel->get(array('resumeID'=>$id));
 	    }
-        $master_projectType=$this->data['master_projectType']=$this->masterValueModel->get(array('masterEntryID'=>'1'));
-		$master_jobrole=$this->data['master_jobrole']=$this->masterValueModel->get(array('masterEntryID'=>'2'));
-	    $master_qualification=$this->data['master_qualification']=$this->masterValueModel->get(array('masterEntryID'=>'3'));
-        $master_jobtype=$this->data['master_jobtype']=$this->masterValueModel->get(array('masterEntryID'=>'4'));
+        $master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));
+		$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
+	    $master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
+        $master_jobtype=$this->data['master_jobtype']=$this->MasterValueModel->get(array('masterEntryID'=>'4'));
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('add_Resume',$this->data);
@@ -532,7 +532,7 @@ Class Master extends CI_Controller
 					if($this->input->post('resumeID'))
 					  {
 						$resumeID=$this->input->post('resumeID');
-						$resumeUpdate=$this->data['resumeUpdate']=$this->candidateModel->put($data,array('resumeID'=>$resumeID));
+						$resumeUpdate=$this->data['resumeUpdate']=$this->CandidateModel->put($data,array('resumeID'=>$resumeID));
 						$this->session->set_flashdata('category_success','message');
 						$this->session->set_flashdata ( 'message','Resume update successfully !!!' );
 						redirect('Master/manageResume');
@@ -546,7 +546,7 @@ Class Master extends CI_Controller
 								$this->session->set_flashdata('message','Emial id or mobile number already registered...');
 								redirect($_SERVER['HTTP_REFERER']);
 							  }else
-									$resumePost= $this->data['resumePost']=$this->candidateModel->post($data);
+									$resumePost= $this->data['resumePost']=$this->CandidateModel->post($data);
 									$this->session->set_flashdata('category_success','message');
 									$this->session->set_flashdata ( 'message','Resume Insert successfully !!!' );
 									redirect('Master/manageResume');
@@ -559,7 +559,7 @@ Class Master extends CI_Controller
 /*------------------------------Star Resume Delete function---------------------------*/	
 function resumeDelete($id)
      {
-	   $delete=$this->candidateModel->delete(array('resumeID'=>$id));
+	   $delete=$this->CandidateModel->delete(array('resumeID'=>$id));
 	   $this->session->set_flashdata('category_success','message');
 	   $this->session->set_flashdata ('message',"Your Resume successfully  delete !!!" );
        redirect('Master/manageResume');
@@ -580,16 +580,16 @@ function cvList()
 				if(!empty($jobType)){ $query.=" and jobType='$jobType'"; }
 				if(!empty($qualification)){ $query.=" and maxQallification='$qualification'"; }
 				if(!empty($jobRole)){ $query.=" and jobRole='$jobRole'"; }
-				$resumepost=$this->data['resumepost']=$this->candidateModel->search($query); //print_r($resumepost);die;
-				$master_jobrole=$this->data['master_jobrole']=$this->masterValueModel->get(array('masterEntryID'=>'2'));
-				$master_qualification=$this->data['master_qualification']=$this->masterValueModel->get(array('masterEntryID'=>'3'));
-				$master_jobtype=$this->data['master_jobtype']=$this->masterValueModel->get(array('masterEntryID'=>'4'));
+				$resumepost=$this->data['resumepost']=$this->CandidateModel->search($query); //print_r($resumepost);die;
+				$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
+				$master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
+				$master_jobtype=$this->data['master_jobtype']=$this->MasterValueModel->get(array('masterEntryID'=>'4'));
 				
 		 }else{
-				$resumepost=$this->data['resumepost']=$this->candidateModel->get();
-				$master_jobrole=$this->data['master_jobrole']=$this->masterValueModel->get(array('masterEntryID'=>'2'));
-				$master_qualification=$this->data['master_qualification']=$this->masterValueModel->get(array('masterEntryID'=>'3'));
-				$master_jobtype=$this->data['master_jobtype']=$this->masterValueModel->get(array('masterEntryID'=>'4'));
+				$resumepost=$this->data['resumepost']=$this->CandidateModel->get();
+				$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
+				$master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
+				$master_jobtype=$this->data['master_jobtype']=$this->MasterValueModel->get(array('masterEntryID'=>'4'));
 
 			 }
 		$this->parser->parse('include/header',$this->data);
@@ -693,7 +693,7 @@ function cvList()
 /*-------------------------Start Manage partner Function--------------------------------*/    
 	function manage_Partner()
 	 {	
-	    $partnerList= $this->data['partnerList']=$this->partnerModel->get();//print_r($partnerList);die;		
+	    $partnerList= $this->data['partnerList']=$this->PartnerModel->get();//print_r($partnerList);die;		
         $this->parser->parse('include/header',$this->data);
   	    $this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_Partner',$this->data);
@@ -707,7 +707,7 @@ function cvList()
        if(isset($id) && !empty($id))
 	   { //echo'sdfas';die;
 		   //$table = array('table'=>'partner');
-		 $updateDetail = $this->data['updateDetail']=$this->partnerModel->get(array('partnerID'=>$id));
+		 $updateDetail = $this->data['updateDetail']=$this->PartnerModel->get(array('partnerID'=>$id));
 	   }
 	    $this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
@@ -730,13 +730,13 @@ function cvList()
 			if($partnerID !=="")
 			 { 
 		        //$table = array('table'=>'partner');
-				$update=$this->data['update']=$this->partnerModel->put($data,array('partnerID'=>$partnerID));
+				$update=$this->data['update']=$this->PartnerModel->put($data,array('partnerID'=>$partnerID));
 				$this->session->set_flashdata('category_success','message');
 				$this->session->set_flashdata ( 'message','partner Detail Upadate successfully !!!' );
 				redirect('Master/manage_Partner');
 			 }else{
 					//$table=array('table'=>'partner');
-					$detail= $this->data['detail']=$this->partnerModel->post($data);	
+					$detail= $this->data['detail']=$this->PartnerModel->post($data);	
 					$this->session->set_flashdata('category_success','message');
 					$this->session->set_flashdata ( 'message','partner Detail Insert successfully !!!' );
 					redirect('Master/manage_Partner'); 
@@ -749,7 +749,7 @@ function cvList()
 /*-----------------------------start Partner Delete Function--------------------*/
 function partnerDelete($id)
    {
-	  $delete =$this->partnerModel->delete(array('partnerID'=>$id)); 
+	  $delete =$this->PartnerModel->delete(array('partnerID'=>$id)); 
 	  $this->session->set_flashdata('category_error','message');
 	  $this->session->set_flashdata ('message',"Your Partner Detail successfully delete !!!" );
       redirect('Master/manage_Partner');
@@ -759,7 +759,7 @@ function partnerDelete($id)
 /*-------------------------------------Client Name------------------------------*/	
 function manage_Client()
 	{	
-	    $clientList= $this->data['clientList'] = $this->clientModel->get();//7print_r($clientList);die;
+	    $clientList= $this->data['clientList'] = $this->ClientModel->get();//7print_r($clientList);die;
 		$this->parser->parse('include/header',$this->data);
   	    $this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('manage_Client',$this->data);
@@ -772,7 +772,7 @@ function manage_Client()
     {
 		if(isset($id) && !empty($id))
 		 {
-		   $clientupdate= $this->data['clientupdate']=$this->clientModel->get(array('clientID'=>$id));
+		   $clientupdate= $this->data['clientupdate']=$this->ClientModel->get(array('clientID'=>$id));
 		 }
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
@@ -795,13 +795,13 @@ function clientPost()
 					); 
 	  if($clientID)
 	    {
-			$client=$this->data['client']=$this->clientModel->put($data,array('clientID'=>$clientID));
+			$client=$this->data['client']=$this->ClientModel->put($data,array('clientID'=>$clientID));
 			$this->session->set_flashdata('category_success','message');
 			$this->session->set_flashdata ( 'message','Client Detail Upadate successfully !!!' );
 			redirect('Master/manage_Client');
 		}
 		else{
-				$clientpostData= $this->data['clientpostData']=$this->clientModel->post($data);
+				$clientpostData= $this->data['clientpostData']=$this->ClientModel->post($data);
 				$this->session->set_flashdata('category_success','message');
 				$this->session->set_flashdata ( 'message','Client Detail Insert successfully !!!' );
 				redirect('Master/manage_Client'); 
@@ -812,7 +812,7 @@ function clientPost()
 /*-----------------------------start Client Delete Function--------------------*/
 function clientDelete($id)
 {
-	   $delete=$this->clientModel->delete(array('clientID'=>$id));
+	   $delete=$this->ClientModel->delete(array('clientID'=>$id));
 	   $this->session->set_flashdata('category_error','message');
 	   $this->session->set_flashdata ('message',"Your Client Detail successfully delete !!!" );
        redirect('Master/manage_Client');
@@ -824,7 +824,7 @@ function clientDelete($id)
    { 	
       if(isset($id) && !empty($id) && isset($_GET['resumeID']))
 	  {
-		  $requiermentDetail =$this->data['requiermentDetail'] =$this->requiermentModel->get(array('projectRequirementID'=>$id));
+		  $requiermentDetail =$this->data['requiermentDetail'] =$this->RequiermentModel->get(array('projectRequirementID'=>$id));
 	      $opening = $requiermentDetail[0]->Opening; 
 		  $fillVacancy = $requiermentDetail[0]->fillVacancy;
 	      if($opening > $fillVacancy)
@@ -832,11 +832,11 @@ function clientDelete($id)
 			  $data = array(
 							 'fillVacancy'=> 1+$fillVacancy,	
 						    );
-              $updateVacancy = $this->data['updateVacancy']=$this->requiermentModel->put($data,array('projectRequirementID'=>$id));
+              $updateVacancy = $this->data['updateVacancy']=$this->RequiermentModel->put($data,array('projectRequirementID'=>$id));
 			  if($updateVacancy)
 			  {	
 					$dataArray=array('status'=>'approve');
-				    $updateVacancy = $this->data['updateVacancy']=$this->candidateModel->put($dataArray,array('resumeID'=>$_GET['resumeID']));
+				    $updateVacancy = $this->data['updateVacancy']=$this->CandidateModel->put($dataArray,array('resumeID'=>$_GET['resumeID']));
 					$this->session->set_flashdata('category_success','message');
 					$this->session->set_flashdata('message','Resume Approved Successfully');
 					redirect($_SERVER['HTTP_REFERER']);
@@ -865,16 +865,16 @@ function clientDelete($id)
  {
   	   if(isset($id) && !empty($id) && isset($_GET['resumeID']))
 	   {
-		  $requiermentDetail=$this->data['requiermentDetail'] =$this->requiermentModel->get(array('projectRequirementID'=>$id));
+		  $requiermentDetail=$this->data['requiermentDetail'] =$this->RequiermentModel->get(array('projectRequirementID'=>$id));
 		  $fillVacancy = $requiermentDetail[0]->fillVacancy;
 		  $data = array(
 						 'fillVacancy'=>$fillVacancy-1,	
 					    );
-		  $updateVacancy =$this->data['updateVacancy']=$this->requiermentModel->put($data,array('projectRequirementID'=>$id));
+		  $updateVacancy =$this->data['updateVacancy']=$this->RequiermentModel->put($data,array('projectRequirementID'=>$id));
 		  if($updateVacancy)
 		  {
 			   $dataArray=array('status'=>'');
-			   $updateVacancy = $this->data['updateVacancy']=$this->candidateModel->put($dataArray,array('resumeID'=>$_GET['resumeID']));
+			   $updateVacancy = $this->data['updateVacancy']=$this->CandidateModel->put($dataArray,array('resumeID'=>$_GET['resumeID']));
 			   $this->session->set_flashdata('category_success','message');
 			   $this->session->set_flashdata('message','Resume Disapproved Successfully');
 			   redirect($_SERVER['HTTP_REFERER']);
