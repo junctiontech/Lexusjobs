@@ -909,7 +909,7 @@ function clientDelete($id)
    	{
    		$this->session->set_flashdata('category_success', 'message');
    		$this->session->set_flashdata('message', $this->config->item("user").'Your Query registerd successfully..... ');
-   		redirect($result['url']);
+   		redirect($result['url']); 
    	}
    	else
    	{
