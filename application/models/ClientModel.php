@@ -1,8 +1,10 @@
 <?php
 class ClientModel extends CI_Model
 {
-	private $apiUrl='http://192.168.1.151/lexusjobsapi/clientApi.php';
- 	function post($data)
+	//private $apiUrl='http://192.168.1.151/lexusjobsapi/clientApi.php';
+	private $apiUrl='http://localhost:8080/lexusjobsapi/clientApi.php';
+	
+	function post($data)
 	 {
 		 $param=array('data'=>$data);
 		 $url=$this->apiUrl;

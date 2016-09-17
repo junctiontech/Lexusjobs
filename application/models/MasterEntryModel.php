@@ -2,8 +2,10 @@
 include(APPPATH.'libraries/Restcurl.php');
 class MasterEntryModel extends CI_Model
 {
-	private $apiUrl='http://192.168.1.151/lexusjobsapi/masterEntryApi.php';
- 	function post($data)
+	//private $apiUrl='http://192.168.1.151/lexusjobsapi/masterEntryApi.php';
+	private $apiUrl='http://localhost:8080/lexusjobsapi/masterEntryApi.php';
+	
+	function post($data)
 	 {
 		 $param=array('data'=>$data);
 		 $url=$this->apiUrl;

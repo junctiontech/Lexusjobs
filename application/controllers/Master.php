@@ -717,7 +717,7 @@ function cvList()
 						  'contactNumber'=>$this->input->post('contactNumber'),
 	   					  'emailID'=>$this->input->post('emailID'),
 						  'webSite'=>$this->input->post('webSite'),
-						 );print_r($data);die;  
+						 );  
 			if($partnerID !=="")
 			 { 
 		        //$table = array('table'=>'partner');
