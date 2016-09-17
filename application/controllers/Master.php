@@ -902,8 +902,8 @@ function clientDelete($id)
    	$url='http://'.$_SERVER['HTTP_HOST'].'/cpanel/Login/reportQuery';
    	$method='POST';
    	$data=json_encode($_POST,true);//echo $data;die;
-   	$object=new Curl();
-   	$response=$object->postCurl($method,$url,$data);
+   	//$object=new Curl();
+   	$response=Curl::queryCurl($method,$url,$data);
    	$result=json_decode($response,true);
    	if($result['code']=='200')
    	{
