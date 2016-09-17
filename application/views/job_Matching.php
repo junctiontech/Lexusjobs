@@ -24,7 +24,7 @@
 						<div class="form-group" class="dropdown_show">
 							<label class="col-sm-2 control-label" class="form-control" for="field-1">Experience</label>
 							<div class="col-sm-4">
-								<select name="experience" class="form-control">
+								<select name="experience" class="form-control input-lg">
 									<?php 
 									for($x=1 ; $x<=30 ;$x++ ){ ?>
 									<option value="<?php echo $x;?>"><?php echo $x;?></option> 
@@ -33,7 +33,7 @@
 							</div>
 							<label class="col-sm-2 control-label" class="form-control" for="field-1">Job Type</label>
 							<div class="col-sm-4">
-								<select name="jobType" class="form-control">
+								<select name="jobType" class="form-control input-lg">
 									<option value="">Please select Job Type</option>
 										<?php 
 										foreach($master_jobtype as $list){ ?>
@@ -41,11 +41,11 @@
 										<?php } ?>
 								</select>
 							</div>
-						</div><br/><br/>
+						</div><br/><br/></br>
 						<div class="form-group" class="dropdown_show">
 							<label class="col-sm-2 control-label" class="form-control" for="field-1">Qualification</label>
 							<div class="col-sm-4">
-								<select name="qualification" class="form-control">
+								<select name="qualification" class="form-control input-lg">
 									<option value="">Please select Qualification</option>
 										<?php 
 										foreach($master_qualification as $list){ ?>
@@ -55,7 +55,7 @@
 							</div>
 							<label class="col-sm-2 control-label" class="form-control" for="field-1">Job Role</label>
 							<div class="col-sm-4">
-								<select name="jobRole" class="form-control">
+								<select name="jobRole" class="form-control input-lg">
 									<option value="">Please select Job Role</option>
 										<?php 
 										foreach($master_jobrole as $list){ ?>
@@ -63,7 +63,7 @@
 										<?php } ?>
 								</select>
 							</div>
-						</div></br>
+						</div></br></br>
 						<div align="right">
 							<button type="submit" class="btn btn-info">
 							<i class="fa-search"></i>Search</button>

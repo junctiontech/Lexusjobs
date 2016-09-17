@@ -524,7 +524,8 @@ Class Master extends CI_Controller
 								  'ExpactionLocation'=>$this->input->post('ExpactionLocation'),
 								  'curuntSalary'=>$this->input->post('curuntSalary'),
 								  'salaryExpactation'=>$this->input->post('salaryExpactation'), 
-								  'maxQallification'=>$this->input->post('maxQallification'), 
+								  'maxQallification'=>$this->input->post('maxQallification'),
+								  'DOB'=>$this->input->post('DOB'),
 								  'resume'=>$cv,
 								  'createdBY'=>'admin',
 								  'createdON'=>date('d-m-Y H:i:s'),
@@ -896,13 +897,13 @@ function clientDelete($id)
    }
    /*---------------End View  CV Information Section----------------------------------*/
    
-   function reportRegister()
+    function reportRegister()
    {
    	$url='http://'.$_SERVER['HTTP_HOST'].'/cpanel/Login/reportQuery';
    	$method='POST';
    	$data=json_encode($_POST,true);//echo $data;die;
-   //	$object=new Curl();
-   	$response=$Curl::postCurl($method,$url,$data);
+   	$object=new Curl();
+   	$response=$object->postCurl($method,$url,$data);
    	$result=json_decode($response,true);
    	if($result['code']=='200')
    	{

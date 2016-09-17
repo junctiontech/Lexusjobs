@@ -145,103 +145,104 @@ function addrequriment_validation()
 
 /*----------------------------------------------------ADD Resume Java Script Validation---------------------------------------------*/
  function addResume_Validation()
-	{   
-		/* var emailRegex = /^[A-Za-z0-9._]*\@[A-Za-z]*\.[A-Za-z]{2,5}$/;
-		var name = document.form.name.value; 
-		var mobile = document.form.mobile.value;
-		var email = document.form.email.value;
-		var lastCompany = document.form.lastCompany.value;
-		var jobRole = document.form.jobRole.value;
-		var jobType = document.form.jobType.value;
-		var experience = document.form.experience.value;
-		var month = document.form.month.value;
-		var ExpactionLocation = document.form.ExpactionLocation.value;
-		var curuntSalary = document.form.curuntSalary.value;
-		var salaryExpactation = document.form.salaryExpactation.value;
-		var maxQallification = document.form.maxQallification.value;
-		if( name== "")
-			{
-               document.form.name.focus();
-			   document.getElementById("error_msg").innerHTML = "<h3><i>Please Enter Full Name</i></h3>";
-			   return false;
-			}
-		if( mobile== "")
-			{
-			  document.form.mobile.focus();
-			  document.getElementById('error_msg').innerHTML ="<h3><i>Please Enter Mobile Number</i></h3>";
+   { //alert('hello');
+		var name = document.getElementById('name').value;
+			if( name== "")
+			{ 
+			  document.getElementById('name_error').innerHTML ="<h4>please enter full name</h4>"
 			  return false;
 			}
-        if(email=="")
-		    { 
-			   document.form.email.focus();
-			   document.getElementById('error_msg').innerHTML="<h3><i>please Enter Email ID</i></h4>";
+		var mobile = document.getElementById('mobile').value;
+			if( mobile== "")
+			{ 
+			  $('#name_error').hide();
+			  document.getElementById('mobile_error').innerHTML ="<h4>please enter mobile number</h4>"
+			  return false;
+			}
+		var email = document.getElementById('email').value;
+            if(email=="")
+		    {
+			    $('#mobile_error').hide();
+		       document.getElementById('email_error').innerHTML="<h4>please enter Email id</h4>"
 			   return false;
 		    }
-		if(lastCompany=="")
+		var lastCompany = document.getElementById('lastCompany').value;
+		    if(lastCompany=="")
 	     	{ 
-				document.form.lastCompany.focus();
-				document.getElementById('error_msg').innerHTML="<h3><i>please Enter Last Company Name</i></h3>"
+			    $('#email_error').hide();
+			    document.getElementById('lastCompany_error').innerHTML="<h4>please Enter last company Name</h4>"
 				return false;
 		    }
-		
-		if(jobRole=="")
+		var jobRole = document.getElementById('jobRole').value;
+		    if(jobRole=="")
 		    {   
-			    document.form.jobRole.focus();
-		        document.getElementById('error_msg').innerHTML="<h3><i>please Select Job Role</i></h3>"
+			     $('#lastCompany_error').hide();
+		        document.getElementById('jobRole_error').innerHTML="<h4>please select Job role</h4>"
 				return false;
 		    }
-		if(jobType=="")
+		var jobType = document.getElementById('jobType').value;
+		    if(jobType=="")
 		    { 
-			  document.form.jobType.focus();
-		       document.getElementById('error_msg').innerHTML="<h3><i>please Select Job Type</i></h3>"
+			   $('#jobRole_error').hide();
+		       document.getElementById('jobType_error').innerHTML="<h4>please select Job Type</h4>"
 			   return false;
 		    }
-		if(experience=="")
+		var experience = document.getElementById('experience').value;
+		    if(experience=="")
 		    {   
-			  document.form.experience.focus();
-		        document.getElementById('error_msg').innerHTML="<h3><i>please Select Year</i></h3>"
+			     $('#jobtype_error').hide();
+		        document.getElementById('experience_error').innerHTML="<h4>please Enter work experience</h4>"
 				return false;
 		    }
-		if(month=="")
-		    {  
-			  document.form.month.focus();
-		        document.getElementById('error_msg').innerHTML="<h3><i>please Select Month</i></h3>"
-				return false;
-		    }
-		if(ExpactionLocation=="")
+		var month = document.getElementById('month').value;
+		    if(month=="")
 		    {   
-			  document.form.ExpactionLocation.focus();
-		        document.getElementById('error_msg').innerHTML="<h3><i>please Enter Expaction Location</i></h3>"
+			     $('#experience_error').hide();
+		        document.getElementById('month_error').innerHTML="<h4>please enter work experience</h4>"
 				return false;
 		    }
-		if(curuntSalary=="")
+		var currentLocation = document.getElementById('currentLocation').value;
+		    if(currentLocation=="")
 		    {   
-			  document.form.curuntSalary.focus();
-		        document.getElementById('error_msg').innerHTML="<h3><i>please Enter Curunt Salary</i></h3>"
+			     $('#month_error').hide();
+		        document.getElementById('currentLocation_error').innerHTML="<h4>please Enter current location</h4>"
 				return false;
 		    }
-		if(salaryExpactation=="")
+		var curuntSalary = document.getElementById('curuntSalary').value;
+		    if(curuntSalary=="")
 		    {   
-			  document.form.salaryExpactation.focus();
-		        document.getElementById('error_msg').innerHTML="<h3><i>please Enter Salary Expactation</i></h3>"
+			     $('#currentLocation_error').hide();
+		        document.getElementById('maxQualification_error').innerHTML="<h4>please Enter current salary</h4>"
 				return false;
 		    }
-	    if(maxQallification=="")
+		var salaryExpactation = document.getElementById('salaryExpactation').value;
+		    if(salaryExpactation=="")
 		    {   
-			  document.form.maxQallification.focus();alert('hello');
-		        document.getElementById('error_msg').innerHTML="<h3><i>please Select Qualification</i></h3>"
+			     $('#curuntSalary_error').hide();
+		        document.getElementById('salaryExpactation_error').innerHTML="<h4>please Enter salary expaction</h4>"
 				return false;
 		    }
-		 else
-		  { 
-			window.location.assign('Master/resumePost');
-		} */
-	} 
+		var maxQallification = document.getElementById('maxQallification').value;
+		    if(maxQallification=="")
+		    {   
+			     $('#salaryExpactation_error').hide();
+		        document.getElementById('maxQallification_error').innerHTML="<h4>please Select qualification</h4>"
+				return false;
+		    }
+		var DOB = document.getElementById('DOB').value;
+		    if(DOB=="")
+		    {   
+			     $('#maxQallification_error').hide();
+		        document.getElementById('DOB_error').innerHTML="<h4>please enter data of birth</h4>"
+				return false;
+		    }			
+	}
+
 /*----------------------------------------------------End Resume Java script Validation-----------------------------------------------*/
 	
 /*------------------------------------------------Only Mobile Number Insert Validation---------------------------------------------*/
 	$(document).ready(function () {
-	$("#quantity").keypress(function (e) {
+	$("#onlyNumber").keypress(function (e) {
      if (e.which != 8 && e.which != 0 && (e.which <48 || e.which > 57)) {
         //display error message
         //$("#errmsg").html("Digits Only").show().fadeOut("slow");

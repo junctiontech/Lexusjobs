@@ -27,13 +27,16 @@
 	<!-- mandatory scripts starts added by palak on 20th june -->
 	<!-- login page style scripts starts added by ankit singh on 16th may  -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script>
+      var base_url='<?=base_url();?>';
+	</script>
   <link rel="stylesheet" href="<?php echo base_url(); ?>/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="<?php echo base_url(); ?>/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="<?php echo base_url(); ?>bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/loginstyle.css">
 	<script src="<?php echo base_url(); ?>assets/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>js/common_function.js"></script>
-	<script type="text/javascript" src="<?php echo base_url();?>js/addProject_validation.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>js/Project_validation.js"></script>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
