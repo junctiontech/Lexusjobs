@@ -725,9 +725,9 @@ function cvList()
 				$this->session->set_flashdata('category_success','message');
 				$this->session->set_flashdata ( 'message','partner Detail Upadate successfully !!!' );
 				redirect('Master/manage_Partner');
-			 }else{
+			 }else{ 
 					//$table=array('table'=>'partner');
-					$detail= $this->data['detail']=$this->PartnerModel->post($data);	
+					$detail= $this->data['detail']=$this->PartnerModel->post($data);print_r($detail);die;	
 					$this->session->set_flashdata('category_success','message');
 					$this->session->set_flashdata ( 'message','partner Detail Insert successfully !!!' );
 					redirect('Master/manage_Partner'); 
