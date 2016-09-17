@@ -264,12 +264,12 @@ Class Master extends CI_Controller
 /*---------------- End Manage Project Requierment Section----------------------------------*/
 
 /*---------------------start ADD Requierment View Function--------------------------------*/
-		function projectRequirementUpdate($id = false)
+		function projectRequirementUpdate()
 		   { 
 		   	echo $_GET['projectID'];
 		   	echo $_GET['projectRequirementID'];
-			   	    $projectname=$this->data['projectname'] =$this->Master_model->getData('projectdetails',array('projectID'=>$id));
-					$requierment =$this->data['requierment'] =$this->Master_model->getData('projectrequirement',array('projectRequirementID'=>$id));
+			   	    $projectname=$this->data['projectname'] =$this->Master_model->getData('projectdetails',array('projectID'=>$_GET['projectID']));
+					$requierment =$this->data['requierment'] =$this->Master_model->getData('projectrequirement',array('projectRequirementID'=>$_GET['projectRequirementID']));
                     $requiermentSkill=$requierment[0]->skill;
 					$skill= $this->data['skill']= explode(',',$requiermentSkill);//print_r($skill);die;
 					$this->data['projectrequirementID']=$id;
