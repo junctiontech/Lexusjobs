@@ -519,7 +519,7 @@ Class Master extends CI_Controller
 								  'resume'=>$cv,
 								  'createdBY'=>'admin',
 								  'createdON'=>date('d-m-Y H:i:s'),
-								 );print_r($data);die;
+								 );
 					if($this->input->post('resumeID'))
 					  {
 						$resumeID=$this->input->post('resumeID');
@@ -537,7 +537,7 @@ Class Master extends CI_Controller
 								$this->session->set_flashdata('message','Emial id or mobile number already registered...');
 								redirect($_SERVER['HTTP_REFERER']);
 							  }else 
-									$resumePost= $this->data['resumePost']=$this->CandidateModel->post($data);print_r($resumePost);die;
+									$resumePost= $this->data['resumePost']=$this->CandidateModel->post($data);
 									$this->session->set_flashdata('category_success','message');
 									$this->session->set_flashdata ( 'message','Resume Insert successfully !!!' );
 									redirect('Master/manageResume');
