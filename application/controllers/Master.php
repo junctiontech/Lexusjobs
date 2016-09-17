@@ -903,8 +903,8 @@ function clientDelete($id)
    	$method='POST';
    	$data=json_encode($_POST,true);//echo $data;die;
    	//$object=new Curl();
-   	$response=Curl::queryCurl($method,$url,$data);
-   	$result=json_decode($response,true);print_r($result);die;
+   	$response=Curl::queryCurl($method,$url,$data);print_r($result);die;
+   	$result=json_decode($response,true);
    	if($result['code']=='200')
    	{
    		$this->session->set_flashdata('category_success', 'message');
