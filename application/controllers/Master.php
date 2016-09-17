@@ -717,7 +717,7 @@ function cvList()
 						  'contactNumber'=>$this->input->post('contactNumber'),
 	   					  'emailID'=>$this->input->post('emailID'),
 						  'webSite'=>$this->input->post('webSite'),
-						 );  
+						 );print_r($data);die;  
 			if($partnerID !=="")
 			 { 
 		        //$table = array('table'=>'partner');
@@ -727,7 +727,7 @@ function cvList()
 				redirect('Master/manage_Partner');
 			 }else{ 
 					//$table=array('table'=>'partner');
-					$detail= $this->data['detail']=$this->PartnerModel->post($data);print_r($detail);die;	
+					$detail= $this->data['detail']=$this->PartnerModel->post($data);	
 					$this->session->set_flashdata('category_success','message');
 					$this->session->set_flashdata ( 'message','partner Detail Insert successfully !!!' );
 					redirect('Master/manage_Partner'); 
