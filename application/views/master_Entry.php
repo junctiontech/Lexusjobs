@@ -38,7 +38,7 @@
 <!--------------------------Start Dropdown Div ----------------------------->
 			<div align="center" class="row">
 				<div id ="" class="panel panel-default">
-					<label class="col-sm-2 control-label" class="form-control" for="inputlg"><h4><b>Master Entry<span style="color:red;">*</span></b></h4></label>
+					<label class="col-sm-2 control-label" class="form-control" for="inputlg"><h4>Master Entry<span style="color:red;">*</span></h4></label>
 					<div class="col-sm-8 control-label" class="form-control input-lg">
 						<select  role="menu"  name="masterEntryName" id="s2example-1" onclick="masterEntryList(this.value);" class="form-control input-lg">
 							<option value="" selected>Please Select Master Entry</option>
