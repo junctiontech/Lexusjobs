@@ -492,27 +492,17 @@ Class Master extends CI_Controller
 					$this->session->set_flashdata('message','Please Enter Qualification');
 					redirect($_SERVER['HTTP_REFERER']);
 				}else */
+
 		 			$file = $_FILES['resume']['name'];
 		 			$path= pathinfo($file);
-		 			$fileExtension = $path['extension'];
+		 			$fileExtension = $path['extension'];print_r($fileExtension);die;
 		 			$tmp  = $_FILES['resume']['tmp_name'];
 					$size=$_FILES['resume']['size'];
 					$uniq_id=substr(md5(microtime()),rand(0,26),10);
 					$filename = $uniq_id. '.' .$fileExtension;
-					$ab = move_uploaded_file($tmp,"resume/".$filename);//print_r($ab);die;
+					$moveCV= move_uploaded_file($tmp,"resume/".$filename);//print_r($moveCV);die;
 					$cv = $filename;
-				    // $check=array(
-								// 'mobile'=>$this->input->post('mobile'),
-								// 'email'=>$this->input->post('email'),
-							    // );					
-					// $checkEmail = $this->data['checkEmail']=$this->Master_model->getData('resumepost',$check);
-                    // if(count($checkEmail)>0)
-					// {
-						// $this->session->set_flashdata('category_error','message');
-						// $this->session->set_flashdata('message','Emial id or mobile number already registered...');
-				        // redirect($_SERVER['HTTP_REFERER']);
-					// }
-						$data = array(
+				    $data = array(
 								  'name'=>$this->input->post('name'),
 								  'mobile'=>$this->input->post('mobile'),  
 								  'email'=>$this->input->post('email'),
@@ -547,7 +537,7 @@ Class Master extends CI_Controller
 								$this->session->set_flashdata('message','Emial id or mobile number already registered...');
 								redirect($_SERVER['HTTP_REFERER']);
 							  }else 
-									$resumePost= $this->data['resumePost']=$this->CandidateModel->post($data);//print_r($resumePost);die;
+									$resumePost= $this->data['resumePost']=$this->CandidateModel->post($data);print_r($resumePost);die;
 									$this->session->set_flashdata('category_success','message');
 									$this->session->set_flashdata ( 'message','Resume Insert successfully !!!' );
 									redirect('Master/manageResume');
