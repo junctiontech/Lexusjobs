@@ -25,10 +25,16 @@
 			</footer>
 			</div>
 			</div>
-			
-		<div class="modal  custom-width fade" id="modal-8" data-backdrop="static" >
-	        <div class="modal-dialog" style="width: 75%">
-			    <div class="modal-content">
+	
+	<div class="modal  custom-width fade" id="modal-6" data-backdrop="static" >
+	     <div class="modal-dialog" style="width: 75%">
+			  <div class="modal-content">
+		      </div>
+		 </div>
+	</div>			
+	<div class="modal  custom-width fade" id="modal-8" data-backdrop="static" >
+	     <div class="modal-dialog" style="width: 75%">
+			  <div class="modal-content">
 		      </div>
 		 </div>
 	</div>	

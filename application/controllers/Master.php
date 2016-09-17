@@ -896,13 +896,13 @@ function clientDelete($id)
    }
    /*---------------End View  CV Information Section----------------------------------*/
    
-   /* function reportRegister()
+   function reportRegister()
    {
    	$url='http://'.$_SERVER['HTTP_HOST'].'/cpanel/Login/reportQuery';
    	$method='POST';
    	$data=json_encode($_POST,true);//echo $data;die;
-   	$object=new Curl();
-   	$response=$object->postCurl($method,$url,$data);
+   //	$object=new Curl();
+   	$response=$Curl::postCurl($method,$url,$data);
    	$result=json_decode($response,true);
    	if($result['code']=='200')
    	{
@@ -916,7 +916,7 @@ function clientDelete($id)
    		$this->session->set_flashdata('message', $this->config->item("user").'Your Query not registerd please try again.....');
    		redirect($result['url']);
    	}
-   }    */
+   }    
    
 /*---------------------------- Start master Entry Function For Insert Datat------------------------*/
    /*function master()
