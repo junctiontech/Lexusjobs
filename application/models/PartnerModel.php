@@ -6,7 +6,7 @@ class PartnerModel extends CI_Model
 	//private $apiUrl='http://localhost:8080/lexusjobsapi/partnerApi.php';
 	
  	function post($data)
-	 {
+	 { echo "hiiiiiiiiiiii";die;
 		 $param=array('data'=>$data);
 		 $url=$this->apiUrl;
 		 $method='POST';
