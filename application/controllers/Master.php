@@ -902,20 +902,20 @@ function clientDelete($id)
    	$url='http://'.$_SERVER['HTTP_HOST'].'/cpanel/Login/reportQuery';
    	$method='POST';
    	$data=json_encode($_POST,true);//echo $data;die;
-   	$object=new Curl();
-   	$response=$object->postCurl($method,$url,$data);
-   	$result=json_decode($response,true);
-   	if($result['code']=='200')
+   	//$object=new Curl();
+   	$response=Curl::queryCurl($method,$url,$data);//print_r($response);die;
+   //	$result=json_decode($response,true);
+   	if($response['code']=='200')
    	{
    		$this->session->set_flashdata('category_success', 'message');
    		$this->session->set_flashdata('message', $this->config->item("user").'Your Query registerd successfully..... ');
-   		redirect($result['url']);
+   		redirect($response['url']); 
    	}
    	else
    	{
    		$this->session->set_flashdata('category_error', 'message');
    		$this->session->set_flashdata('message', $this->config->item("user").'Your Query not registerd please try again.....');
-   		redirect($result['url']);
+   		redirect($response['url']);
    	}
    }    
    

@@ -8,7 +8,9 @@
 	</div>
 	<div class="modal-body">
 		<form role="form" method="POST" class="" action="<?=base_url();?>Master/reportRegister" style="border:#d1d1d1 1px solid; padding: 25px;">
-			<input type="hidden" name="reportIdentity" value="web"/>
+			<input type="hidden" name="applicationID" value="JobPortal"/> 
+			<input type="hidden" name="reportDevice" value="web"/>
+			<input type="hidden" name="mobile" value="1234567890"/>
 			<input type="hidden" name="url" value="<?=$_SERVER['HTTP_REFERER'];?>"/>
 			<div class="form-group">
 				<label class="control-label" for="username">Email Id</label>
