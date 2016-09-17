@@ -16,7 +16,7 @@ class Curl
 		  curl_setopt($ch,CURLOPT_TIMEOUT,1800 ); // same for here. Timeout in seconds.
 		  $response = curl_exec($ch); //echo $response;die;
 		  curl_close ($ch); 
-		  $result=json_decode($response,true);//print_r($result);die;//echo $result['imageName'];die;
+		  $result=json_decode($response,true);print_r($result);die;//echo $result['imageName'];die;
 		  return $result;
 	}
 	
