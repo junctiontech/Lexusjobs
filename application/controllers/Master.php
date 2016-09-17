@@ -264,16 +264,20 @@ Class Master extends CI_Controller
 /*---------------- End Manage Project Requierment Section----------------------------------*/
 
 /*---------------------start ADD Requierment View Function--------------------------------*/
-		function projectRequirementUpdate()
-		   { 
-		   	echo $_GET['projectID'];
-		   	echo $_GET['projectRequirementID'];
-			   	    $projectname=$this->data['projectname'] =$this->Master_model->getData('projectdetails',array('projectID'=>$_GET['projectID']));
-					$requierment =$this->data['requierment'] =$this->Master_model->getData('projectrequirement',array('projectRequirementID'=>$_GET['projectRequirementID']));
+		function projectRequirementUpdate($id = false)
+		   {
+			   if(isset($_GET['id'])&&!empty($_GET['id']))
+				 {
+					$this->data['projectID']=$_GET['id'];
+				 }
+			   if(isset($id) && !empty($id))
+				 {
+					$projectname=$this->data['projectname'] =$this->Master_model->getData('projectdetails',array('projectID'=>$id));
+					$requierment =$this->data['requierment'] =$this->Master_model->getData('projectrequirement',array('projectRequirementID'=>$id));
                     $requiermentSkill=$requierment[0]->skill;
 					$skill= $this->data['skill']= explode(',',$requiermentSkill);//print_r($skill);die;
 					$this->data['projectrequirementID']=$id;
-				
+				}
 			 $requierment =$this->data['requierment'] =$this->RequiermentModel->get(array('projectRequirementID'=>$id));
              $clientListName=$this->data['clientListName']=$this->ClientModel->get();
 			 $partnerListName=$this->data['partnerListName']=$this->PartnerModel->get();
