@@ -495,7 +495,7 @@ Class Master extends CI_Controller
 
 		 			$file = $_FILES['resume']['name'];
 		 			$path= pathinfo($file);
-		 			$fileExtension = $path['extension'];print_r($fileExtension);die;
+		 			$fileExtension = $path['extension'];
 		 			$tmp  = $_FILES['resume']['tmp_name'];
 					$size=$_FILES['resume']['size'];
 					$uniq_id=substr(md5(microtime()),rand(0,26),10);
