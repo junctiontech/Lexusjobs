@@ -519,7 +519,7 @@ Class Master extends CI_Controller
 								  'resume'=>$cv,
 								  'createdBY'=>'admin',
 								  'createdON'=>date('d-m-Y H:i:s'),
-								 );
+								 );print_r($data);die;
 					if($this->input->post('resumeID'))
 					  {
 						$resumeID=$this->input->post('resumeID');
