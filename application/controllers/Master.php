@@ -521,7 +521,7 @@ Class Master extends CI_Controller
 								  'jobType'=>$this->input->post('jobType'),
 								  'experience'=>$this->input->post('experience'),
 								  'month'=>$this->input->post('month'), 
-								  'ExpactionLocation'=>$this->input->post('ExpactionLocation'),
+								  'currentLocation'=>$this->input->post('currentLocation'),
 								  'curuntSalary'=>$this->input->post('curuntSalary'),
 								  'salaryExpactation'=>$this->input->post('salaryExpactation'), 
 								  'maxQallification'=>$this->input->post('maxQallification'),
@@ -546,8 +546,8 @@ Class Master extends CI_Controller
 								$this->session->set_flashdata('category_error','message');
 								$this->session->set_flashdata('message','Emial id or mobile number already registered...');
 								redirect($_SERVER['HTTP_REFERER']);
-							  }else echo "hello raj";die;
-									$resumePost= $this->data['resumePost']=$this->CandidateModel->post($data);
+							  }else 
+									$resumePost= $this->data['resumePost']=$this->CandidateModel->post($data);print_r($resumePost);die;
 									$this->session->set_flashdata('category_success','message');
 									$this->session->set_flashdata ( 'message','Resume Insert successfully !!!' );
 									redirect('Master/manageResume');
