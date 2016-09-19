@@ -400,7 +400,6 @@ Class Master extends CI_Controller
 			$this->session->set_flashdata ( 'message','Project Requirement Successfully Update..!!!');
 			redirect("Master/manageProjectRequirement?projectID=$projectID");
 		    }else{ 
-		    	  
 		    	  $projectID=$this->input->post('projectID');
 		    	  $skill = $this->input->post('skill');
 			      $skills = implode(',',$skill);
@@ -415,7 +414,7 @@ Class Master extends CI_Controller
 				    			'clientName'=>$this->input->post('clientName'),
 				    			'partnerName'=>$this->input->post('partnerName'),
 				    			'experience'=>$this->input->post('experience'),
-			      		        'fillVacancy'=>$this->input->post(0),
+			      		        'fillVacancy'=>'0',
 			      				'month'=>$this->input->post('month'),
 				    			'jobRole'=>$this->input->post('jobRole'),
 				    			'salary'=>$this->input->post('salary'),
