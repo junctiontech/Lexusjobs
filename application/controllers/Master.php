@@ -400,7 +400,7 @@ Class Master extends CI_Controller
 			$this->session->set_flashdata ( 'message','Project Requirement Successfully Update..!!!');
 			redirect("Master/manageProjectRequirement?projectID=$projectID");
 		    }else{ 
-		    	  $projectID=$this->input->post('projectID');
+		    	  /*$projectID=$this->input->post('projectID');
 		    	  $skill = $this->input->post('skill');
 			      $skills = implode(',',$skill);
 			      $data = array(
@@ -420,7 +420,7 @@ Class Master extends CI_Controller
 				    			'salaryDuration'=>$this->input->post('salaryDuration'),
 				    			'createdBY'=>'admin',
 				    			'createdON'=>date('d-m-Y H:i:s'),
-			    				);print_r($data);die;
+			    				);print_r($data);die;*/
 		    	$project= $this->data['project']=$this->RequiermentModel->post($data);//print_r($project);die;	
 				$this->session->set_flashdata('category_success','message');
 				$this->session->set_flashdata ( 'message','Project Requirement successfully Enter !!!' );
