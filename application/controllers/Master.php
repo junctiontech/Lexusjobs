@@ -226,6 +226,18 @@ Class Master extends CI_Controller
 					$this->session->set_flashdata ( 'message','Project Update Successfully..!!!');
 					redirect('Master/manageProject');
 					 }else{
+					 	
+					 	$data = array(
+							  'projectName'=>$this->input->post('projectName'),
+							  'projectType'=>$this->input->post('projectType'),
+							  'projectStartDate'=>$this->input->post('projectStartDate'),
+							  'clientName'=>$this->input->post('clientName'),
+							  'partnerName'=>$this->input->post('partnerName'),
+							  'projectDuration'=>$this->input->post('projectDuration'),
+							  'status'=>'Active',	
+							  'createdBY'=>'admin',
+							  'createdON'=>date('d-m-Y H:i:s'),
+							 );
 						  $projectpost = $this->data['projectpost']=$this->ProjectModel->post($data);
 						  $this->session->set_flashdata('category_success','message');
 						  $this->session->set_flashdata ( 'message','Project Create successfully !!!' );
