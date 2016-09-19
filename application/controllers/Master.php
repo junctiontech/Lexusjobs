@@ -415,7 +415,7 @@ Class Master extends CI_Controller
 				    			'clientName'=>$this->input->post('clientName'),
 				    			'partnerName'=>$this->input->post('partnerName'),
 				    			'experience'=>$this->input->post('experience'),
-			      		        'fillVacancy'=>$this->input->post(''),
+			      		        'fillVacancy'=>$this->input->post('0'),
 			      				'month'=>$this->input->post('month'),
 				    			'jobRole'=>$this->input->post('jobRole'),
 				    			'salary'=>$this->input->post('salary'),
