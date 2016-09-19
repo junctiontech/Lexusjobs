@@ -237,7 +237,7 @@ Class Master extends CI_Controller
 							  'status'=>'Active',	
 							  'createdBY'=>'admin',
 							  'createdON'=>date('d-m-Y H:i:s'),
-							 );print_r($data);die;
+							 );
 						  $projectpost = $this->data['projectpost']=$this->ProjectModel->post($data);
 						  $this->session->set_flashdata('category_success','message');
 						  $this->session->set_flashdata ( 'message','Project Create successfully !!!' );
