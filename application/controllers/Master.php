@@ -422,7 +422,7 @@ Class Master extends CI_Controller
 				    			'salaryDuration'=>$this->input->post('salaryDuration'),
 				    			'createdBY'=>'admin',
 				    			'createdON'=>date('d-m-Y H:i:s'),
-			    				);print_r($data);die;
+			    				);//print_r($data);die;
 		    	$project= $this->data['project']=$this->RequiermentModel->post($data);//print_r($project);die;	
 				$this->session->set_flashdata('category_success','message');
 				$this->session->set_flashdata ( 'message','Project Requirement successfully Enter !!!' );
