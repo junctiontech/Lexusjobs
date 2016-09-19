@@ -59,7 +59,7 @@ class CandidateModel extends CI_Model
 	 {	
 		$var=str_replace(' ','_',$data);//echo $var;die;
 		//$url='http://localhost:8080/lexusjobsapi/candidateSearchApi.php?value='.$var;
-		$apiUrl='http://192.168.1.151/lexusjobsapi/candidateSearchApi.php?value='.$var;
+		$url='http://192.168.1.151/lexusjobsapi/candidateSearchApi.php?value='.$var;
 	 	$method='get';
 	 //	$CURL= new Curl();
 	 	$profile=Curl::getCurl($method,$url);//print_r($profile);die;
