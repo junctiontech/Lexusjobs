@@ -640,7 +640,7 @@ function cvList()
 		if(isset($id) && !empty($id))
 		{  
 			$projectRequiermentDetail =$this->data['projectRequiermentDetail'] = $this->RequiermentModel->get(array('projectID'=>$id));
-			//print_r($projectRequiermentDetail);die;
+
 			if(count($projectRequiermentDetail)>0 && !empty($projectRequiermentDetail))
 			{
 				foreach ($projectRequiermentDetail as $list)
