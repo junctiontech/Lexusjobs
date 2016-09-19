@@ -37,9 +37,9 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label" for="field-1">Contact Persone<span style="color:red;">*</span></label>
+							<label class="col-sm-2 control-label" for="field-1">Contact Person<span style="color:red;">*</span></label>
 							<div class="col-sm-8">
-								<input type="text" class="form-control input-lg"  maxlength="30" name="contactPerson" placeholder=" Enter Contact Persone"value="<?php if(isset($updateDetail[0]->contactPerson)){ echo $updateDetail[0]->contactPerson; }?>" required>
+								<input type="text" class="form-control input-lg"  maxlength="30" name="contactPerson" placeholder=" Enter Contact Person"value="<?php if(isset($updateDetail[0]->contactPerson)){ echo $updateDetail[0]->contactPerson; }?>" required>
 							</div>
 						</div>
 						<div class="form-group">
@@ -51,7 +51,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="field-1">Contact Number<span style="color:red;">*</span></label>
 							<div class="col-sm-8">
-								<input type="text" class="form-control input-lg" maxlength="12" id="quantity" name="contactNumber" placeholder="Please Enter Contact Number" value="<?php if(isset($updateDetail[0]->contactNumber)){ echo $updateDetail[0]->contactNumber;}?>" required>
+								<input type="text" class="form-control input-lg" maxlength="12" id="onlyNumber" name="contactNumber" placeholder="Please Enter Contact Number" value="<?php if(isset($updateDetail[0]->contactNumber)){ echo $updateDetail[0]->contactNumber;}?>" required>
 							</div>
 						</div>
 						<div class="form-group">

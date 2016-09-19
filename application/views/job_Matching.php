@@ -106,7 +106,8 @@
 								</tr>
 							</tfoot>
 						<tbody>
-						<?php $i=1; foreach($resumepost as $list){ ?>
+						<?php if(isset($resumepost)&& !empty($resumepost)){
+							$i=1; foreach($resumepost as $list){ ?>
 							<tr>
 								<td><?=$i;?></td>
 								<td><?php if(isset($list->name)){ echo $list->name; } ?></td>
@@ -119,7 +120,7 @@
 									<a href="<?php echo base_url(); ?>Master/viewInformation/<?=$list->resumeID;?>"class="btn btn-info"><i class="fa-eye"></i>View Information</a> 
 								</td>
 							</tr>
-							<?php $i++; } ?>
+						<?php $i++; }}?>
 						</tbody>
 					</table>
 				</div>

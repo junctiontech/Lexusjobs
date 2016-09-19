@@ -2,8 +2,8 @@
 //include(APPPATH.'libraries/Curl.php');
 class PartnerModel extends CI_Model
 {
-	private $apiUrl='http://192.168.1.151/lexusjobsapi/partnerApi.php';
-	//private $apiUrl='http://localhost:8080/lexusjobsapi/partnerApi.php';
+	//private $apiUrl='http://192.168.1.151/lexusjobsapi/partnerApi.php';
+	private $apiUrl='http://localhost:8080/lexusjobsapi/partnerApi.php';
 	
  	function post($data)
 	 { 
@@ -11,7 +11,7 @@ class PartnerModel extends CI_Model
 		 $url=$this->apiUrl;
 		 $method='POST';
 		// $CURL= new Curl();
-		 $profile=Curl::postCurl($method,$url,$param);print_r($profile);die;
+		 $profile=Curl::postCurl($method,$url,$param);//print_r($profile);die;
 		 return $profile;
 	}
 		

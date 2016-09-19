@@ -58,7 +58,8 @@
 								</tr>
 							</tfoot>
 							<tbody>
-							<?php $i=1; foreach($clientList as $list){?>
+							<?php if(isset($clientList) && !empty($clientList)){
+								$i=1; foreach($clientList as $list){?>
 								<tr>
 									<td><?=$i;?></td>
 									<td><?php if(isset($list->clientName)){ echo $list->clientName; } ?></td>
@@ -80,7 +81,7 @@
 										<?php// }?>
 									</td>
 								</tr>
-								<?php $i++; } ?>
+							<?php $i++;}}?>
 						</tbody>	
 					</table>
 				</div>

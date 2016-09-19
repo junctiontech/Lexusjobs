@@ -31,13 +31,13 @@ class Curl
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
 		curl_setopt($ch,CURLOPT_CONNECTTIMEOUT ,1800); //timeout in seconds
 		curl_setopt($ch,CURLOPT_TIMEOUT,1800 ); // same for here. Timeout in seconds.
-		$response = curl_exec($ch);//echo $response;die;//print_r($response);die;//
+		$response = curl_exec($ch);// echo $response;die;//print_r($response);die;//
 		curl_close ($ch);
 		$result=json_decode($response);//print_r($result);die;//echo $result['imageName'];die;
 		return $result;
 	}
 	
-	
+	/*------------------------------------------ for report bug query insert -----------------------------------*/
 	static public function queryCurl($method,$url,$param)
 	{	 // echo $url;echo $method;//print_r($param);die;
 	$ch = curl_init(); // create curl handle

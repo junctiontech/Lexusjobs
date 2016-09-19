@@ -2,8 +2,8 @@
 //include(APPPATH.'libraries/Curl.php');
 class RequiermentModel extends CI_Model
 {
-	private $apiUrl='http://192.168.1.151/lexusjobsapi/requiermentApi.php';
-	//private $apiUrl='http://localhost:8080/lexusjobsapi/requiermentApi.php';
+	//private $apiUrl='http://192.168.1.151/lexusjobsapi/requiermentApi.php';
+	private $apiUrl='http://localhost:8080/lexusjobsapi/requiermentApi.php';
 	
 	function post($data)
 	 {
@@ -34,7 +34,7 @@ class RequiermentModel extends CI_Model
 				 $url=$this->apiUrl.'?data='.$data;
 				 $method='get';
 				 //$CURL= new Curl();
-				 $profile=Curl::getCurl($method,$url);//print_R($profile->result);die;
+				 $profile=Curl::getCurl($method,$url);//print_r($profile->result);die;
 				 return $profile->result;
 		  }
 	      else

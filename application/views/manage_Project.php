@@ -80,7 +80,7 @@
 										class="btn btn-danger btn-sm btn-icon icon-left"><i class="fa fa-trash-o"></i> Delete 
 										</a>
 										<a href="<?php echo base_url(); ?>Master/shortlist/<?=$list->projectID; ?>" class="btn btn-success btn-sm btn-icon icon-left"><i class="fa-filter"></i> ShortlistCV</a>
-										<a href="<?php echo base_url(); ?>Master/manageProjectRequirement/<?=$list->projectID; ?>" class="btn btn-secondary btn-sm btn-icon icon-left"><i class="fa fa-bars" aria-hidden="true"></i> Requirement</a>
+										<a href="<?php echo base_url(); ?>Master/manageProjectRequirement?projectID=<?=$list->projectID; ?>" class="btn btn-secondary btn-sm btn-icon icon-left"><i class="fa fa-bars" aria-hidden="true"></i> Requirement</a>
 										<?php
 										//if($list->status =='Active'){ ?>
 										<!--<a href="<?php echo base_url();?>Master/status" class="btn btn-success btn-sm btn-icon icon-left">Inactive</a>

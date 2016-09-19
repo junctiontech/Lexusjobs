@@ -21,10 +21,10 @@ Class Master extends CI_Controller
 		$this->load->library('upload');
 		
 	 }
-/*-----------------------------Start All Master Entry And Master Value Functions Section--------------------------*/
+/*-----------------------Start All Master Entry And Master Value Functions Section----------------*/
 	 
 /*------------------------------------Master Entry view section Function--------------------------*/
-    function masterEntry($id=false)
+    function masterEntry()
      {
 	     $masterList = $this->data['masterList']=$this->MasterEntryModel->get();
 	     $this->parser->parse('include/header',$this->data);
@@ -36,7 +36,7 @@ Class Master extends CI_Controller
 /*----------------------------------Start Master Value Inseert function------------------------------------------------*/
     function masterValuePost() 
      { 
-     $data=$this->input->post('data');//echo $data;die;
+        $data=$this->input->post('data');//echo $data;die;
 		$explode=explode('&',$data);
 		if(isset($explode) && !empty($explode))
 		{
@@ -247,38 +247,42 @@ Class Master extends CI_Controller
 /*---------------------------End Project Delete Function Section--------------------*/
 
 /*--------------------Start Manage Project Requierment FUnction--------------------*/  
-   function manageProjectRequirement($id = false)
+   function manageProjectRequirement()
      {
-		  if(isset($id) && !empty($id))
-		   {
-	          $projectRequirementList=$this->data['projectRequirementList']=$this->RequiermentModel->get(array('projectID'=>$id));
-			  $this->data['id']=$id;
-           }
-		$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
-	    $master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
-		$this->parser->parse('include/header',$this->data);
-		$this->parser->parse('include/left_menu',$this->data);
-		$this->load->view('manage_requierment',$this->data);
-		$this->parser->parse('include/footer',$this->data);
+		    if(isset($_GET['projectID']) && !empty($_GET['projectID']))
+		    {
+		    	$id=$this->data['id']=$_GET['projectID'];
+	            $projectRequirementList=$this->data['projectRequirementList']=$this->RequiermentModel->get(array('projectID'=>$id));
+			 }
+			$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
+		    $master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
+			$this->parser->parse('include/header',$this->data);
+			$this->parser->parse('include/left_menu',$this->data);
+			$this->load->view('manage_requierment',$this->data);
+			$this->parser->parse('include/footer',$this->data);
      }
 /*---------------- End Manage Project Requierment Section----------------------------------*/
 
 /*---------------------start ADD Requierment View Function--------------------------------*/
-		function projectRequirementUpdate($id = false)
-		   {
-			   if(isset($_GET['id'])&&!empty($_GET['id']))
+		function projectRequirementUpdate()
+		   { 
+		   	  if(isset($_GET['projectID'])&&!empty($_GET['projectID']))
 				 {
-					$this->data['projectID']=$_GET['id'];
+					$projectID=$this->data['projectID']=$_GET['projectID'];
 				 }
-			   if(isset($id) && !empty($id))
+				 if(isset($_GET['requiermentID'])&&!empty($_GET['requiermentID']))
 				 {
-					$projectname=$this->data['projectname'] =$this->Master_model->getData('projectdetails',array('projectID'=>$id));
-					$requierment =$this->data['requierment'] =$this->Master_model->getData('projectrequirement',array('projectRequirementID'=>$id));
+				 	$requiermentID=$this->data['requiermentID']=$_GET['requiermentID'];
+				 }
+			   if(isset($requiermentID) && !empty($requiermentID))
+				 { 
+					$projectname=$this->data['projectname'] =$this->ProjectModel->get(array('projectID'=>$projectID));
+					$requierment =$this->data['requierment'] =$this->RequiermentModel->get(array('projectRequirementID'=>$requiermentID));
                     $requiermentSkill=$requierment[0]->skill;
 					$skill= $this->data['skill']= explode(',',$requiermentSkill);//print_r($skill);die;
-					$this->data['projectrequirementID']=$id;
+					$this->data['projectrequirementID']=$requiermentID;
 				}
-			 $requierment =$this->data['requierment'] =$this->RequiermentModel->get(array('projectRequirementID'=>$id));
+			 //$requierment =$this->data['requierment'] =$this->RequiermentModel->get(array('projectRequirementID'=>$requiermentID));
              $clientListName=$this->data['clientListName']=$this->ClientModel->get();
 			 $partnerListName=$this->data['partnerListName']=$this->PartnerModel->get();
 			 $master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));
@@ -379,15 +383,15 @@ Class Master extends CI_Controller
 							  );
 		if($projectRequirementID !== "")
 		    { 
-			$projectrequirementUpdate=$this->data['projectrequirementUpdate']=$this->Master_model->put('projectrequirement',$data,array('projectRequirementID'=>$projectRequirementID));
+			$projectrequirementUpdate=$this->data['projectrequirementUpdate']=$this->RequiermentModel->put($data,array('projectRequirementID'=>$projectRequirementID));
 			$this->session->set_flashdata('category_success','message');
 			$this->session->set_flashdata ( 'message','Project Requirement Successfully Update..!!!');
-			redirect("Master/manageProjectRequirement/$projectID");
-		    }else{
-			    $project= $this->data['project']=$this->Master_model->post('projectrequirement',$data);//print_r($project);die;	
+			redirect("Master/manageProjectRequirement?projectID=$projectID");
+		    }else{ //print_r($data);die;
+			    $project= $this->data['project']=$this->RequiermentModel->post($data);//print_r($project);die;	
 				$this->session->set_flashdata('category_success','message');
 				$this->session->set_flashdata ( 'message','Project Requirement successfully Enter !!!' );
-				redirect("Master/manageProjectRequirement/$projectID");
+				redirect("Master/manageProjectRequirement?projectID=$projectID");
 			}
 		}
 	}
@@ -396,10 +400,10 @@ Class Master extends CI_Controller
 /*-------------------------Start Project Requierment Delete Function--------------------------*/
 		function projectRequiermentDelete($info)
 		{
-		   $delete=$this->Master_model->delete('projectrequirement',array('projectrequirementID'=>$info));
-		  $this->session->set_flashdata('category_success','message');
-		  $this->session->set_flashdata ('message',"Your Record successfully  delete !!!" );
-		  redirect($_SERVER['HTTP_REFERER']);
+		     $delete=$this->RequiermentModel->delete(array('projectrequirementID'=>$info));
+		     $this->session->set_flashdata('category_success','message');
+		     $this->session->set_flashdata ('message',"Your Record successfully  delete !!!" );
+		     redirect($_SERVER['HTTP_REFERER']);
 		}  
 /*--------------------End Project Requierment Delete Function---------------------------------*/
 
@@ -494,7 +498,7 @@ Class Master extends CI_Controller
 				}else */
 
 		 			$file = $_FILES['resume']['name'];
-		 			$path= pathinfo($file);
+		 			$path= pathinfo($file);//print_r($path);die;
 		 			$fileExtension = $path['extension'];
 		 			$tmp  = $_FILES['resume']['tmp_name'];
 					$size=$_FILES['resume']['size'];
@@ -518,7 +522,9 @@ Class Master extends CI_Controller
 								  'DOB'=>$this->input->post('DOB'),
 								  'resume'=>$cv,
 								  'createdBY'=>'admin',
+				    			  'chnagedBY'=>'admin',
 								  'createdON'=>date('d-m-Y H:i:s'),
+				    			  'changedON'=>date('d-m-Y H:i:s'),
 								 );
 					if($this->input->post('resumeID'))
 					  {
@@ -567,7 +573,7 @@ function cvList()
 		$jobRole= $this->input->post('jobRole');
 		if(!empty($experience) || !empty($jobType) || !empty($qualification) || !empty($jobRole))
 		 {	
-			 	if(!empty($experience)){ $query =" experience<='$experience'"; }
+			 	if(!empty($experience)){ $query =" experience>='$experience'"; }
 				if(!empty($jobType)){ $query.=" and jobType='$jobType'"; }
 				if(!empty($qualification)){ $query.=" and maxQallification='$qualification'"; }
 				if(!empty($jobRole)){ $query.=" and jobRole='$jobRole'"; }
@@ -595,12 +601,12 @@ function cvList()
     {
        if(isset($id) && !empty($id))
 		{
-            $viewInfo=$this->data['viewInfo']=$this->Master_model->getData('resumepost',array('resumeID'=>$id));
+            $viewInfo=$this->data['viewInfo']=$this->CandidateModel->get(array('resumeID'=>$id));
 		}
-		$master_projectType=$this->data['master_projectType']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'1'));
-		$master_jobrole=$this->data['master_jobrole']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'2'));
-	    $master_qualification=$this->data['master_qualification']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'3'));
-        $master_jobtype=$this->data['master_jobtype']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'4'));
+		$master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));
+		$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
+	    $master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
+        $master_jobtype=$this->data['master_jobtype']=$this->MasterValueModel->get(array('masterEntryID'=>'4'));
         $this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('view_Info',$this->data);
@@ -623,7 +629,7 @@ function cvList()
    function shortlist($id = false)
     {    		 
 	    
-        $projectName=$this->data['projectName'] = $this->Master_model->getData('projectdetails',array('projectID'=>$id));
+        $projectName=$this->data['projectName'] = $this->ProjectModel->get(array('projectID'=>$id));
 		foreach ($projectName as $name)
 		{
 			$projectname = array(
@@ -632,27 +638,30 @@ function cvList()
 		}     
 		$projectname=$this->data['projectname']=$name->projectName;
 		if(isset($id) && !empty($id))
-		{   
-			$projectRequiermentDetail =$this->data['projectRequiermentDetail'] = $this->Master_model->getData('projectrequirement',array('projectID'=>$id));
-			foreach ($projectRequiermentDetail as $list)
-			{ //print_r($list);die;
+		{  
+			$projectRequiermentDetail =$this->data['projectRequiermentDetail'] = $this->RequiermentModel->get(array('projectID'=>$id));
+			//print_r($projectRequiermentDetail);die;
+			if(count($projectRequiermentDetail)>0 && !empty($projectRequiermentDetail))
+			{
+				foreach ($projectRequiermentDetail as $list)
+				{ //print_r($list);die;
 				//$data = array(
-							  $experience = $list->experience;
-							  $jobRole=$list->jobRole;
-							  $jobType =$list->jobType;	  
-							  $maxQallification=$list->maxQualification;	  
-							// );
+				$experience = $list->experience;
+				$jobRole=$list->jobRole;
+				$jobType =$list->jobType;
+				$maxQallification=$list->maxQualification;
+				// );
 				$short_Resume=$this->data['short_Resume'][]=$this->Master_model->shortlistCv($jobRole,$experience,$jobType,$maxQallification);
 				//echo '<pre>' ;print_r($short_Resume);echo'</pre>';die;
 				$jobRole=$this->data['jobRole'][]=$list->jobRole;
 				$projectRequirementID=$this->data['projectRequirementID'][]=$list->projectRequirementID;
-			}//die;//print_r($short_Resume);die;
+				}//die;//print_r($short_Resume);die;
+			}
 		} 
-		
-		$master_projectType=$this->data['master_projectType']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'1'));
-		$master_jobrole=$this->data['master_jobrole']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'2'));
-		$master_qualification=$this->data['master_qualification']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'3'));
-		$master_jobtype=$this->data['master_jobtype']=$this->Master_model->getData('mastervalue',array('masterEntryID'=>'4'));
+		$master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));
+		$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
+		$master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
+		$master_jobtype=$this->data['master_jobtype']=$this->MasterValueModel->get(array('masterEntryID'=>'4'));
 		$this->parser->parse('include/header',$this->data);
 		$this->parser->parse('include/left_menu',$this->data);
 		$this->load->view('shortlist',$this->data);
@@ -670,7 +679,7 @@ function cvList()
 /*-------------------------End section------------------------------------------------*/
 
 /*----------------------start Status Active AND Inactive function----------------------*/
-   function status()
+   /* function status()
      {
 	    $projectdata= $this->input->post('projectID');
 		$status = array(
@@ -678,7 +687,7 @@ function cvList()
 					     'status' =>'Inactive',
                         );
 	    $statusUpdate = $this->data['statusUpdate']=$this->Master_model->put('projectdetails',$status,array('projectID'=>'8'));
-      }
+      } */
 /*------------------------------End function---------------------------------------------*/ 
 
 /*-------------------------Start Manage partner Function--------------------------------*/    
@@ -717,7 +726,7 @@ function cvList()
 						  'contactNumber'=>$this->input->post('contactNumber'),
 	   					  'emailID'=>$this->input->post('emailID'),
 						  'webSite'=>$this->input->post('webSite'),
-						 );  
+						 ); 
 			if($partnerID !=="")
 			 { 
 		        //$table = array('table'=>'partner');
@@ -727,7 +736,7 @@ function cvList()
 				redirect('Master/manage_Partner');
 			 }else{ 
 					//$table=array('table'=>'partner');
-					$detail= $this->data['detail']=$this->PartnerModel->post($data);	
+					$detail= $this->data['detail']=$this->PartnerModel->post($data); 	
 					$this->session->set_flashdata('category_success','message');
 					$this->session->set_flashdata ( 'message','partner Detail Insert successfully !!!' );
 					redirect('Master/manage_Partner'); 
@@ -871,7 +880,7 @@ function clientDelete($id)
 			   redirect($_SERVER['HTTP_REFERER']);
 		  }
 		  else
-		  {
+		  {  
 			  $this->session->set_flashdata('category_error','message');
 			  $this->session->set_flashdata('message','Opening Already Full');
 			  redirect($_SERVER['HTTP_REFERER']);

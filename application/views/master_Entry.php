@@ -43,7 +43,7 @@
 						<select  role="menu"  name="masterEntryName" id="s2example-1" onclick="masterEntryList(this.value);" class="form-control input-lg">
 							<option value="" selected>Please Select Master Entry</option>
 								<?php 
-								foreach ($masterList as $list){?>
+								foreach ($masterList as $list){ ?>
 							<option value="<?=$list->masterEntryID;?>"><?=$list->masterEntryName;?></option>
 								<?php } ?>
 						</select>

@@ -27,8 +27,8 @@
 			<div class="panel-heading">
 				<h3 class="panel-title">Manage Requierment</h3>
 				<div class="panel-options">
-					<a href="<?php echo base_url(); ?>Master/projectRequirementUpdate?projectID=echo $projectID & projectRequirementID = echo $projectRequirementID">
-					<button class="btn btn-theme btn-info btn-icon btn-sm"><i class="fa-plus"></i><span>Add Requierment</span></button>
+					<a href="<?php echo base_url(); ?>Master/projectRequirementUpdate?projectID=<?=$id?>">
+						<button class="btn btn-theme btn-info btn-icon btn-sm"><i class="fa-plus"></i><span>Add Requierment</span></button>
 					</a>
 				</div>
 			</div>
@@ -71,8 +71,9 @@
 								<td><?php if(isset($list->jobRole)) { foreach($master_jobrole as $role){if($role->masterValueID==$list->jobRole){echo $role->masterValueName; }else{echo'';} } }?></td>
 								<td><?php if(isset($list->experience)){echo $list->experience ;}?> year's</td>
 								<td><?php if(isset($list->maxQualification)){foreach($master_qualification as $qualification){if($qualification->masterValueID==$list->maxQualification){echo $qualification->masterValueName;}else{echo '';} } } ?></td>
-								<td>
-									<a href="<?php echo base_url(); ?>Master/projectRequirementUpdate?projectID=<?=$projectID ?>&projectRequirementID =<?=$projectRequirementID?>" class="btn btn-secondary btn-sm btn-icon icon-left"><i class="fa-pencil-square-o"></i> Edit </a>
+								<td>	
+								
+									<a href="<?php echo base_url(); ?>Master/projectRequirementUpdate?projectID=<?=$id?>&requiermentID=<?=$list->projectRequirementID;?>" class="btn btn-secondary btn-sm btn-icon icon-left"><i class="fa-pencil-square-o"></i> Edit </a>
 									<a href="<?php echo base_url(); ?>Master/projectRequiermentDelete/<?=$list->projectRequirementID; ?>"
 									onClick="return confirm('Are you sure you want to delete this Project Requirement....')"
 									class="btn btn-danger btn-sm btn-icon icon-left"><i class="fa fa-trash-o"></i> Delete 

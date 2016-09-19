@@ -30,8 +30,8 @@
 			<?php }?>
 			<div class="panel-body">
 				<form role="form" name="form" class="form-horizontal" onsubmit=" return addResume_Validation();"   method="post"  enctype="multipart/form-data" action="<?php echo base_url();?>Master/resumePost/">
-			       <div align="center"  id="error_msg" style="color:red;"></div></br>
-						<input type="hidden" name="resumeID" value="<?php if(isset($resume[0]->resumeID)){ echo $resume[0]->resumeID; } ?>" >
+				�<div align="center"  id="error_msg" style="color:red;"></div></br>
+						<input type="hidden" name="resumeID" value="<?php  if(isset($resume[0]->resumeID)){ echo $resume[0]->resumeID; } ?>" >
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="field-1">Name<span style="color:red;">*</span></label>
 							<div class="col-sm-4">

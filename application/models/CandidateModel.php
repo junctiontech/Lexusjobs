@@ -2,14 +2,14 @@
 //include(APPPATH.'libraries/Curl.php');
 class CandidateModel extends CI_Model
 {
-	private $apiUrl='http://192.168.1.151/lexusjobsapi/candidateApi.php';
-	//private $apiUrl='http://localhost:8080/lexusjobsapi/candidateApi.php';
+	//private $apiUrl='http://192.168.1.151/lexusjobsapi/candidateApi.php';
+	private $apiUrl='http://localhost:8080/lexusjobsapi/candidateApi.php';
 	function post($data)
 	 { 
 		 $param=array('data'=>$data);
 		 $url=$this->apiUrl;
 		 $method='POST';
-		 $profile=Curl::postCurl($method,$url,$param);print_r($profile);die;
+		 $profile=Curl::postCurl($method,$url,$param);//print_r($profile);die;
 		 return $profile;
 	}
 		
@@ -57,7 +57,7 @@ class CandidateModel extends CI_Model
 	 
 	 function search($data)
 	 {	
-		$var=str_replace(' ','_',$data);
+		$var=str_replace(' ','_',$data);//echo $var;die;
 		$url='http://localhost:8080/lexusjobsapi/candidateSearchApi.php?value='.$var;
 	 	$method='get';
 	 //	$CURL= new Curl();

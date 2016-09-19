@@ -70,7 +70,8 @@
 							</tr>
 						</tfoot>
 						<tbody>
-						<?php $i=1; foreach($resumeList as $list) { //print_r($resumeList);die();?>
+						<?php if(isset($resumeList) && !empty($resumeList)) {
+							$i=1; foreach($resumeList as $list) { //print_r($resumeList);die();?>
 							<tr>
 								<td><?=$i;?></td>
 								<td><?php if(isset($list->name)){ echo $list->name; } ?></td>
@@ -86,7 +87,7 @@
 									</a>
 								</td>
 							</tr>
-							<?php $i++; } ?>
+						   <?php $i++; }} ?>
 						</tbody>
 					</table>
 				</div>

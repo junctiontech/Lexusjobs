@@ -24,15 +24,15 @@
 							</tr>  
 						</thead>
 						<tbody>
-						<?php foreach($projectRequiermentDetail as $list){ ?>
+						<?php if(isset($projectRequiermentDetail)&& !empty($projectRequiermentDetail)){
+							foreach($projectRequiermentDetail as $list){ ?>
 							<tr>
 								<td><?php foreach($master_jobrole as $val){ if($list->jobRole==$val->masterValueID){ echo $val->masterValueName;} }   ?></td>
 								<td><?=$list->Opening?></td>
 								<td><?=$list->fillVacancy?></td>
 								<td><?=$list->Opening-$list->fillVacancy ?></td>
-
 							</tr>
-						<?php  } ?>
+						<?php  } }?>
 						</tbody>
 					</table>
 				</div>

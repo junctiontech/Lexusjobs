@@ -78,7 +78,7 @@
 			</div>
 			<label class="col-sm-2 control-label" for="field-1">Expaction Location</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control" name="ExpactionLocation"  value="<?php if(isset($viewInfo[0]->ExpactionLocation)){ echo $viewInfo[0]->ExpactionLocation;}?>">
+				<input type="text" class="form-control" name="currentLocation"  value="<?php if(isset($viewInfo[0]->currentLocation)){ echo $viewInfo[0]->currentLocation;}?>">
 			</div>
 		</div>
 		<div class="form-group">

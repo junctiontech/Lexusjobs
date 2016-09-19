@@ -58,29 +58,30 @@
 							</tr>
 						</tfoot>
 						<tbody>
-							<?php $i=1; foreach($partnerList as $list){?>
-							<tr>
-								<td><?=$i;?></td>
-								<td><?php if(isset($list->partnerName)){ echo $list->partnerName; } ?></td>
-								<td><?php if(isset($list->contactPerson)){ echo $list->contactPerson; } ?></td>
-								<td><?php if(isset($list->contactNumber)){ echo $list->contactNumber; } ?></td>
-								<td>
-									<a href="<?php echo base_url(); ?>Master/partnerUpdate/<?=$list->partnerID; ?>" class="btn btn-secondary btn-sm btn-icon icon-left"><i class="fa-pencil-square-o"></i> Edit </a>
-									<a href="<?php echo base_url(); ?>Master/partnerDelete/<?=$list->partnerID; ?>"
-									onClick="return confirm('Are you sure you want to delete Partner Detail....')"
-									class="btn btn-danger btn-sm btn-icon icon-left"><i class="fa fa-trash-o"></i> Delete 
-									</a>
-									<!--<a href="<?php echo base_url(); ?>Master/shortlist/<?=$list->projectID; ?>" class="btn btn-success btn-sm btn-icon icon-left">ShortlistCV</a>
-									<a href="<?php echo base_url(); ?>Master/manage_requierment/<?=$list->projectID; ?>" class="btn btn-secondary btn-sm btn-icon icon-left">Requirement</a>
-									<?php
-									//if($list->status =='Active'){ ?>
-									<a href="<?php echo base_url();?>Master/status" class="btn btn-success btn-sm btn-icon icon-left">Inactive</a>
-									<?php //}else{ ?>	  
-									<a href="<?php echo base_url();?>Master/status" class="btn btn-success btn-sm btn-icon icon-left">Active</a>-->
-									<?php// }?>
-								</td>
-							</tr>
-							<?php $i++; } ?>
+							<?php if(isset($partnerList) && !empty($partnerList)){
+								$i=1; foreach($partnerList as $list){?>
+								<tr>
+									<td><?=$i;?></td>
+									<td><?php if(isset($list->partnerName)){ echo $list->partnerName; } ?></td>
+									<td><?php if(isset($list->contactPerson)){ echo $list->contactPerson; } ?></td>
+									<td><?php if(isset($list->contactNumber)){ echo $list->contactNumber; } ?></td>
+									<td>
+										<a href="<?php echo base_url(); ?>Master/partnerUpdate/<?=$list->partnerID; ?>" class="btn btn-secondary btn-sm btn-icon icon-left"><i class="fa-pencil-square-o"></i> Edit </a>
+										<a href="<?php echo base_url(); ?>Master/partnerDelete/<?=$list->partnerID; ?>"
+										onClick="return confirm('Are you sure you want to delete Partner Detail....')"
+										class="btn btn-danger btn-sm btn-icon icon-left"><i class="fa fa-trash-o"></i> Delete 
+										</a>
+										<!--<a href="<?php echo base_url(); ?>Master/shortlist/<?=$list->projectID; ?>" class="btn btn-success btn-sm btn-icon icon-left">ShortlistCV</a>
+										<a href="<?php echo base_url(); ?>Master/manage_requierment/<?=$list->projectID; ?>" class="btn btn-secondary btn-sm btn-icon icon-left">Requirement</a>
+										<?php
+										//if($list->status =='Active'){ ?>
+										<a href="<?php echo base_url();?>Master/status" class="btn btn-success btn-sm btn-icon icon-left">Inactive</a>
+										<?php //}else{ ?>	  
+										<a href="<?php echo base_url();?>Master/status" class="btn btn-success btn-sm btn-icon icon-left">Active</a>-->
+										<?php// }?>
+									</td>
+								</tr>
+							<?php $i++; }} ?>
 						 </tbody>
 					</table>
 				</div>
