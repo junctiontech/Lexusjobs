@@ -3,8 +3,8 @@
 //include(APPPATH.'libraries/Curl.php');
 class Mastervaluecourse_model extends CI_Model
 {
-	//private $apiUrl='http://192.168.1.151/lexusjobsapi/MastervaluecourseApi.php';
-	private $apiUrl='http://localhost:8080/lexusjobsapi/MastervaluecourseApi.php';
+	private $apiUrl='http://192.168.1.151/lexusjobsapi/MastervaluecourseApi.php';
+	//private $apiUrl='http://localhost:8080/lexusjobsapi/MastervaluecourseApi.php';
 	function post($data)
 	 { 
 		 $param=array('data'=>$data);
