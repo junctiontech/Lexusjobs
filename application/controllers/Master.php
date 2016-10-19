@@ -19,7 +19,7 @@
 				$this->load->model('Mastervaluespecialization_model');
 				$this->load->model('MasterValueModel');
 				$this->load->model('PartnerModel');
-				$this->load->model('followupModel');
+				$this->load->model('FollowupModel');
 				$this->load->model('ClientModel');
 				$this->load->model('CandidateModel');
 				$this->load->model('Candidateragistertion_model');
@@ -1304,7 +1304,7 @@ function cvFilter()
 /*-------------------- START Candidate Follw Up View FUNCTION------------------------*/
     function candidateFollwup($CandidateID = false)
      {  
-     	$followupDetail= $this->data['followupDetail']=$this->followupModel->get(array('CandidateID'=>$CandidateID));//print_r($followupDetail);die;
+     	$followupDetail= $this->data['followupDetail']=$this->FollowupModel->get(array('CandidateID'=>$CandidateID));//print_r($followupDetail);die;
      	$this->data['CandidateID']=$CandidateID;
      	$this->parser->parse('include/header',$this->data);
      	$this->parser->parse('include/left_menu',$this->data);
@@ -1367,7 +1367,7 @@ function cvFilter()
 			     				  );
 			      		if(isset($followupID)&&!empty($followupID)&&$followupID!=='')
 			      		{
-			      		   $follow=$this->data['follow']=$this->followupModel->put($data,array('followupID'=>$followupID));
+			      		   $follow=$this->data['follow']=$this->FollowupModel->put($data,array('followupID'=>$followupID));
 			     		   if($follow)
 			     			{ 
 			     			   $this->followupValueGet($CandidateID,'update');
@@ -1375,7 +1375,7 @@ function cvFilter()
 			     		}
 			     		else
 			     		{
-			     		   $follow = $this->data['follow']= $this->followupModel->post($data);
+			     		   $follow = $this->data['follow']= $this->FollowupModel->post($data);
 			         	   if($follow)
 			                {
 			        	       $this->followupValueGet($CandidateID,'add');
@@ -1390,9 +1390,9 @@ function cvFilter()
 	{	
 		if(isset($CandidateID)&&!empty($CandidateID))
 			{
-				$followupDetail=$this->data['followupDetail']=$this->followupModel->get(array('CandidateID'=>$CandidateID));//print_r($followupDetail);
+				$followupDetail=$this->data['followupDetail']=$this->FollowupModel->get(array('CandidateID'=>$CandidateID));//print_r($followupDetail);
 			}
-		$followupList=$this->data['followupList']=$this->followupModel->get();//print_r($followupList);die;
+		$followupList=$this->data['followupList']=$this->FollowupModel->get();//print_r($followupList);die;
 		?> 
       		<div class="panel panel-default">
      			<div class="panel-body">
@@ -1455,7 +1455,7 @@ function cvFilter()
 /*---------------------------START Candidate Follw Up Edit Value Function-----------------*/
    function followupRenovate()
   	 { 
-  		 $followuprenovate=$this->data['$followuprenovate']=$this->followupModel->get(array('followupID'=>$this->input->post('id')));
+  		 $followuprenovate=$this->data['$followuprenovate']=$this->FollowupModel->get(array('followupID'=>$this->input->post('id')));
   		 echo json_encode($followuprenovate[0]);
   	 } 
 /*-----------------------------END Candidate Follw Up Edit Value Function-----------------*/
@@ -1466,8 +1466,8 @@ function cvFilter()
       	$followupID= $this->input->post('id');//print_r($followupID);die;
       	if(isset($followupID)&&!empty($followupID))
       	{ 
-      		$followupDelete=$this->data['followupDelete']=$this->followupModel->get(array('followupID'=>$followupID));
-      		$delete=$this->data['delete']=$this->followupModel->delete(array('followupID'=>$this->input->post('id')));
+      		$followupDelete=$this->data['followupDelete']=$this->FollowupModel->get(array('followupID'=>$followupID));
+      		$delete=$this->data['delete']=$this->FollowupModel->delete(array('followupID'=>$this->input->post('id')));
             $followup=$followupDelete[0]->CandidateID; 
             $this->followupValueGet($followup);     		
       	}
