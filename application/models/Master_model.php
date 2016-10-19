@@ -39,7 +39,7 @@ class Master_model extends CI_Model
    /*------------------------------- Start Email And Phone number Check Function--------------------------------------------*/
    function checkData($email,$mobile)
    {
-   	$qry=$this->db->query("SELECT * from resumepost where email='$email' OR mobile='$mobile'");
+   	$qry=$this->db->query("SELECT * from candidate where email='$email' OR mobile='$mobile'");
    
    	return $qry->result();
    }
@@ -75,8 +75,8 @@ class Master_model extends CI_Model
 
 /*------------------start project filter function------------------*/	
   function cvFilter($query)
-	 { //echo "select * from resumepost where  $query ";die;
-		$qry=$this->db->query(" select * from resumepost where  $query ");
+	 { //echo "select * from candidate where  $query ";die;
+		$qry=$this->db->query(" select * from candidate where  $query ");
 		return $qry->result();
 	 }
 /*-------------------End project filter function -------------------*/
@@ -84,14 +84,14 @@ class Master_model extends CI_Model
 /*----------------------------------------------------------*/	 
 
   function shortlistCv($jobRole,$experience,$jobType,$maxQallification)
-    {    //echo "select * from resumepost where jobRole='$jobRole' and experience >='$experience' and maxQallification = '$maxQallification' and jobType = '$jobType' ";die;
-		$qry=$this->db->query(" select * from resumepost where jobRole ='$jobRole' and experience >= '$experience' and   maxQallification ='$maxQallification' and jobType ='$jobType' ORDER BY status DESC");
+    {    //echo "select * from candidate where jobRole='$jobRole' and experience >='$experience' and maxQallification = '$maxQallification' and jobType = '$jobType' ";die;
+		$qry=$this->db->query(" select * from candidate where jobRole ='$jobRole' and experience >= '$experience' and   maxQallification ='$maxQallification' and jobType ='$jobType' ORDER BY status DESC");
 		return $qry->result();
 	}
 /*---------------------------------------------------------*/
 	  // function projectFilter($projectID)
 	 // {
-		 // $query=$this->db->query("select resumepost.* from resumepost,projectrequirement where projectrequirement.projectID='$projectID' and projectrequirement.jobPost=resumepost.jobPost and projectrequirement.jobType=resumepost.jobType and projectrequirement.maxQualification=resumepost.maxQallification and projectrequirement.Experience <= resumepost.experience ORDER BY resumepost.experience DESC");
+		 // $query=$this->db->query("select candidate.* from candidate,projectrequirement where projectrequirement.projectID='$projectID' and projectrequirement.jobPost=candidate.jobPost and projectrequirement.jobType=candidate.jobType and projectrequirement.maxQualification=candidate.maxQallification and projectrequirement.Experience <= candidate.experience ORDER BY candidate.experience DESC");
 		
 		 // return $query->result();
 	 // } 
@@ -109,7 +109,7 @@ class Master_model extends CI_Model
 /*-------------------------------------------------------------------------------*/   
   function shortList()
 	{	  
-		$qry= $this->db->query("select * from resumepost where resumepost.experience= projectrequirement.Experience and resumepost.jobRole=projectrequirement.jobRole and resumepost.jobType = projectrequirement.jobType and resumepost.maxQallification=projectrequirement.maxQualification");
+		$qry= $this->db->query("select * from candidate where candidate.experience= projectrequirement.Experience and candidate.jobRole=projectrequirement.jobRole and candidate.jobType = projectrequirement.jobType and candidate.maxQallification=projectrequirement.maxQualification");
 		return $qry->result();  
 	} 
 /*---------------------------------------------------------------------------------*/  

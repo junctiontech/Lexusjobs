@@ -1,0 +1,81 @@
+.page-contener{
+	min-height: 700px;
+	max-height: 100%;
+}
+
+.logo{
+    width: 100%;
+    height: 60px;
+    margin-top: -20px;
+}
+.error{
+	display:none;
+	text-align: center;
+    padding: 1%;
+    margin: 1%;
+    color: #cc3f44;
+    background: #ffc0cb;
+    border-radius: 10px;
+}
+.success{
+	display:none;
+	text-align: center;
+    padding: 1%;
+    margin: 1%;
+	color: rgb(60, 118, 61);   
+	background-color: rgb(223, 240, 216);   
+    border-radius: 10px;
+}
+.images{	
+	background: url(../images/Cloud-Infrastructure.png) no-repeat 5px 15px;	   
+	padding-top: 80px;	  
+	height: 200px;
+    width: 100%;	
+}
+@media screen and (max-width: 767px) {
+
+	.carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+		height:241px;
+	}
+	.skills{	
+		width:50% !important;
+	}
+
+	.location{	
+		width:50% !important;
+	}
+
+	.exprince{	
+		width:50% !important;
+	}
+
+	.searchbtn{	
+		width:50% !important;	
+	}
+	header{
+	
+		position: relative;	
+		z-index: 0;
+	}
+     .group .control-label{ 
+       margin-bottom: 10px;
+    }
+}
+.skills{
+	width:35%;
+}
+.location{
+	width:25%;
+}
+.exprince{
+	width:20%;
+}
+.searchbtn{
+	width:20%;	
+}
+
+.group .control-label{
+	text-align:right !important;
+	
+	
+}

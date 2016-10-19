@@ -37,6 +37,13 @@
 	<script src="<?php echo base_url(); ?>assets/js/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>js/common_function.js"></script>
 	<script type="text/javascript" src="<?php echo base_url();?>js/Project_validation.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>js/project.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>js/projectRequierment.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>js/client.js"></script>
+	<script type="text/javascript" src="<?php echo base_url();?>js/partner.js"></script>
+
+	<script type="text/javascript" src="<?php echo base_url();?>frontend/assets/js/xenon-api.js"></script> 
+    <script type="text/javascript" src="<?php echo base_url();?>frontend/assets/js/formwizard/jquery.bootstrap.wizard.min.js"></script>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>

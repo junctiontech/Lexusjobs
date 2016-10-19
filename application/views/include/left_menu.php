@@ -135,35 +135,35 @@
 					
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>Master/manageProject">
+						<a href="<?php echo base_url(); ?>Master/projectUpdate">
 							<i class="linecons-cog" title="manageProject"></i>
 							<span class="title">Manage Project</span>
 						</a>
 					
 					</li>
 					 <li>
-						<a href="<?php echo base_url(); ?>Master/manageResume">
+						<a href="<?php echo base_url(); ?>Master/resumeUpdate">
 							<i class="linecons-cog" title="manageResume"></i>
 							<span class="title">Manage Resume</span>
 						</a>
 				
 					</li>
 					 <li>
-						<a href="<?php echo base_url(); ?>Master/cvList">
-							<i class="linecons-cog"  title="cvList"></i>
-							<span class="title" >CV List</span>
+						<a href="<?php echo base_url(); ?>Master/cvFilter">
+							<i class="linecons-cog"  title="cvFilter"></i>
+							<span class="title" >CV Filter</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>Master/manage_Partner">
+						<a href="<?php echo base_url(); ?>Master/partnerUpdate">
 							<i class="linecons-cog"  title="Designations"></i>
 							<span class="title" >Partner</span>
 						</a>
 				
 					</li>
 					<li>
-						<a href="<?php echo base_url(); ?>Master/manage_Client">
+						<a href="<?php echo base_url(); ?>Master/clientUpdate">
 							<i class="linecons-database"  title="Designations"></i>
 							<span class="title" >Client</span>
 						</a>

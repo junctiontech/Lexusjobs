@@ -242,7 +242,7 @@ function addrequriment_validation()
 	
 /*------------------------------------------------Only Mobile Number Insert Validation---------------------------------------------*/
 	$(document).ready(function () { 
-	$("#onlyNumber").keypress(function (e) {
+	$(".Number").keypress(function (e) {
      if (e.which != 8 && e.which != 0 && (e.which <48 || e.which > 57)) {
         //display error message
         //$("#errmsg").html("Digits Only").show().fadeOut("slow");
@@ -258,4 +258,61 @@ $(document).ready(function(){
         $("#panel").slideToggle("slow");
     });
 });
-
+/*--------------------------------------------------------------------------------------*/
+ function followupValidation()
+   { 
+	 alert('hello');
+	 /*var contact = document.getElementById('contact').value;
+	    if(contact=="")
+	    {   
+	        document.getElementById('contact_error').innerHTML="<h4>please select candidate contact</h4>"
+			return false;
+	    }
+    var email = document.getElementById('email').ckecked;
+	    if(email=="")
+	    {   
+	        document.getElementById('email_error').innerHTML="<h4>please select candidate contact</h4>"
+			return false;
+	    }
+    var Interested = document.getElementById('Interested').value;
+	    if(Interested=="")
+	    {   
+	        document.getElementById('Interested_error').innerHTML="<h4>please select candidate contact</h4>"
+			return false;
+	    }
+	var status = document.getElementById('Notinterested').value;
+	    if(Notinterested=="")
+	    {   
+		     $('#Interested').hide();
+	        document.getElementById('Notinterested_error').innerHTML="<h4>please select candidate status</h4>"
+			return false;
+	    }*/
+	var followupDate = document.getElementById('followupDate').value;
+	    if(followupDate=="")
+	    {   
+		     $('#status_error').hide();
+	        document.getElementById('followupDate_error').innerHTML="<h4>please Select current date</h4>"
+			return false;
+	    }
+	var nextfollowupDate = document.getElementById('nextfollowupDate').value;
+	    if(nextfollowupDate=="")
+	    {   
+		     $('#followupDate_error').hide();
+	        document.getElementById('nextfollowupDate_error').innerHTML="<h4>please enter next follow up data</h4>"
+			return false;
+	    }
+    var time = document.getElementById('time').value;
+	    if(time=="")
+	    {   
+		     $('#nextfollowupDate_error').hide();
+	        document.getElementById('time_error').innerHTML="<h4>please enter time</h4>"
+			return false;
+	    }
+    var response = document.getElementById('response').value;
+	    if(response=="")
+	    {   
+		     $('#time_error').hide();
+	        document.getElementById('response_error').innerHTML="<h4>please enter candidate response</h4>"
+			return false;
+	    }
+   }

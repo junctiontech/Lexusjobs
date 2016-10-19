@@ -16,10 +16,6 @@
 			</div>
 			<?php } ?>
 		</div>
-			<span id="message" align="center" class="message_hide" style="display:none">
-			    <h3 style="color:red;"><i><mark>Please Insert Master Value Name..</mark></i></h3>
-			</span>
-			
 				<script type="text/javascript">
 					jQuery(document).ready(function($)
 					{
@@ -52,7 +48,7 @@
 			</div>
 <!-----------------------------------End Dropdown Div-------------------------->
 
-<!---------------------------Start Master ADD Value Div------------------------>				
+<!---------------------------Start Master Value ADD Div------------------------>				
 			<form id="form" class="form-horizontal" method="">
 				<input type="hidden" name="masterEntryID" id="masterEntryID" value="" >
 				<input type="hidden" name="masterValueID" id="masterValueID" value="" >
@@ -81,9 +77,6 @@
 					</div>
 				</div>
 			</form><br/><br/>
-<!-------------------------------End Master ADD Value Div---------------------->
-			
-<!-------------------------Start Master Edit Value Div------------------------->			
 			
 <!------------------------------End Master Edit Value Div---------------------->			
 		</div>

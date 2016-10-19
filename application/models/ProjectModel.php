@@ -3,8 +3,8 @@
 //include(APPPATH.'libraries/Restcurl.php');
 class ProjectModel extends CI_Model
 {
-	private $apiUrl='http://192.168.1.151/lexusjobsapi/projectApi.php';
-	//private $apiUrl='http://localhost:8080/lexusjobsapi/projectApi.php';
+	//private $apiUrl='http://192.168.1.151/lexusjobsapi/projectApi.php';
+	private $apiUrl='http://localhost:8080/lexusjobsapi/projectApi.php';
 	
 	function post($data)
 	 {
@@ -31,11 +31,11 @@ class ProjectModel extends CI_Model
 	 {
 		  if(isset($filter) && $filter!=='' && count($filter)>0 &&!empty($filter))
 		  {
-				 $data=json_encode(array('filter'=>$filter));
-				 $url=$this->apiUrl.'?data='.$data;
+				 $data=json_encode(array('filter'=>$filter));//echo $data;
+				 $url=$this->apiUrl.'?data='.$data;//echo $url;die;
 				 $method='get';
 				// $obj= new Curl();
-				 $profile=Curl::getCurl($method,$url);//print_R($profile->result);die;
+				 $profile=Curl::getCurl($method,$url);//print_r($profile->result);die;
 				 return $profile->result;
 		  }
 	      else

@@ -66,8 +66,8 @@
 								<td><?php if(isset($list->experience)){ echo $list->experience; } ?></td>
 								<td><?php if(isset($list->maxQallification)){ echo $list->maxQallification; } ?></td>
 								<td>
-									<!--<a href="<?php echo base_url(); ?>Master/add_Project/<?=$list->resumeID; ?>" class="btn btn-secondary btn-sm btn-icon icon-left"> Edit </a>
-									<a href="<?php echo base_url(); ?>Master/delete/<?=$list->resumeID; ?>"
+									<!--<a href="<?php echo base_url(); ?>Master/add_Project/<?=$list->candidateID; ?>" class="btn btn-secondary btn-sm btn-icon icon-left"> Edit </a>
+									<a href="<?php echo base_url(); ?>Master/delete/<?=$list->candidateID; ?>"
 									onClick="return confirm('Are you sure you want to delete this post....')"
 									class="btn btn-danger btn-sm btn-icon icon-left"> Delete 
 									</a>-->

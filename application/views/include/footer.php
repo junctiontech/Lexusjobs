@@ -25,7 +25,12 @@
 			</footer>
 			</div>
 			</div>
-	
+	<div class="modal  custom-width fade" id="modal-5" data-backdrop="static" >
+	     <div class="modal-dialog" style="width: 75%">
+			  <div class="modal-content">
+		      </div>
+		 </div>
+	</div>
 	<div class="modal  custom-width fade" id="modal-6" data-backdrop="static" >
 	     <div class="modal-dialog" style="width: 75%">
 			  <div class="modal-content">
@@ -156,6 +161,17 @@
 				    
 				});
 				</script>
+				<script type="text/javascript">
+											jQuery(document).ready(function($)
+											{
+											$(".example-1").dataTable({
+											aLengthMenu: [
+											[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]
+											]
+											});
+											});
+										</script>
+										
 		
 <!-- Bottom Scripts -->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/js/daterangepicker/daterangepicker-bs3.css">

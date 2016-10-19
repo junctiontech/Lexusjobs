@@ -14,25 +14,25 @@
 	<!-- page title closed -->
 <div class="panel-body">
 	<form role="form" class="form-horizontal" method="post" enctype="multipart/form-data" action="<?php echo base_url();?>">
-		<input type="hidden" name="resumeID" value="<?php if(isset($viewInfo[0]->resumeID)){ echo $viewInfo[0]->resumeID; } ?>" >
+		<input type="hidden" name="CandidateID" value="<?php if(isset($viewInfo[0]->CandidateID)){ echo $viewInfo[0]->CandidateID; } ?>" >
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Name</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control" name="name" value="<?php if(isset($viewInfo[0]->name)){ echo $viewInfo[0]->name; } ?>">
+				<input type="text" class="form-control input-lg" name="Name" value="<?php if(isset($viewInfo[0]->Name)){ echo $viewInfo[0]->Name; } ?>">
 			</div>
 			<label class="col-sm-2 control-label" for="field-1">Mobile</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control" name="mobile" value="<?php if(isset($viewInfo[0]->mobile)){ echo $viewInfo[0]->mobile; }?>">
+				<input type="text" class="form-control input-lg" name="Mobile" value="<?php if(isset($viewInfo[0]->Mobile)){ echo $viewInfo[0]->Mobile; }?>">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Email</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control" name="email" value="<?php if(isset($viewInfo[0]->email)){ echo $viewInfo[0]->email; }?>">
+				<input type="text" class="form-control input-lg" name="Email" value="<?php if(isset($viewInfo[0]->Email	)){ echo $viewInfo[0]->Email	; }?>">
 			</div>
 			<label class="col-sm-2 control-label" for="field-1">Qualification</label>
 			<div class="col-sm-4">
-				<select type="text" class="form-control" name="maxQallification" value="">
+				<select type="text" class="form-control input-lg" name="maxQallification" value="">
 						<?php 
 						foreach($master_qualification as $list){ ?>
 					<option value="<?=$list->masterValueID ;?>"<?php if($list->masterValueID==$viewInfo[0]->maxQallification){ echo 'selected'; }?>><?=$list->masterValueName;?></option>
@@ -43,7 +43,7 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Job Role</label>
 			<div class="col-sm-4">
-				<select  class="form-control" name="jobRole"  value="">
+				<select  class="form-control input-lg" name="jobRole"  value="">
 						<?php 
 						foreach($master_jobrole as $list){ ?>
 					<option value="<?=$list->masterValueID ;?>"<?php if($list->masterValueID==$viewInfo[0]->jobRole){ echo 'selected'; }?>><?=$list->masterValueName;?></option>
@@ -52,7 +52,7 @@
 			</div>
 			<label class="col-sm-2 control-label" for="field-1">Job Type</label>
 			<div class="col-sm-4">
-				<select  class="form-control" name="jobType"  value="">
+				<select  class="form-control input-lg" name="jobType"  value="">
 						<?php 
 						foreach($master_jobtype as $list){ ?>
 					    <option value="<?=$list->masterValueID ;?>"<?php if($list->masterValueID==$viewInfo[0]->jobType){ echo 'selected'; }?>><?=$list->masterValueName;?></option>
@@ -63,40 +63,34 @@
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Experience</label>
 			<div class="col-sm-2">
-				<select style="width:auto;" class="form-control" name="experience" value="">
+				<select style="width:auto;" class="form-control input-lg" name="totalWorkExperienceYear" value="">
 						<?php for($x=1 ; $x<=30; $x++){ ?>
-					<option value="<?php $x;?>"<?php if($x==$viewInfo[0]->experience){echo 'selected';}?>><?php echo $x ;?></option>
+					<option value="<?php $x;?>"<?php if($x==$viewInfo[0]->totalWorkExperienceYear){echo 'selected';}?>><?php echo $x ;?></option>
 						<?php } ?>
 				</select><p style="margin-top: -22px; margin-left: 73px;">  Year's</p>
 			</div>
 			<div class="col-sm-2">
-				<select name="month"  style="width:auto;" class="form-control" value="">
+				<select name="totalWorkExperienceMonth	"  style="width:auto;" class="form-control input-lg" value="">
 						<?php for($i=1; $i<=12 ;$i++ ){ ?>
-					<option value="<?php $i?>"<?php if($i==$viewInfo[0]->month){echo 'selected';}?>><?php echo $i;?></option> 
+					<option value="<?php $i?>"<?php if($i==$viewInfo[0]->totalWorkExperienceMonth	){echo 'selected';}?>><?php echo $i;?></option> 
 						<?php }?>
 				</select><p style="margin-top: -22px; margin-left: 73px;">  month</p>		
 			</div>
 			<label class="col-sm-2 control-label" for="field-1">Expaction Location</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control" name="currentLocation"  value="<?php if(isset($viewInfo[0]->currentLocation)){ echo $viewInfo[0]->currentLocation;}?>">
+				<input type="text" class="form-control input-lg" name="CurrentLocation"  value="<?php if(isset($viewInfo[0]->CurrentLocation)){ echo $viewInfo[0]->CurrentLocation;}?>">
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-sm-2 control-label" for="field-1">Curunt Salary</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control" name="curuntSalary" value="<?php if(isset($viewInfo[0]->curuntSalary)){ echo $viewInfo[0]->curuntSalary;}?>">
+				<input type="text" class="form-control input-lg" name="currentCTC" value="<?php if(isset($viewInfo[0]->currentCTC)){ echo $viewInfo[0]->currentCTC;}?>">
 			</div>
 			<label class="col-sm-2 control-label" for="field-1">Salary Expactation</label>
 			<div class="col-sm-4">
-				<input type="text" class="form-control" name="salaryExpactation"  value="<?php if(isset($viewInfo[0]->salaryExpactation)){ echo $viewInfo[0]->salaryExpactation;}?>">
+				<input type="text" class="form-control input-lg" name="expactationCTC"  value="<?php if(isset($viewInfo[0]->expactationCTC)){ echo $viewInfo[0]->expactationCTC;}?>">
 			</div>
 		</div>
-		<div class="form-group">
-			<label class="col-sm-2 control-label" for="field-1">Last Company</label>
-			<div class="col-sm-4">
-				<input type="text" class="form-control" name="lastCompany" value="<?php if(isset($viewInfo[0]->lastCompany)){ echo $viewInfo[0]->lastCompany;}?>">
-			</div>
-		</div><br/>
 		<div class="form-group">
 			<button type="reset" class="btn btn-white" onClick="window.history.back();">Cancel</button>
 		</div>

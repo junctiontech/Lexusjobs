@@ -20,7 +20,7 @@
 		</div>
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<form method="post" action="<?=base_url();?>master/cvList">
+					<form method="post" action="<?=base_url();?>Master/cvFilter">
 						<div class="form-group" class="dropdown_show">
 							<label class="col-sm-2 control-label" class="form-control" for="field-1">Experience</label>
 							<div class="col-sm-4">
@@ -107,17 +107,18 @@
 							</tfoot>
 						<tbody>
 						<?php if(isset($resumepost)&& !empty($resumepost)){
-							$i=1; foreach($resumepost as $list){ ?>
+							$i=1; foreach($resumepost as $list){ //print_r($resumepost);die; ?>
 							<tr>
 								<td><?=$i;?></td>
-								<td><?php if(isset($list->name)){ echo $list->name; } ?></td>
-								<td><?php if(isset($list->experience)){ echo $list->experience; }?> year's</td>
+								<td><?php if(isset($list->Name)){ echo $list->Name; } ?></td>
+								<td><?php if(isset($list->totalWorkExperienceYear)){ echo $list->totalWorkExperienceYear; }?> year's</td>
 								<td><?php if(isset($list->maxQallification)){ foreach($master_qualification as $val){if($list->maxQallification==$val->masterValueID){ echo $val->masterValueName;} } } ?></td>
 								<td><?php if(isset($list->jobType)){ foreach($master_jobtype as $val){if($list->jobType==$val->masterValueID){ echo $val->masterValueName;} } } ?></td>
 								<td><?php if(isset($list->jobRole)){ foreach($master_jobrole as $val){if($list->jobRole==$val->masterValueID){ echo $val->masterValueName;} } } ?></td>
 								<td>
-									<a href="<?php echo base_url(); ?>Master/downloadfile?fileName=<?=$list->resume;?>" name="fileName" class="btn btn-primary"><i class="fa-download"></i> Download CV</a>
-									<a href="<?php echo base_url(); ?>Master/viewInformation/<?=$list->resumeID;?>"class="btn btn-info"><i class="fa-eye"></i>View Information</a> 
+									<a href="<?php echo base_url(); ?>Master/downloadfilterCV?fileName=<?=$list->candidateResume;?>" name="fileName" class="btn btn-primary"><i class="fa-download"></i> Download CV</a>
+									<a href="<?php echo base_url(); ?>Master/candidateInformation/<?=$list->CandidateID;?>"class="btn btn-info"><i class="fa-eye"></i> Candidate Information</a> 
+									<a href="<?php echo base_url(); ?>Master/candidateFollwup/<?=$list->CandidateID;?>" onclick="show();" class="btn btn-success"><i class="fa fa-user"></i> Candidate Follw Up</a>
 								</td>
 							</tr>
 						<?php $i++; }}?>

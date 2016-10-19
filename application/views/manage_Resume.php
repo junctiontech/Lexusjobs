@@ -80,8 +80,8 @@
 								<td><?php if(isset($list->jobRole)){foreach ($master_jobrole as $role){if($role->masterValueID == $list->jobRole){echo $role->masterValueName;}else{echo '';} } }?></td>
 								<td><?php if(isset($list->email)){ echo $list->email; } ?></td>
 								<td>
-									<a href="<?php echo base_url(); ?>Master/resumeUpdate/<?=$list->resumeID; ?>" class="btn btn-secondary btn-sm btn-icon icon-left"><i class="fa-pencil-square-o"></i> Edit </a>
-									<a href="<?php echo base_url(); ?>Master/resumeDelete/<?=$list->resumeID; ?>"
+									<a href="<?php echo base_url(); ?>Master/resumeUpdate/<?=$list->candidateID; ?>" class="btn btn-secondary btn-sm btn-icon icon-left"><i class="fa-pencil-square-o"></i> Edit </a>
+									<a href="<?php echo base_url(); ?>Master/resumeDelete/<?=$list->candidateID; ?>"
 									onClick="return confirm('Are you sure you want to delete this resume.....')"
 									class="btn btn-danger btn-sm btn-icon icon-left"><i class="fa fa-trash-o"></i> Delete 
 									</a>
