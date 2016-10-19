@@ -3,8 +3,8 @@
 //include(APPPATH.'libraries/Restcurl.php');
 class ProjectModel extends CI_Model
 {
-	private $apiUrl='http://192.168.1.151/lexusjobsapi/projectApi.php';
-	//private $apiUrl='http://localhost:8080/lexusjobsapi/projectApi.php';
+	  private $apiUrl='http://192.168.1.151/lexusjobsapi/projectApi.php';
+	  //private $apiUrl='http://localhost:8080/lexusjobsapi/projectApi.php';
 	
 	function post($data)
 	 {
