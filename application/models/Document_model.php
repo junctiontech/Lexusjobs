@@ -34,7 +34,7 @@ class Document_model extends CI_Model
 				 $url=$this->apiUrl.'?data='.$data;
 				 $method='get';
 				 //$CURL= new Curl();
-				 $profile=Curl::getCurl($method,$url);//print_R($profile->result);die;
+				 $profile=Curl::getCurl($method,$url);print_R($profile->result);die;
 				 return $profile->result;
 		  }
 	      else
