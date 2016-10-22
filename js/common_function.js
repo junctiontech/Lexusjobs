@@ -1,7 +1,6 @@
 /*-------------------Start Master Value ADD Function---------------------------*/
  function masterValuePost()
    {
-	 //alert('data');
      if($('#masterValueName').val()=='')
        {
 	     alert('Please Select Master Value');
@@ -17,18 +16,21 @@
 					var identity=result.split('%&%',1); //alert(identity);
 					  if(result)
 					  {	
-						if(identity!=='add')
-						{
-						 alert('Master Value Add ');
-					   }
-					  else
-					   {
-						  alert('Master Value Update Successfully');
-					   }
-					$('#masterValueName').val('');
-					$('#masterValueID').val('');
-					$('#val').html(result);
-				  }
+						if(masterValueID=="")
+						 {
+							$('#message_success').fadeIn('slow', function(){
+						    $('#message_success').delay(3000).fadeOut(); })
+						 }
+						else
+							{
+							
+							  $('#message_update').fadeIn('slow', function(){
+							  $('#message_update').delay(3000).fadeOut(); })
+							}
+					  }
+					  $('#masterValueName').val('');
+					  $('#masterValueID').val('');
+					  $('#val').html(result);
 			   });
     }
 /*---------------------------End Master Value ADD Function------------------------*/
@@ -82,23 +84,26 @@ function ValueEdit(id)
 
 /*--------------------Master Value Delete Function-------------------------------------*/
   function masterValueDelete(id)
-  { //alert(id)
-     if (confirm("Are yor sure you want to delete master Value ?"))
+  	{ //alert(id)
+	  if (confirm("Are yor sure you want to delete master Value ?"))
 	 {
         $.ajax({
             url: "Master/masterValueDelete",
             type: 'post',
             data: {id:id},
-            success:function(result) { //alert(result); 
-			 if(result)
-			    {
-				 $('#masterEntryID').val('');
-				 $('#val').html(result);
-                }
-            }
-        });
-      } 
-  }
+            success:function(result) { //alert(result);
+            							$('.message_hide').hide();	
+            							$('#message_error').fadeIn('slow', function(){
+            							$('#message_error').delay(3000).fadeOut();})
+            							 if(result)
+            							  {
+            								 $('#masterEntryID').val('');
+            								 $('#val').html(result);
+            							  }
+            						  }
+        						});
+	 					} 
+  				}
 /*------------------End Master Value Delete Function-----------------------------------*/
   
   /*-------------------------START FOLLOW UP POST VALUE FUNCTION----------------------*/
@@ -137,8 +142,7 @@ function ValueEdit(id)
  			          type :"post",
 			           url :"Master/followupPost",
 			          data :{
-			        	  	  followupID:followupID,
-			        	      CandidateID:CandidateID,
+			        	  	  CandidateID:CandidateID,
 			        	      contact:contact,
 			        	  	  status:status,
 				        	  nextfollowupDate:nextfollowupDate,
@@ -147,29 +151,31 @@ function ValueEdit(id)
 				        	  response:response,
 			          	    }
  		     		 })
-			          .done(function(result){//alert(result);return false;
-			        	  if(result)
-			        	    { 
-			        	      if(result!=='add')
-			        		   {
-				        	   	  alert('Candidate followup insert Successfully');
-			        		    }
-			        	   else
-			        	   	  {
-			        			  //alert('Candidate followup update Successfully');
-			        		  }
-			        	      $('#calls').attr('checked',false);
-			        	      $('#email').attr('checked',false);
-				        	  $('#followupDate').val('');
-				        	  $('#nextfollowupDate').val('');
-				        	  $('#time').val('');
-				        	  $('#response').val('');
-							  $('#divHide').html(result);
-							  $('#followupID').val('');
-				    	     // $('#divHide').focus();
-				    	     // $('#val').html(result);
-			           }
-			      }); 
+			          .done(function(result){ //alert(result);//return false;
+								        	  if(result)
+								        	    { 
+								        	      if(followupID =="")
+								        		   {
+									        	   	  $('#message_success').fadeIn('slow', function(){
+									        	      $('#message_success').delay(3000).fadeOut(); })
+								        		    }
+								        	   else
+								        	   	  {
+								        		   	  $('#message_update').fadeIn('slow', function(){
+										        	  $('#message_update').delay(3000).fadeOut(); })
+								        		  }
+								        	      $('#calls').attr('checked',false);
+								        	      $('#email').attr('checked',false);
+									        	  $('#followupDate').val('');
+									        	  $('#nextfollowupDate').val('');
+									        	  $('#time').val('');
+									        	  $('#response').val('');
+												  $('#followupID').val('');
+												  $('#divHide').html(result);
+									    	     // $('#divHide').focus();
+									    	     // $('#val').html(result);
+								           }
+								      }); 
 	   }
    /*--------------------------END FOLLOW UP POST VALUE FUNCTION-----------------------*/
     function followupEdit(id)
@@ -180,7 +186,7 @@ function ValueEdit(id)
     		    url : "Master/followupRenovate",
     		    data:{id:id},
     	     })
-    	      .done(function(result){
+    	      .done(function(result){//alert(result);
     	                              var followup=   JSON.parse(result);//alert(followup.userID);
     	                              $('#followupID').val(followup.followupID);//alert(followup.contact);
     	                              var followupString=followup.contact;
@@ -245,6 +251,9 @@ function ValueEdit(id)
 			        	  $('#time').val('');
 			        	  $('#response').val('');
     	        	      $('#CandidateID').val('');
+    	        	      $('.message_hide').hide();
+    	        	      $('#message_error').fadeIn('slow', function(){
+    	        	      $('#message_error').delay(3000).fadeOut();})
     	        	  	  $('#divHide').html(result);
     				   }
     	        }

@@ -1,22 +1,26 @@
-<div class="page-title">
-	<div class="title-env">
-		<h1 class="title">Master Entry</h1>
-		<p class="description">Master Entry</p>
-	</div>
-	<div class="breadcrumb-env">
-		<ol class="breadcrumb bc-1"></ol>
-	</div>
-</div>
-<div class="row">
-	<div class="col-sm-12">
-		<div align="center">
-			<?php if($this->session->flashdata('message')){?>
-			<div style="margin-left:250px ;margin-right:250px"; class="alert alert-success">      
-				<?php echo $this->session->flashdata('message')?>
+		<div class="page-title">
+			<div class="title-env">
+				<h1 class="title">Master Entry</h1>
+				<p class="description">Master Entry</p>
 			</div>
-			<?php } ?>
+			<div class="breadcrumb-env">
+				<ol class="breadcrumb bc-1"></ol>
+			</div>
 		</div>
-				<script type="text/javascript">
+		<div align="center"> 
+			<span id="message_success" align="center"  style="display:none ;">
+					<h3 style="border: 1px solid; margin: 10px 0px;padding: 15px 10px 15px 50px;background-repeat: no-repeat; background-position: 10px center; color: #4F8A10 ;background-color: #DFF2BF;"><i class="fa fa-check" aria-hidden="true"></i> <i>Master value create successfully</i></h3>
+			</span>       
+			<span id="message_update" align="center" class="message_hide"  style="display:none ;">
+					<h3 style="border: 1px solid; margin: 10px 0px;padding: 15px 10px 15px 50px;background-repeat: no-repeat; background-position: 10px center; color: #059 ; background-color: #BEF;"> <i class="fa fa-info-circle"></i> <i>Master value update successfully</i></h3>
+			</span>
+			<span id="message_error" align="center"  style="display:none">
+				<h3 style= "border: 1px solid; margin: 10px 0px;padding: 15px 10px 15px 50px;background-repeat: no-repeat; background-position: 10px center; color: #D8000C; background-color: #FFBABA;"><i class="fa fa-times-circle"></i> <i>Master value delete successfully</i></h3>
+			</span>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+						<script type="text/javascript">
 					jQuery(document).ready(function($)
 					{
 					$("#s2example-1").select2({
@@ -34,9 +38,9 @@
 <!--------------------------Start Dropdown Div ----------------------------->
 			<div align="center" class="row">
 				<div id ="" class="panel panel-default">
-					<label class="col-sm-4 control-label" class="form-control" for="inputlg"><h4>Master Entry<span style="color:red;">*</span></h4></label>
-					<div class="col-sm-4 control-label">
-						<select  role="menu"  name="masterEntryName" id="s2example-1" onclick="masterEntryList(this.value);" class="form-control input-lg">
+					<label style="margin-left: 40px;" class="col-sm-2 control-label" class="form-control" for="field-1"><h4>Master Entry<span style="color:red;">*</span></h4></label>
+					<div class="col-sm-8 control-label">
+						<select class="form-control input-lg"  name="masterEntryName" id="s2example-1" onclick="masterEntryList(this.value);" >
 							<option value="" selected>Please Select Master Entry</option>
 								<?php 
 								foreach ($masterList as $list){ ?>
@@ -54,8 +58,8 @@
 				<input type="hidden" name="masterValueID" id="masterValueID" value="" >
 				<div style="display:none;" id="editInput_Show">
 					<div class="form-group">
-						<label class="col-sm-2 control-label" class="form-control"  for="field-1">Master Value<span style="color:red;">*</span></label>
-						<div class="col-sm-8" id="" style="    margin-left: 21px;" > 
+						<label style="margin-left: 40px;" class="col-sm-2 control-label" class="form-control"  for="field-1">Master Value<span style="color:red;">*</span></label>
+						<div class="col-sm-7" id="" style="    margin-left: 21px;" > 
 							<input type="text" class="form-control input-lg" maxlength="70" id="masterValueName" name="masterValueName" placeholder=" Please Enter Master Value" value="" required>
 						</div>
 					</div>
