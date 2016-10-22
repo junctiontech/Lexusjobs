@@ -9,23 +9,20 @@
 			<ol class="breadcrumb bc-1"></ol>
 		</div>
 	</div>
+	<div align="center">        
+			<span id="message_success" align="center"  style="display:none ;">
+					<h3 style="border: 1px solid; margin: 10px 0px;padding: 15px 10px 15px 50px;background-repeat: no-repeat; background-position: 10px center; color: #4F8A10 ;background-color: #DFF2BF;"><i class="fa fa-check" aria-hidden="true"></i> <i>Project create successfully</i></h3>
+			</span>
+			<span id="message_update" align="center" class="message_hide"  style="display:none ;">
+					<h3 style="border: 1px solid; margin: 10px 0px;padding: 15px 10px 15px 50px;background-repeat: no-repeat; background-position: 10px center; color: #059 ; background-color: #BEF;"> <i class="fa fa-info-circle"></i> <i>Project update successfully</i></h3>
+			</span>
+			<span id="message_error" align="center"  style="display:none">
+				<h3 style= "border: 1px solid; margin: 10px 0px;padding: 15px 10px 15px 50px;background-repeat: no-repeat; background-position: 10px center; color: #D8000C; background-color: #FFBABA;"><i class="fa fa-times-circle"></i> <i>Project delete successfully</i></h3>
+			</span>
+		</div>
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="panel panel-default">
-				<?php  if($this->session->flashdata('category_success')) { ?>
-				<div class="row">
-					<div style="margin-left:250px ;margin-right:250px"; class="alert alert-success">
-						<strong><?=$this->session->flashdata('message')?></strong> 
-					</div>
-				</div>
-				<?php }?>
-				<?php  if($this->session->flashdata('category_error')) { ?>
-				<div class="row">
-					<div style="margin-left:250px ;margin-right:250px"; class="alert alert-danger">
-						<strong><?=$this->session->flashdata('message')?></strong> 
-					</div>
-				</div>
-				<?php }?>
 <!-- body container  starts -->
 				<div class="panel-body">
 					<form role="form" id="myform" class="form-horizontal" method="post" onsubmit="return project();" enctype="multipart/form-data" id="return add_validation()" action="">
