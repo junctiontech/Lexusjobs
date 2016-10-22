@@ -574,18 +574,17 @@
 			if(count($projectRequiermentDetail)>0 && !empty($projectRequiermentDetail))
 			{
 				foreach ($projectRequiermentDetail as $list)
-				{ //print_r($list);die;
-				//$data = array(
-				//$experience = $list->experience;
-				//$jobRole=$list->jobRole;
-				//$jobType =$list->jobType;
-				//$maxQallification=$list->maxQualification;
-				// );
+					{ //print_r($list);die;
+						//$data = array(
+						//$experience = $list->experience,
+						//$jobRole=$list->jobRole,
+						//$jobType =$list->jobType,
+						//$maxQallification=$list->maxQualification,
+					// );
 				//$shortresumeList=$this->data['shortresumeList'][]=$this->Master_model->shortlistCv($jobRole,$experience,$jobType,$maxQallification);
-				//echo '<pre>' ;print_r($shortresumeList);echo'</pre>';die;
 				//$jobRole=$this->data['jobRole'][]=$list->jobRole;
 				//$projectRequirementID=$this->data['projectRequirementID'][]=$list->projectRequirementID;
-				}//die;//print_r($shortresumeList);die;
+				}//print_r($shortresumeList);die;
 			}
 		} 
 		$master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));
@@ -1502,7 +1501,7 @@ function cvFilter()
 						 'contactNumber'=>$this->input->post('contactNumber'),
 						 'emailID'=>$this->input->post('emailID'),
 						 'webSite'=>$this->input->post('webSite'),
-						); 
+						); print_r($post);die;
 	  	   $partnerID=$this->input->post('partnerID'); 
 		   if(isset($partnerID) && !empty($partnerID) && $partnerID!=='')
 		    {
