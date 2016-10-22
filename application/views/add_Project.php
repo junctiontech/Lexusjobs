@@ -30,7 +30,7 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label" for="inputlg">Project Name<span style="color:red;">*</span></label>
 							<div class="col-sm-8">
-								<input type="text" maxlength="70"  class="form-control input-lg" name="projectName" id="projectName" placeholder="Please Enter Project Name" value="" required>
+								<input type="text" maxlength="70"  class="form-control input-lg" name="projectName" id="projectName" placeholder="Please Enter Project Name" value="" >
 								<span id="projectName_error" style="color:red"></span> 
 							</div>
 						</div>

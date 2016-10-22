@@ -166,7 +166,7 @@
 	  	//$today = date('d-m-Y');
 	  	//$data = date('d-m-Y',strtotime("+7day")); //echo $data;die;
 	  	//$projectSubmission = $this->data['projectSubmission'];
-		$projectList=$this->data['projectList']=$this->ProjectModel->get();
+		$projectList=$this->data['projectList']=$this->ProjectModel->get();//print_r($projectList);die;
 		$this->data['projectID']=$projectID;
         $clientListName=$this->data['clientListName']=$this->ClientModel->get();
 		$partnerListName=$this->data['partnerListName']=$this->PartnerModel->get();
@@ -355,8 +355,8 @@
 /*---------------start Project Requierment Post AND Update Function-----------------------*/
   function projectRequiermentPost()
    {
-   	 $data = $_POST;print_r($data);die;
-	 if(isset($_POST['submit']))
+   	 $data = $_POST;//print_r($data);die;
+	 /*if(isset($_POST['submit']))
 	    {
 			if($_POST['jobRole']=="")
 			{ 
@@ -414,8 +414,8 @@
 			      $this->session->set_flashdata('message','Please Enter Job Opening');
 			      redirect($_SERVER['HTTP_REFERER']);
 			}
-		else 		
-				$projectID=$this->input->post('projectID');
+		else */		
+				$projectID=$this->input->post('projectID');//echo $projectID;die;
 				$projectRequirementID=$this->input->post('projectRequirementID');
 				$skill = $this->input->post('skill');
 				$skills = implode(',',$skill);
@@ -437,7 +437,7 @@
 							   'salaryDuration'=>$this->input->post('salaryDuration'),
 							   'createdBY'=>'admin',
 							   'createdON'=>date('d-m-Y H:i:s'),
-							  );
+							  );//print_r($data);die;
 		if(isset($projectRequirementID) && !empty($projectRequirementID) && $projectRequirementID !=="")
 		    { 
 				$projectrequirementRenovate=$this->data['projectrequirementRenovate']=$this->RequiermentModel->put($data,array('projectRequirementID'=>$projectRequirementID));
@@ -454,7 +454,7 @@
 		    	 	$this->projectRequiermentValue();
 		    	 }
 			}
-		}
+		//}
 	}
 /*--------------------End Project Requierment Post AND Update Function Section----------------*/
 	
@@ -485,7 +485,7 @@ function projectRequiermentValue($projectID = false)
 						});
 					</script>
 					<div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
-						<table id="example-1" cellspacing="0" class="table table-small-font table-bordered table-striped">
+						<?php echo "texting";?><table id="example-1" cellspacing="0" class="table table-small-font table-bordered table-striped">
 							<thead>
 								<tr>
 									<th>S. no</th>

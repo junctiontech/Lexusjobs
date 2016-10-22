@@ -43,7 +43,7 @@
 			  type:"post",
 			  data:{value:id},
 		    })
-		  .done(function(result){ //alert(result);
+		  .done(function(result){ alert(result);
 		   $('#val').html(result);
 		   $('#masterEntry').val(val);
 		   $('#masterValueID').val('');

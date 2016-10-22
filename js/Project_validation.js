@@ -1,6 +1,6 @@
 /*-----------------Add Project Java script Validation------------------*/
 function add_validation()
-   { 
+   { alert('testing');
 		var projectName = document.getElementById('projectName').value;
 			if( projectName== "")
 			{
@@ -31,7 +31,7 @@ function add_validation()
 		var projectDuration = document.getElementById('projectDuration').value;
 		    if(projectDuration=="")
 		    {   
-			     $('#partnerName_error').hide();
+			     $('#projectDuration_error').hide();
 		        document.getElementById('projectDuration_error').innerHTML="<h4>please Enter project Duration Time</h4>"
 				return false;
 		    }
