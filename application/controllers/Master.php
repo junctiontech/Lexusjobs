@@ -1304,13 +1304,13 @@ function cvFilter()
 /*-----------------------End View  CV Information Section--------------------------*/
     	
 /*-------------------- START Candidate Follw Up View FUNCTION------------------------*/
-    function candidateFollowup($CandidateID = false)
+  function candidateFollowup($CandidateID = false)
      {  
      	$followupDetail= $this->data['followupDetail']=$this->FollowupModel->get(array('CandidateID'=>$CandidateID));//print_r($followupDetail);die;
      	$this->data['CandidateID']=$CandidateID;
      	$this->parser->parse('include/header',$this->data);
      	$this->parser->parse('include/left_menu',$this->data);
-     	$this->load->view('candidateFollowup',$this->data);
+     	$this->load->view('candidateFollwoup',$this->data);
      	$this->parser->parse('include/footer',$this->data);
      }
 /*--------------------------END Candidate Follw Up View FUNCTION---------------------*/
