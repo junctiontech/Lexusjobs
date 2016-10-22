@@ -8,7 +8,7 @@
 				data:data,
 				async:false,
 			  })
-			   .done(function(result){ 
+			   .done(function(result){ alert(result);
 									   if(result)
 											{
 											  if(partnerID =="")
