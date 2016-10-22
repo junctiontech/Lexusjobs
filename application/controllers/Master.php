@@ -1310,7 +1310,7 @@ function cvFilter()
      	$this->data['CandidateID']=$CandidateID;
      	$this->parser->parse('include/header',$this->data);
      	$this->parser->parse('include/left_menu',$this->data);
-     	$this->load->view('candidateFollwup',$this->data);
+     	$this->load->view('candidateFollowup',$this->data);
      	$this->parser->parse('include/footer',$this->data);
      }
 /*--------------------------END Candidate Follw Up View FUNCTION---------------------*/
