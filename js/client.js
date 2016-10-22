@@ -29,7 +29,8 @@ function clientPost()
 					   					  	$('#emailID').val('');
 					   					  	$('#webSite').val('');
 								    	    $('#listingDiv').html(result); return false;
-			   							});return false;
+			   							}
+			   						});return false;
 	  }
 /*--------------------------END CLIENT POST VALUE PROJECT FUNCTION-------------------*/
 
