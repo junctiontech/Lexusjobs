@@ -1501,7 +1501,7 @@ function cvFilter()
 						 'contactNumber'=>$this->input->post('contactNumber'),
 						 'emailID'=>$this->input->post('emailID'),
 						 'webSite'=>$this->input->post('webSite'),
-						); print_r($post);die;
+						); 
 	  	   $partnerID=$this->input->post('partnerID'); 
 		   if(isset($partnerID) && !empty($partnerID) && $partnerID!=='')
 		    {
