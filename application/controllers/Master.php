@@ -459,18 +459,18 @@
 /*--------------------End Project Requierment Post AND Update Function Section----------------*/
 	
 /*-------------------------START PROJECT REQUIERMENT LISTING FUNCTION-------------------------*/
-function projectRequiermentValue($projectID = false)
-	{
+	function projectRequiermentValue($projectID = false)
+	  { 
 		if(isset($projectID) && !empty($projectID))
-		{
-			$projectRetrive = $this->data['projectRetrive']=$this->RequiermentModel->get(array('projectID'=>$projectID));print_r($projectRetrive);die;
+		{    //echo $projectID;die;
+			$projectRetrive = $this->data['projectRetrive']=$this->RequiermentModel->get(array('projectID'=>$projectID));//print_r($projectRetrive);die;
 		}
 			$master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));
 			$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
 			$master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
 			$master_jobtype=$this->data['master_jobtype']=$this->MasterValueModel->get(array('masterEntryID'=>'4'));
 			$master_skill=$this->data['master_skill']=$this->MasterValueModel->get(array('masterEntryID'=>'5'));
-			//$projectRequirement =$this->data['projectRequirement']=$this->RequiermentModel->get();//print_r($projectRequirement);die;
+			$projectRequirement =$this->data['projectRequirement']=$this->RequiermentModel->get();//print_r($projectRequirement);die;
 		?>
 			<div class="panel panel-default">
 				<div class="panel-body">
@@ -505,8 +505,8 @@ function projectRequiermentValue($projectID = false)
 								</tr>
 							</tfoot>
 							<tbody>
-								<?php if(isset($projectRetrive) && !empty($projectRetrive)){
-									$i=1; foreach($projectRetrive as $list){ ?>
+								<?php if(isset($projectRequirement) && !empty($projectRequirement)){
+									$i=1; foreach($projectRequirement as $list){ ?>
 								<tr>
 									<td><?=$i;?></td>
 									<td><?php if(isset($list->jobRole)) { foreach($master_jobrole as $role){if($role->masterValueID==$list->jobRole){echo $role->masterValueName; }else{echo'';} } }?></td>
