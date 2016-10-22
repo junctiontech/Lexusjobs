@@ -21,14 +21,15 @@
 											  		   $('#message_update').fadeIn('slow', function(){
 											  		   $('#message_update').delay(3000).fadeOut(); })
 											  		}
-				   					$('#partnerName').val('');
-				   					$('#contactPerson').val('');
-								  	$('#address').val('');
-								  	$('#contactNumber').val('');
-								  	$('#emailID').val('');
-								  	$('#webSite').val('');
-			   						$('#listingDiv').html(result);return false;
-		   	}); return false;
+								   					$('#partnerName').val('');
+								   					$('#contactPerson').val('');
+												  	$('#address').val('');
+												  	$('#contactNumber').val('');
+												  	$('#emailID').val('');
+												  	$('#webSite').val('');
+							   						$('#listingDiv').html(result);return false;
+											}
+			   							}); return false;
 	  }
 /*--------------------------END POST VALUE PROJECT FUNCTION-------------------*/
 
