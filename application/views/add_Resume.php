@@ -47,7 +47,7 @@
 													<div class="form-group group">
 														<label class="col-md-4 control-label" for="name">Name<span style="color:red;">*</span></label>
 														<div class="col-md-8">
-															<input class="form-control input-lg" maxlength="40"  data-message-required="Please Enter Name" data-validate="required" name="candidateName" placeholder="Please Enter Name" value="<?php if(isset($candidateRagistertion[0]->Name)){ echo $candidateRagistertion[0]->Name; } ?>" />
+															<input class="form-control input-lg" maxlength="40"  data-message-required="Please Enter Name" 	 name="candidateName" placeholder="Please Enter Name" value="<?php if(isset($candidateRagistertion[0]->Name)){ echo $candidateRagistertion[0]->Name; } ?>" />
 														</div>
 													</div>
 												</div>
@@ -100,14 +100,12 @@
 																<img id="userProfile_Image" src="" style="width: 200px; height: 150px;margin-bottom:10px;"/>					
 																<input type="file"  id="candidateProfileImage" class="form-control" onchange="readURL()" name="candidateProfileImage">						
 															<!--<div class="col-sm-12 col-md-12 col-lg-12" style="margin-top:150px" >
-   		<?php if(isset($candidateRagistertion)&&$candidateRagistertion['profileImage']){ ?> 
-		<img src="<?=base_url();?>uploads/candidateProfileImage/<?=$candidateRagistertion['profileImage'];?>" class="avatar img-circle img-thumbnail" style="display: block; margin: 0 auto; height:150px; width:150px; "alt="user image">
-		<?php }else{ ?>
-		<img src="<?=base_url();?>images/NoImage.gif" class="avatar img-circle img-thumbnail" style="display: block; margin: 0 auto; height:150px; width:150px; "alt="user image">
-		<?php } ?>
-</div>-->
-															
-															
+   																	<?php if(isset($candidateRagistertion)&&$candidateRagistertion['profileImage']){ ?> 
+																	<img src="<?=base_url();?>uploads/candidateProfileImage/<?=$candidateRagistertion['profileImage'];?>" class="avatar img-circle img-thumbnail" style="display: block; margin: 0 auto; height:150px; width:150px; "alt="user image">
+																		<?php }else{ ?>
+																	<img src="<?=base_url();?>images/NoImage.gif" class="avatar img-circle img-thumbnail" style="display: block; margin: 0 auto; height:150px; width:150px; "alt="user image">
+																		<?php } ?>
+																</div>-->
 															</div>	
 														</div>												
 													</div>											
