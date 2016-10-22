@@ -1513,7 +1513,7 @@ function cvFilter()
 			}
 		    else
 		   	{	
-		          $partner=$this->data['partner']=$this->PartnerModel->post($post);
+		          $partner=$this->data['partner']=$this->PartnerModel->post($post);print_r($partner);die;
 		          if($partner)
 		          {
 		              $this->partnerGetValue();	
