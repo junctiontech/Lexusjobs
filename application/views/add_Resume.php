@@ -88,7 +88,7 @@
 													<div class="form-group group">
 														<label class="col-md-4 control-label">Mobile number<span style="color:red;">*</span></label>							
 														<div class="col-md-8">														
-															<input type="text" id="candidateMobile" class="form-control input-lg Number" data-message-required="Please Enter Mobile Number" data-validate="required" name="candidateMobile" placeholder="Please Enter Mobile Number" value="<?php if(isset($candidateRagistertion[0]->Mobile)){ echo $candidateRagistertion[0]->Mobile; } ?>"  >
+															<input type="text" id="candidateMobile" class="form-control input-lg Number" maxlength="12" data-message-required="Please Enter Mobile Number" data-validate="required" name="candidateMobile" placeholder="Please Enter Mobile Number" value="<?php if(isset($candidateRagistertion[0]->Mobile)){ echo $candidateRagistertion[0]->Mobile; } ?>"  >
 														</div>
 													</div>
 												</div>
