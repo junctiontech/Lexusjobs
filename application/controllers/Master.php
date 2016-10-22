@@ -463,7 +463,7 @@ function projectRequiermentValue($projectID = false)
 	{
 		if(isset($projectID) && !empty($projectID))
 		{
-			$projectRetrive = $this->data['projectRetrive']=$this->RequiermentModel->get(array('projectID'=>$projectID));
+			$projectRetrive = $this->data['projectRetrive']=$this->RequiermentModel->get(array('projectID'=>$projectID));print_r($projectRetrive);die;
 		}
 			$master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));
 			$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
