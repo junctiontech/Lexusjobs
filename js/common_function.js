@@ -1,11 +1,16 @@
 /*-------------------Start Master Value ADD Function---------------------------*/
  function masterValuePost()
    {
+	 var masterValueID='';
      if($('#masterValueName').val()=='')
        {
 	     alert('Please Select Master Value');
 		 return false;
        }else
+    	   if($('#masterValueID').val()!=='')
+		   {
+    		   masterValueID=$('#masterValueID').val();
+		   }
     	   	var data=$('#form').serialize();
      		$.ajax({ 
      				type:'post',
