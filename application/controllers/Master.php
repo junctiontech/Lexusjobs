@@ -752,7 +752,7 @@
 		{	
 	       $resume=$this->data['resume']=$this->Candidateragistertion_model->get(array('CandidateID'=>$id));
 	    }
-	    //$resumeList=$this->data['resumeList']=$this->Candidateragistertion_model->get();//print_r($resumeList);die;
+	    $resumeList=$this->data['resumeList']=$this->Candidateragistertion_model->get();//print_r($resumeList);die;
 	    $master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));
 		$Jobrole=$this->data['Jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
 	    $Qualification=$this->data['Qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
