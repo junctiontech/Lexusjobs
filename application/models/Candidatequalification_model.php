@@ -3,7 +3,7 @@
 //include(APPPATH.'libraries/Curl.php');
 class Candidatequalification_model extends CI_Model
 {
-	  	private $apiUrl='http://192.168.1.151/lexusjobsapi/CandidateQualificationApi.php';
+	  private $apiUrl='http://192.168.1.151/lexusjobsapi/CandidateQualificationApi.php';
 	  //private $apiUrl='http://localhost:8080/lexusjobsapi/CandidateQualificationApi.php';
 	function post($data)
 	 { 

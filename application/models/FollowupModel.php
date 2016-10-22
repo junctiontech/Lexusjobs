@@ -1,7 +1,7 @@
 <?php
 class FollowupModel extends CI_Model
 {
-		private $apiUrl='http://192.168.1.151/lexusjobsapi/followupApi.php';
+		  private $apiUrl='http://192.168.1.151/lexusjobsapi/followupApi.php';
 		//private $apiUrl='http://localhost:8080/lexusjobsapi/followupApi.php';
 
 	function post($data)
