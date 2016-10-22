@@ -1,6 +1,7 @@
 /*--------------------START CLIENT VALUE POST FUNCTION---------------------*/	
 function clientPost()
-	  { 
+	  {				
+		clientID = $('#clientID').val();
 		var data =$("#form").serialize();
 		$.ajax({ 
 				type:"post",
@@ -9,15 +10,26 @@ function clientPost()
 				async:false,
 			   })
 			   .done(function(result){ 
-				                    //$('#clientshow').show();$('#clientName').val(clientValue.clientName);
-				   					$('#clientName').val('');
-								  	$('#contactPerson').val('');
-			   					  	$('#address').val('');
-			   					  	$('#contactNumber').val('');
-			   					  	$('#emailID').val('');
-			   					  	$('#webSite').val('');
-						    	    $('#listingDiv').html(result); return false;
-		   	});return false;
+				   						if(result)
+			   							{
+				   						  if(clientID =="")
+				   						    { 
+											  $('#message_success').fadeIn('slow', function(){
+											  $('#message_success').delay(3000).fadeOut(); })
+						                     }
+				   						  	else
+				   						  		{
+							        		   	  $('#message_update').fadeIn('slow', function(){
+									        	  $('#message_update').delay(3000).fadeOut(); })
+				   						  		}
+						   					$('#clientName').val('');
+										  	$('#contactPerson').val('');
+					   					  	$('#address').val('');
+					   					  	$('#contactNumber').val('');
+					   					  	$('#emailID').val('');
+					   					  	$('#webSite').val('');
+								    	    $('#listingDiv').html(result); return false;
+			   							});return false;
 	  }
 /*--------------------------END CLIENT POST VALUE PROJECT FUNCTION-------------------*/
 
@@ -54,9 +66,12 @@ function clientPost()
 					url:'Master/clientDelete',
 					data:{id:id},
 					success:function(result){  
-						$('#listingDiv').html(result);return false;
-			  }
-		 });
+											$('.message_hide').hide();
+											$('#message_error').fadeIn('slow', function(){
+											$('#message_error').delay(3000).fadeOut();})
+											$('#listingDiv').html(result);return false;
+								}
+						});
 	 }
 /*---------------------------------END CLIENT PROJECT FUNCTION---------------*/	
 	

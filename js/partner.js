@@ -1,5 +1,6 @@
 	function partnerPost()
 	  { 
+		partnerID = $('#partnerID').val();
 		var data =$("#myform").serialize();
 		$.ajax({ 
 				type:"post",
@@ -8,6 +9,18 @@
 				async:false,
 			  })
 			   .done(function(result){ 
+									   if(result)
+											{
+											  if(partnerID =="")
+											    { 
+												  $('#message_success').fadeIn('slow', function(){
+												  $('#message_success').delay(3000).fadeOut(); })
+						                        }
+											  	else
+											  		{
+											  		   $('#message_update').fadeIn('slow', function(){
+											  		   $('#message_update').delay(3000).fadeOut(); })
+											  		}
 				   					$('#partnerName').val('');
 				   					$('#contactPerson').val('');
 								  	$('#address').val('');
@@ -50,9 +63,12 @@
 					url:'Master/partnerDelete',
 					data:{id:id},
 					success:function(result){ 
-												$('#listingDiv').html(result);return false;
+											$('.message_hide').hide();
+											$('#message_error').fadeIn('slow', function(){
+											$('#message_error').delay(3000).fadeOut();})
+											$('#listingDiv').html(result);return false;
 											}
-  	        	  	   });
+										});
 	 }
 /*---------------------------------END DELETE PROJECT FUNCTION---------------*/	
 	
