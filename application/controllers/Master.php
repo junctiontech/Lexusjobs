@@ -27,6 +27,8 @@
 				$this->load->model('Candidatequalification_model');
 				$this->load->model('Candidateskills_model');
 				$this->load->model('Document_model');
+				$this->load->model('CVFilterModel');
+				
 				//$this->load->library('session');
 				//$this->load->library('upload');
 
@@ -190,7 +192,7 @@
 					  'status'=>'Active',	
 					  'createdBY'=>'admin',
 					  'createdON'=>date('d-m-Y H:i:s'),
-					  );
+					  );//print_r($post);die;
 			    $projectID= $this->input->post('projectID');
 			    if(isset($projectID)&& !empty($projectID) && $projectID!=='')
 					  {
@@ -353,8 +355,8 @@
 /*---------------start Project Requierment Post AND Update Function-----------------------*/
   function projectRequiermentPost()
    {
-   	  $data = $_POST;//print_r($data);die;
-	  if(isset($_POST['submit']))
+   	 $data = $_POST;print_r($data);die;
+	 if(isset($_POST['submit']))
 	    {
 			if($_POST['jobRole']=="")
 			{ 
@@ -1259,7 +1261,7 @@ function cvFilter()
 		 }else{ 
 				$resumepost=$this->data['resumepost']=$this->CandidateModel->get();//print_r($resumepost);die;
 				$detail = $this->data['detail']=$this->Candidatequalification_model->get();//print_r($detail);die;
-				$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
+				$master_jobrole=$this->data['master_jobrole']=$this->CVFilterModel->getFilter();//print_r($master_jobrole);die;
 				$master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
 				$master_jobtype=$this->data['master_jobtype']=$this->MasterValueModel->get(array('masterEntryID'=>'4'));
 			}
@@ -1302,7 +1304,7 @@ function cvFilter()
 /*-----------------------End View  CV Information Section--------------------------*/
     	
 /*-------------------- START Candidate Follw Up View FUNCTION------------------------*/
-    function candidateFollwup($CandidateID = false)
+    function candidateFollowup($CandidateID = false)
      {  
      	$followupDetail= $this->data['followupDetail']=$this->FollowupModel->get(array('CandidateID'=>$CandidateID));//print_r($followupDetail);die;
      	$this->data['CandidateID']=$CandidateID;
@@ -1315,10 +1317,8 @@ function cvFilter()
       
  /*---------------------------SATAR Candidate Follw Up DATA Insert FUNCTION-------------------*/
      function followupPost()
-      { 
-      	if(isset($_POST['submit']))
-			{ 
-				if($_POST['contact']=="")
+      { //echo $_POST['contact'];echo $this->input->post('contact');die;
+      		/*if($_POST['contact']=="")
 				{ 
 				  $this->session->set_flashdata('category_error','message');
 			      $this->session->set_flashdata('message','please select candidate contact');
@@ -1343,9 +1343,10 @@ function cvFilter()
 					$this->session->set_flashdata('category_error','message');
 					$this->session->set_flashdata('message','Please Enter candidate response');
 					redirect($_SERVER['HTTP_REFERER']);
-				}else
+				}
+			else{*/
 					$followupID=$this->input->post('followupID');//print_r($followupID);die;
-			      	$CandidateID=$this->input->post('CandidateID');	
+			      	$CandidateID=$this->input->post('CandidateID');//echo $CandidateID ;die;	
 			      	$contact = $this->input->post('contact');
 			      	$dates= $this->input->post('followupDate');
 			      	$sequencedate=strtotime($dates);
@@ -1364,7 +1365,7 @@ function cvFilter()
 			     				  'response'=>$this->input->post('response'),
 			     			      'createdBY'=>'admin',
 			     				  'createdON'=>date('y-m-d H:i:s'),
-			     				  );
+			     				  );//print_r($data);die;
 			      		if(isset($followupID)&&!empty($followupID)&&$followupID!=='')
 			      		{
 			      		   $follow=$this->data['follow']=$this->FollowupModel->put($data,array('followupID'=>$followupID));
@@ -1380,8 +1381,9 @@ function cvFilter()
 			                {
 			        	       $this->followupValueGet($CandidateID,'add');
 			                }
-			     	    }	
-			}
+			     	    }
+			//}	
+			
       }
 /*----------------------------END Candidate Follw Up Insert Data Function-----------------*/
 
@@ -1390,9 +1392,8 @@ function cvFilter()
 	{	
 		if(isset($CandidateID)&&!empty($CandidateID))
 			{
-				$followupDetail=$this->data['followupDetail']=$this->FollowupModel->get(array('CandidateID'=>$CandidateID));//print_r($followupDetail);
+				$followupDetail=$this->data['followupDetail']=$this->FollowupModel->get(array('CandidateID'=>$CandidateID));//print_r($followupDetail);die;
 			}
-		$followupList=$this->data['followupList']=$this->FollowupModel->get();//print_r($followupList);die;
 		?> 
       		<div class="panel panel-default">
      			<div class="panel-body">
@@ -1427,8 +1428,8 @@ function cvFilter()
 								</tr>
 							</tfoot>
 							<tbody>
-							<?php if(isset($followupList) && !empty($followupList)){
-								$i=1; foreach($followupList as $list){ //print_r($followupDetail);die; ?>
+							<?php if(isset($followupDetail) && !empty($followupDetail)){
+								$i=1; foreach($followupDetail as $list){ //print_r($followupDetail);die; ?>
 								<tr>
 									<td><?=$i;?></td>
 									<!--<td><?php// if(isset($list->contact)){ echo $list->contact; } ?></td>-->
@@ -1455,7 +1456,7 @@ function cvFilter()
 /*---------------------------START Candidate Follw Up Edit Value Function-----------------*/
    function followupRenovate()
   	 { 
-  		 $followuprenovate=$this->data['$followuprenovate']=$this->FollowupModel->get(array('followupID'=>$this->input->post('id')));
+  		 $followuprenovate=$this->data['$followuprenovate']=$this->FollowupModel->get(array('followupID'=>$this->input->post('id')));//print_r($followuprenovate);die;
   		 echo json_encode($followuprenovate[0]);
   	 } 
 /*-----------------------------END Candidate Follw Up Edit Value Function-----------------*/
@@ -1617,9 +1618,9 @@ function cvFilter()
 /*---------------------------End Partner delete function------------------------*/
 
 /*------------------------------Start function Client View------------------*/
- function clientUpdate($clientID=false)
-    {
-		if(isset($clientID) && !empty($clientID))
+   function clientUpdate($clientID=false)
+    {	
+		 if(isset($clientID) && !empty($clientID))
 		 {
 		   $clientupdate= $this->data['clientupdate']=$this->ClientModel->get(array('clientID'=>$clientID));
 		 }
@@ -1780,4 +1781,5 @@ function clientRenovate()
 	 }
 /*-----------------------End Report Query Function------------------------*/   
    }
-?>
+	
+	
