@@ -1,6 +1,6 @@
 	function partnerPost()
 	  { 
-		//partnerID = $('#partnerID').val();
+		partnerID = $('#partnerID').val();
 		var data =$("#myform").serialize();
 		$.ajax({ 
 				type:"post",
@@ -8,7 +8,7 @@
 				data:data,
 				async:false,
 			  })
-			   .done(function(result){ alert(result);
+			   .done(function(result){ //alert(result);
 									   if(result)
 											{
 											  if(partnerID =="")
