@@ -66,8 +66,8 @@
 				$k=0; foreach($shortresumeList as $lists){ ?>
 			<div class="panel panel-color panel-gray" style=" margin-bottom: -10px;">
 				<div class="panel panel-default  collapsed"><!-- Add class "collapsed" to minimize the panel -->
-					<div class="panel-heading">
-						<h3 class="panel-title"><?php foreach($master_jobrole as $val){ if($jobRole[$k]==$val->masterValueID){ echo $val->masterValueName;} }   ?></h3>
+					<div class="panel-heading"><?php //print_r($lists);die; ?>
+						<h3 class="panel-title"><?php foreach($master_jobrole as $val){ if($list ==$val->masterValueID){ echo $val->masterValueName;} }?></h3>
 						<div class="panel-options">
 							<a href="#" data-toggle="panel">
 								<span style="font-size: 30px"; class="collapse-icon">&ndash;</span>
@@ -110,18 +110,18 @@
 								<tr>
 									<td><?=$i;?></td>								
 									<td><?php if(isset($list->Name)){ echo $list->Name; } ?></td>
-									<td><?php if(isset($list->experience)){ echo $list->experience; }?></td>
-									<td><?php if(isset($list->Qallification)){ foreach($master_qualification as $val){if($list->Qallification==$val->masterValueID){ echo $val->masterValueName;} } } ?></td>
+									<td><?php if(isset($list->totalWorkExperienceYear)){ echo $list->totalWorkExperienceYear; }?></td>
+									<td><?php if(isset($list->Qualification)){ foreach($master_qualification as $val){if($list->Qualification==$val->masterValueID){ echo $val->masterValueName;} } } ?></td>
 									<td><?php if(isset($list->jobType)){ foreach($master_jobtype as $val){if($list->jobType==$val->masterValueID){ echo $val->masterValueName;} } } ?></td>
 									<td>
 										<?php 
 										if(strcasecmp($list->status,'approve')==0){ ?>
-										<a href="<?php echo base_url();?>Master/disapprove/<?=$projectRequirementID[$k];?>?CandidateID=<?=$list->candidateID;?>" class="btn btn-success btn-sm btn-icon icon-left">Disapprove</a>
+										<a href="<?php echo base_url();?>Master/disapprove/<?=$projectRequirementID[$k];?>?CandidateID=<?=$list->CandidateID;?>" class="btn btn-success btn-sm btn-icon icon-left">Disapprove</a>
 										<?php }else{ ?>	
-										<a href="<?php echo base_url(); ?>Master/approve/<?=$projectRequirementID[$k];?>?CandidateID=<?=$list->candidateID;?>" class="btn btn-success btn-sm btn-icon icon-left"> Approve </a>
+										<a href="<?php echo base_url(); ?>Master/approve/<?=$projectRequirementID[$k];?>?CandidateID=<?=$list->CandidateID;?>" class="btn btn-success btn-sm btn-icon icon-left"> Approve </a>
 										<?php }?>
-										<a href="<?php //echo base_url(); ?>Master/downloadfile?fileName=<?= $list->candidateResume; ?>" class="btn btn-info btn-sm btn-icon icon-left"> Download CV </a>
-										<a href="<?php echo base_url(); ?>Master/viewInformation/<?=$list->CandidateID;?>" class="btn btn-secondary btn-sm btn-icon icon-left"> View Information </a>
+										<a href="<?php //echo base_url(); ?>Master/downloadfilterCV?fileName=<?= $list->candidateResume; ?>" class="btn btn-info btn-sm btn-icon icon-left"> Download CV </a>
+										<a href="<?php echo base_url(); ?>Master/candidateInformation/<?=$list->CandidateID;?>" class="btn btn-secondary btn-sm btn-icon icon-left"> View Information </a>
 									</td>
 								</tr>
 								<?php $i++;} ?>

@@ -1,3 +1,4 @@
+
 <?php 
 	Class Master extends CI_Controller
 	{
@@ -28,6 +29,7 @@
 				$this->load->model('Candidateskills_model');
 				$this->load->model('Document_model');
 				$this->load->model('CVFilterModel');
+				$this->load->model('UserModel');
 				
 				//$this->load->library('session');
 				//$this->load->library('upload');
@@ -35,6 +37,70 @@
 		}
 
 /*------------------------------------------------Start All Master Entry And Master Value Functions Section---------------------------------*/
+    function permission()
+    {    
+    /*if(Authority::checkAuthority('Permission')==true){
+            
+        }else{
+                    $this->session->set_flashdata('category_error', " You Are Not Authorised To Access ");        
+                    redirect('dashboard');
+        }
+        if(empty($this->currentsession[0]->CurrentSession)){
+            $this->session->set_flashdata('category_error', 'Please Select Session!!');        
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        $this->breadcrumb->clear();
+        $this->breadcrumb->add_crumb('Permission', base_url().'Master/permission');*/
+        if($this->data['user_type']=$this->input->post('user_type')){
+            $filter=array('PageNameId !='=>'');
+            $this->data['page_name'] = $this->UserModel->insert_gen_setting('pagename',$filter);
+            $filter=array('UserType'=>$this->input->post('user_type'));
+            $this->data['permission_page'] = $this->UserModel->get();
+        }
+        
+        $filter=array('MasterEntryName'=>'UserType');
+        $userDetail=$this->data['usertype'] = $this->UserModel->insert_gen_setting('pagename',$filter);//print_r($userDetail);die;
+        $this->parser->parse('include/header',$this->data);
+        //$this->parser->parse('include/topheader',$this->data);
+        $this->parser->parse('include/left_menu',$this->data);
+        $this->load->view('permission',$this->data);
+        $this->parser->parse('include/footer',$this->data);
+    }
+//---------------------------------
+    function insert_permission($id=false)
+    {    
+    if(Authority::checkAuthority('Permission')==true){
+            
+        }else{
+                    $this->session->set_flashdata('category_error', " You Are Not Authorised To Access ");        
+                    redirect('dashboard');
+        }
+        if(empty($this->currentsession[0]->CurrentSession)){
+            $this->session->set_flashdata('category_error', 'Please Select Session!!');        
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+        $pages=$this->input->post('pages');
+        $pages=implode(',',$pages);
+        
+        $data=array(
+                'UserType'=>'1',//$this->input->post('usertype'),
+                'PermissionString'=>$pages);
+            
+        if($this->input->post('id'))
+        {
+            $filter=array('PermissionId'=>$this->input->post('id'));
+            $this->UserModel->insert_gen_setting('permission',$data,$filter);
+            $this->session->set_flashdata('message_type', 'success');
+            $this->session->set_flashdata('message', $this->config->item("permission").' Permission Updated Successfully');
+        }
+        else
+        {
+            $this->UserModel->insert_gen_setting('permission',$data);
+            $this->session->set_flashdata('message_type', 'success');
+            $this->session->set_flashdata('message', $this->config->item("permission").' Permission Added Successfully');
+        }
+        redirect('Master/permission');
+    }
 
 /*----------------------Master Entry view section Function--------------------------*/
 	function masterEntry()
@@ -581,7 +647,7 @@
 						//$jobType =$list->jobType,
 						//$maxQallification=$list->maxQualification,
 					// );
-				//$shortresumeList=$this->data['shortresumeList'][]=$this->Master_model->shortlistCv($jobRole,$experience,$jobType,$maxQallification);
+				$shortresumeList=$this->data['shortresumeList'][]=$this->Master_model->shortlistCv();//print_r($shortresumeList);die;
 				//$jobRole=$this->data['jobRole'][]=$list->jobRole;
 				//$projectRequirementID=$this->data['projectRequirementID'][]=$list->projectRequirementID;
 				}//print_r($shortresumeList);die;
@@ -1252,15 +1318,15 @@ function cvFilter()
 				if(!empty($jobType)){ $query.=" and jobType='$jobType'"; }
 				if(!empty($qualification)){ $query.=" and maxQallification='$qualification'"; }
 				if(!empty($jobRole)){ $query.=" and jobRole='$jobRole'"; }
-				$resumepost=$this->data['resumepost']=$this->CandidateModel->search($query);
+				$resumepost=$this->data['resumepost']=$this->CandidateModel->search($query);//print_r($resumepost);die;
 				$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));//print_r($master_jobrole);die;
 				$master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
 				$master_jobtype=$this->data['master_jobtype']=$this->MasterValueModel->get(array('masterEntryID'=>'4'));
 				
 		 }else{ 
-				$resumepost=$this->data['resumepost']=$this->CandidateModel->get();//print_r($resumepost);die;
+				$resumepost=$this->data['resumepost']=$this->Master_model->status();//print_r($resumepost);die;
 				$detail = $this->data['detail']=$this->Candidatequalification_model->get();//print_r($detail);die;
-				$master_jobrole=$this->data['master_jobrole']=$this->CVFilterModel->getFilter();//print_r($master_jobrole);die;
+				$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));//print_r($master_jobrole);die;
 				$master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));
 				$master_jobtype=$this->data['master_jobtype']=$this->MasterValueModel->get(array('masterEntryID'=>'4'));
 			}
@@ -1288,11 +1354,14 @@ function cvFilter()
     {
        if(isset($id) && !empty($id))
 		{
-            $viewInfo=$this->data['viewInfo']=$this->Candidateragistertion_model->get(array('CandidateID'=>$id));//print_r($viewInfo);die;
-			$master_jobtype=$this->data['master_jobtype']=$this->Candidatequalification_model->get(array('CandidateID'=>$id));//print_r($master_jobtype);die;
+            $viewInfo=$this->data['viewInfo']=$this->Master_model->status(array('CandidateID'=>$id));//print_r($viewInfo);die;
+			$master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));//print_r($master_projectType);die;
+			$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
+			$master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));//print_r($master_qualification);die;
+			$master_jobtype=$this->data['master_jobtype']=$this->MasterValueModel->get(array('masterEntryID'=>'4'));//print_r($master_jobtype);die;
 		}
 		$master_projectType=$this->data['master_projectType']=$this->MasterValueModel->get(array('masterEntryID'=>'1'));//print_r($master_projectType);die;
-		$master_jobrole=$this->data['master_jobrole']=$this->Candidatequalification_model->get(array('masterEntryID'=>'2'));
+		$master_jobrole=$this->data['master_jobrole']=$this->MasterValueModel->get(array('masterEntryID'=>'2'));
 	    $master_qualification=$this->data['master_qualification']=$this->MasterValueModel->get(array('masterEntryID'=>'3'));//print_r($master_qualification);die;
         $master_jobtype=$this->data['master_jobtype']=$this->Candidatequalification_model->get(array('CandidateID'=>$id));
         $this->parser->parse('include/header',$this->data);
@@ -1513,7 +1582,7 @@ function cvFilter()
 			}
 		    else
 		   	{	
-		          $partner=$this->data['partner']=$this->PartnerModel->post($post);print_r($partner);die;
+		          $partner=$this->data['partner']=$this->PartnerModel->post($post);
 		          if($partner)
 		          {
 		              $this->partnerGetValue();	

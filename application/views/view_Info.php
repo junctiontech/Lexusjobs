@@ -32,10 +32,10 @@
 			</div>
 			<label class="col-sm-2 control-label" for="field-1">Qualification</label>
 			<div class="col-sm-4">
-				<select type="text" class="form-control input-lg" name="maxQallification" value="">
+				<select type="text" class="form-control input-lg" name="Qualification" value="">
 						<?php 
 						foreach($master_qualification as $list){ ?>
-					<option value="<?=$list->masterValueID ;?>"<?php if($list->masterValueID==$viewInfo[0]->maxQallification){ echo 'selected'; }?>><?=$list->masterValueName;?></option>
+					<option value="<?=$list->masterValueID ;?>"<?php if($list->masterValueID==$viewInfo[0]->Qualification){ echo 'selected'; }?>><?=$list->masterValueName;?></option>
 						<?php } ?> 
 				</select>
 			</div>
@@ -46,7 +46,7 @@
 				<select  class="form-control input-lg" name="jobRole"  value="">
 						<?php 
 						foreach($master_jobrole as $list){ ?>
-					<option value="<?=$list->masterValueID ;?>"<?php if($list->masterValueID==$viewInfo[0]->jobRole){ echo 'selected'; }?>><?=$list->masterValueName;?></option>
+						<option value="<?=$list->masterValueID ;?>"<?php if($list->masterValueID==$viewInfo[0]->jobRole){ echo 'selected'; }?>><?=$list->masterValueName;?></option>
 						<?php } ?>
 				</select>
 			</div>

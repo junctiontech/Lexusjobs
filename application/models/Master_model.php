@@ -83,9 +83,9 @@ class Master_model extends CI_Model
 
 /*----------------------------------------------------------*/	 
 
-  function shortlistCv($jobRole,$experience,$jobType,$maxQallification)
+  function shortlistCv()
     {    //echo "select * from candidate where jobRole='$jobRole' and experience >='$experience' and maxQallification = '$maxQallification' and jobType = '$jobType' ";die;
-		$qry=$this->db->query(" select * from candidate where jobRole ='$jobRole' and experience >= '$experience' and   maxQallification ='$maxQallification' and jobType ='$jobType' ORDER BY status DESC");
+		$qry=$this->db->query(" select * from candidate left join candidateeducation on candidate.CandidateID = candidateeducation.candidateEducationID left join candidateexperience on candidate.CandidateID = candidateexperience.CandidateExperienceID");
 		return $qry->result();
 	}
 /*---------------------------------------------------------*/
@@ -98,20 +98,21 @@ class Master_model extends CI_Model
 /*--------------------------------------------------------------------------------*/	
   function status()
     {
-	   $qry=$this->db->query("UPDATE projectdetails SET id = 8");
-    } 
+	   $qry=$this->db->query("select * from candidate left join candidateeducation on candidate.CandidateID = candidateeducation.candidateEducationID left join candidateexperience on candidate.CandidateID = candidateexperience.CandidateExperienceID");
+	   return $qry->result();
+	} 
 /*-------------------------------------------------------------------------------*/   
-   function shortCv($projectID)
+   /*function shortCv($projectID)
      {
 	  $qry =$this->db->query("select * from projectrequirement where projectID") ;
       return $qry->result();	
-     } 
+     }*/ 
 /*-------------------------------------------------------------------------------*/   
-  function shortList()
+  /*function shortList()
 	{	  
 		$qry= $this->db->query("select * from candidate where candidate.experience= projectrequirement.Experience and candidate.jobRole=projectrequirement.jobRole and candidate.jobType = projectrequirement.jobType and candidate.maxQallification=projectrequirement.maxQualification");
 		return $qry->result();  
-	} 
+	} */
 /*---------------------------------------------------------------------------------*/  
 /*----------------------------------------------Rest API---------------------------*/
    /*function post($table,$data)
